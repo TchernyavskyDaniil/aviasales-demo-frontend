@@ -93,7 +93,7 @@ const TravelingItemText = styled.p`
       line-height: 20px;
       text-align: center;
       color: #00ACE2;
-      width: 70%;
+      width: 75%;
       text-transform: uppercase; 
       
       &:active {
