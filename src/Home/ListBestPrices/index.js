@@ -135,6 +135,8 @@ const AddText = styled.p`
       margin: 0;
       line-height: 1.5;
       text-align: center;
+      width: 88%;
+      margin: 0 auto;
       
       @media screen and (min-width: 1024px) {
         padding: 0 270px;

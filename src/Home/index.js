@@ -4,6 +4,7 @@ import Header from './Header';
 import ListTraveling from './ListTraveling'
 import ListPhoto from './ListPhoto'
 import ListBestPrices from './ListBestPrices'
+import SpecialOffer from './SpecialOffer'
 
 
 export default () => {
@@ -13,6 +14,7 @@ export default () => {
             <ListTraveling />
             <ListPhoto />
             <ListBestPrices />
+            <SpecialOffer />
         </div>
     )
 }
