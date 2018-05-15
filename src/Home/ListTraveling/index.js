@@ -59,14 +59,15 @@ const ChangeImg = styled.img`
       display: block;
 `;
 
-const ListTraveling = styled.div`
+const ListTraveling = styled.li`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       margin-top: 30px;
 `;
 
-const ItemTraveling = styled.div`
+const ItemTraveling = styled.ul`
+      padding: 0;
       display: flex;
       flex-direction: row;
       min-height: 120px;
@@ -92,7 +93,8 @@ const TravelingItemText = styled.p`
       line-height: 20px;
       text-align: center;
       color: #00ACE2;
-      width: 60%;
+      width: 70%;
+      text-transform: uppercase; 
       
       &:active {
         color: #5C5C5C;

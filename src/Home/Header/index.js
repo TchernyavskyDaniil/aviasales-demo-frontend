@@ -135,14 +135,16 @@ const FormThereInput = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
-      width: 49.6%;
       margin-right: 1px;
+      width: 50%;
 `;
 
 const InputCalendar = styled.input`
-      padding: 18px 16px;
+      padding: 18px 16px 18px 22px;
       border: none;
-      color: black;
+      color: #4a4a4a;
+      width: 100%;
+      box-sizing: border-box;
 `;
 
 const CalendarBtn = styled.button`
@@ -164,8 +166,8 @@ const FormBackInput = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
-      width: 49.6%;
       margin-left: 1px;
+      width: 50%;
 `;
 
 const FormPassInput = styled.div`
