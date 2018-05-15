@@ -220,7 +220,7 @@ const ButtonSearch = styled.button`
       content: url(${aero});
       position: absolute;
       padding-left: 16px;
-      padding-top: 4px;
+      padding-top: 2px;
 `;
 
 export default () => {
@@ -228,7 +228,7 @@ export default () => {
         <Header>
             <HeaderContainer>
                 <LinkContainer>
-                    <LogoImg alt={'Logo'} src={logoSvg} />
+                    <LogoImg alt='Logo' src={logoSvg} />
                     <LogoText>
                         aviasales
                     </LogoText>
@@ -244,14 +244,14 @@ export default () => {
                     </MainHeaderText>
                     <MainHeaderForm>
                         <FormFromInput>
-                            <FromInput placeholder={'Москва'} />
+                            <FromInput placeholder='Москва' />
                             <FromText>
                                 MOW
                             </FromText>
-                            <FromArrowImg alt={'Arrow'} src={arrowSvg} />
+                            <FromArrowImg alt='Arrow' src={arrowSvg} />
                         </FormFromInput>
                         <FormArriveInput>
-                            <Input placeholder={'Город прибытия'} />
+                            <Input placeholder='Город прибытия' />
                         </FormArriveInput>
                         <FormContainerTwoWays>
                             <FormThereInput>
@@ -260,7 +260,7 @@ export default () => {
                                                autoComplete='off'
                                 />
                                 <CalendarBtn>
-                                    <CalendarImg alt={'Calendar'} src={calendarSvg} />
+                                    <CalendarImg alt='Calendar' src={calendarSvg} />
                                 </CalendarBtn>
                             </FormThereInput>
                             <FormBackInput>
@@ -269,14 +269,14 @@ export default () => {
                                                autoComplete='off'
                                 />
                                 <CalendarBtn>
-                                    <CalendarImg alt={'Calendar'} src={calendarSvg} />
+                                    <CalendarImg alt='Calendar' src={calendarSvg} />
                                 </CalendarBtn>
                             </FormBackInput>
                         </FormContainerTwoWays>
                         <FormPassInput>
-                            <PassInput placeholder={'1 пассажир, эконом'} />
+                            <PassInput placeholder='1 пассажир, эконом' />
                             <PassDropdownBtn>
-                                <PassDropdownImg alt={'dropdown'} src={dropdown} />
+                                <PassDropdownImg alt='dropdown' src={dropdown} />
                             </PassDropdownBtn>
                         </FormPassInput>
                     </MainHeaderForm>
