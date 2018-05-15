@@ -42,10 +42,10 @@ const PhotoTextContainer = styled.div`
 const PhotoTextInfo = styled.div`
       display: flex;
       flex-direction: column;
-      width: 60%;
+      width: 58%;
       margin-top: 16px;
       margin-bottom: 12px;
-      margin-left: 16px;
+      margin-left: 14px;
 `;
 
 const PhotoText = styled.p`
@@ -58,6 +58,7 @@ const PhotoText = styled.p`
       text-overflow: ellipsis;
       overflow: hidden;
       white-space: nowrap;
+      width: 95%;
 `;
 
 const PhotoSub = styled.p`
@@ -71,10 +72,10 @@ const PhotoSub = styled.p`
 `;
 
 const PhotoTextPrice = styled(PhotoTextInfo)`
-      width: 40%;
+      width: 42%;
       text-align: right;
       margin-left: 0;
-      margin-right: 16px;
+      margin-right: 14px;
 `;
 
 const PhotoPrice = styled.p`
