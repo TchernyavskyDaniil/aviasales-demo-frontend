@@ -1,0 +1,12 @@
+<svg width="14" height="14" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>date-clear</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="translate(-5083 -101)">
+<g id="date-clear">
+<use xlink:href="#path0_fill" transform="translate(5083 101)" fill="#1BA6D2"/>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 14 1.4L 12.6 0L 7 5.6L 1.4 0L 0 1.4L 5.6 7L 0 12.6L 1.4 14L 7 8.4L 12.6 14L 14 12.6L 8.4 7L 14 1.4Z"/>
+</defs>
+</svg>
