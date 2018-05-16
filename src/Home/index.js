@@ -8,6 +8,8 @@ import SpecialOffer from './SpecialOffer'
 import Desc from './Descriptions'
 import Apps from './Apps'
 import Footer from '../Footer'
+import Slider from './Slider'
+import Rss from "./Rss";
 
 
 export default () => {
@@ -17,6 +19,8 @@ export default () => {
             <ListTraveling />
             <ListPhoto />
             <ListBestPrices />
+            <Slider />
+            <Rss />
             <SpecialOffer />
             <Desc />
             <Apps />

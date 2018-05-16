@@ -9,4 +9,5 @@ html {
 
 * {
   outline: transparent;
+  list-style: none;
 }

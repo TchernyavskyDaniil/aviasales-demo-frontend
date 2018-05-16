@@ -8,6 +8,15 @@ import list from "./list.png";
 const Description = styled.div`
       background-color: #ffffff;
       padding-bottom: 24px;
+      
+      @media screen and (min-width: 768px) {
+        padding-bottom: 34px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        padding-left: 140px;
+        padding-right: 140px;
+      }
 `;
 
 const Title = styled.h2`

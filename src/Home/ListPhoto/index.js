@@ -8,18 +8,36 @@ import minwater from './minw.jpg';
 import ptr from './spb.jpg';
 import simf from './simferopol.jpg';
 
+import flagSpain from "./spain.png";
+import flagRu from "./flag-ru.png";
+
 const SectionPhoto = styled.section`
       display: flex;
       flex-direction: column;
       background-color: #F8FCFF;
-      padding-top: 40px;
+      padding-top: 20px;
       padding-left: 16px;
       padding-right: 16px;
+      
+      @media screen and (min-width: 768px) {
+        padding-left: 70px;
+        padding-right: 70px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        padding-left: 140px;
+        padding-right: 140px;
+      }
 `;
 
 const PhotoList = styled.li`
       display: flex;
       flex-direction: column;
+      
+      @media screen and (min-width: 1024px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
 `;
 
 const PhotoItem = styled.ul`
@@ -28,6 +46,12 @@ const PhotoItem = styled.ul`
       padding: 0;
       box-shadow: 0px 2px 2px rgba(0,75,93,0.12);
       border-radius: 8px;
+      
+      @media screen and (min-width: 1024px) {
+        flex-basis: 47%;
+        margin-left: 16px;
+        margin-right: 16px;
+      }
 `;
 
 const PhotoImgContainer = styled.div`
@@ -36,6 +60,10 @@ const PhotoImgContainer = styled.div`
       position: relative;
       z-index: 0;
       min-height: 130px;
+      
+      @media screen and (min-width: 768px) {
+        min-height: 210px;
+      }
 `;
 
 const PhotoImg = styled.img`
@@ -44,7 +72,6 @@ const PhotoImg = styled.img`
       top: -40%;
       left: 0;
       right: 0;
-      transition: transform 1s ease;
       backface-visibility: hidden;
       will-change: transform;
       max-width: 100%;
@@ -53,6 +80,7 @@ const PhotoImg = styled.img`
 const PhotoTextContainer = styled.div`
       display: flex;
       flex-direction: row;
+      align-items: center;
 `;
 
 const PhotoTextInfo = styled.div`
@@ -62,6 +90,7 @@ const PhotoTextInfo = styled.div`
       margin-top: 16px;
       margin-bottom: 12px;
       margin-left: 14px;
+      position: relative;
 `;
 
 const PhotoText = styled.p`
@@ -75,6 +104,29 @@ const PhotoText = styled.p`
       overflow: hidden;
       white-space: nowrap;
       width: 95%;
+      
+      @media screen and (min-width: 768px) {
+        font-size: 22px;
+        line-height: 32px;
+        padding-left: 44px;
+      }
+`;
+
+const Flag = styled.img`
+      position: absolute;
+      left: 0;
+      top: 6px;
+      height: 30px;
+      width: 30px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      border-radius: 100%;
+      box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+      display: none;
+    
+      @media (min-width: 768px) {
+        display: block;
+      }
 `;
 
 const PhotoSub = styled.p`
@@ -84,7 +136,12 @@ const PhotoSub = styled.p`
       text-align: left;
       color: #A0B0B9;
       margin: 0;
-      text-transform: uppercase; 
+      text-transform: uppercase;
+      
+      @media screen and (min-width: 768px) {
+        padding-left: 44px;
+        padding-top: 3px;
+      }
 `;
 
 const PhotoTextPrice = styled(PhotoTextInfo)`
@@ -94,13 +151,22 @@ const PhotoTextPrice = styled(PhotoTextInfo)`
       margin-right: 14px;
 `;
 
-const PhotoPrice = styled.p`
+const PhotoPrice = styled.button`
+      cursor: pointer;
+      background-color: transparent;
+      border-color: transparent;
       padding-top: 4px;
       font-size: 14px;
       line-height: 16px;
       text-align: right;
       color: #00BAE8;
       margin: 0;
+      padding-right: 0;
+      
+      @media screen and (min-width: 768px) {
+        font-size: 22px;
+        line-height: 32px;
+      }
 `;
 
 const PhotoDate = styled.p`
@@ -110,6 +176,10 @@ const PhotoDate = styled.p`
       text-align: right;
       color: #A0B0B9;
       margin: 0;
+      
+      @media screen and (min-width: 768px) {
+        padding-top: 3px;
+      }
 `;
 
 export default () => {
@@ -122,6 +192,7 @@ export default () => {
                     </PhotoImgContainer>
                     <PhotoTextContainer>
                         <PhotoTextInfo>
+                            <Flag src={flagRu} alt='RU'/>
                             <PhotoText>
                                 Краснодар
                             </PhotoText>
@@ -145,6 +216,7 @@ export default () => {
                     </PhotoImgContainer>
                     <PhotoTextContainer>
                         <PhotoTextInfo>
+                            <Flag src={flagRu} alt='RU'/>
                             <PhotoText>
                                 Сочи (Адлер)
                             </PhotoText>
@@ -168,6 +240,7 @@ export default () => {
                     </PhotoImgContainer>
                     <PhotoTextContainer>
                         <PhotoTextInfo>
+                            <Flag src={flagRu} alt='RU'/>
                             <PhotoText>
                                 Санкт-Петербург
                             </PhotoText>
@@ -191,6 +264,7 @@ export default () => {
                     </PhotoImgContainer>
                     <PhotoTextContainer>
                         <PhotoTextInfo>
+                            <Flag src={flagRu} alt='RU'/>
                             <PhotoText>
                                 Миниральные Воды
                             </PhotoText>
@@ -214,6 +288,7 @@ export default () => {
                     </PhotoImgContainer>
                     <PhotoTextContainer>
                         <PhotoTextInfo>
+                            <Flag src={flagRu} alt='RU'/>
                             <PhotoText>
                                 Симферополь (Крым)
                             </PhotoText>
@@ -237,6 +312,7 @@ export default () => {
                     </PhotoImgContainer>
                     <PhotoTextContainer>
                         <PhotoTextInfo>
+                            <Flag src={flagSpain} alt='Spain'/>
                             <PhotoText>
                                 Барселона
                             </PhotoText>

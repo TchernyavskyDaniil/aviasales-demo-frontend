@@ -14,6 +14,11 @@ import arrow from './right-arrow.svg';
 const Footer = styled.footer`
       background-color: #fff;
       padding-top: 32px;
+      
+      @media screen and (min-width: 1024px) {
+        padding-left: 140px;
+        padding-right: 140px;
+      }
 `;
 
 const Title = styled.h3`
@@ -76,10 +81,14 @@ const AboutFooter = styled.div`
       }
 `;
 
-const AboutLink = styled.nav`
+const AboutLink = styled.div`
       display: flex;
       flex-wrap: wrap;
       padding-top: 24px;
+      
+      @media screen and (min-width: 1024px) {
+        padding-top: 0;
+      }
 `;
 
 const SocialNetwork = styled.div`
@@ -127,7 +136,8 @@ const LinkHotel = styled.a`
       padding-bottom: 16px;
       text-align: center;
       
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 768px) {
+        padding-top: 16px;
         text-align: left;
       }
 `;
@@ -180,8 +190,16 @@ const FooterDown = styled.div`
       }
 `;
 
-const FooterLeft = styled.div``;
-const FooterRight = styled.div``;
+const FooterLeft = styled.div`
+      @media screen and (min-width: 1024px) {
+        padding-top: 10px;
+      }
+`;
+const FooterRight = styled.div`
+      @media screen and (min-width: 1024px) {
+        padding-top: 40px;
+      }
+`;
 
 export default () => {
     return (

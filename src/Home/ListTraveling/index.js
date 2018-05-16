@@ -17,12 +17,23 @@ const Section = styled.section`
       padding-top: 40px;
       padding-left: 16px;
       padding-right: 16px;
+      
+      @media screen and (min-width: 768px) {
+        padding-top: 56px;
+      }
 `;
 
 const TravelingHeader = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
+      font-size: 18px;
+      line-height: 24px;
+      
+      @media screen and (min-width: 768px) {
+        font-size: 24px;
+        line-height: 36px;
+      }
 `;
 
 const TravelingImg = styled.img`
@@ -34,48 +45,58 @@ const TravelingImg = styled.img`
 
 const TravelingText = styled.p`
       margin: 0;
-      font-size: 18px;
-      line-height: 24px;
       text-align: center;
       color: black;
 `;
 
-const TravelingChangeText = styled.p`
+const TravelingChangeBtn = styled.button`
       margin: 0;
-      font-size: 18px;
-      line-height: 24px;
       text-align: center;
       color: #00ACE2;
       display: flex;
       flex-direction: row;
       align-items: center;
-      width: 100px;
-      justify-content: space-around;
+      min-width: 120px;
+      justify-content: center;
+      background-color: transparent;
+      border-color: transparent;
+      padding: 0;
+      cursor: pointer;
 `;
 
 const ChangeImg = styled.img`
-      width; 14px;
-      height: 14px;
+      width; 16px;
+      height: 16px;
       display: block;
+      margin-left: 10px;
 `;
 
-const ListTraveling = styled.li`
+const ListTraveling = styled.ul`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
       margin-top: 30px;
+      padding: 0;
+      
+      @media screen and (min-width: 768px) {
+        justify-content: center;
+      }
 `;
 
-const ItemTraveling = styled.ul`
-      padding: 0;
+const ItemTraveling = styled.li`
       display: flex;
       flex-direction: row;
       min-height: 120px;
-      width: 33%
+      flex-basis: 33%
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      
+      @media screen and (min-width: 768px){
+        flex-basis: auto;
+        min-width: 96px;
+      }
 `;
 
 const TravelingImgContainer = styled.div`
@@ -120,10 +141,10 @@ export default () => {
                 <TravelingText>
                     Популярные направления перелетов из города
                 </TravelingText>
-                <TravelingChangeText>
+                <TravelingChangeBtn>
                     Москва
                     <ChangeImg alt='Change' src={change} />
-                </TravelingChangeText>
+                </TravelingChangeBtn>
             </TravelingHeader>
             <ListTraveling>
                 <ItemTraveling>

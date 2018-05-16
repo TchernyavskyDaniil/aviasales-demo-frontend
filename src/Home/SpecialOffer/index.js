@@ -6,10 +6,12 @@ import luft from "./luft.png";
 import icon from "./icon.svg";
 
 const SpecialOffer = styled.div`
-      margin-top: 40px;
-      background-color: #00b0de;
-      background: linear;
-      background: linear-gradient(#00b0de 0%, #196ebd 100%);
+      background: linear-gradient(162.96deg, #00b0de 41.41%, #196ebd 141.41%);
+      
+      @media screen and (min-width: 1024px) {
+        padding-left: 140px;
+        padding-right: 140px;
+      }
 `;
 
 const TitleSpecialOffer = styled.h2`

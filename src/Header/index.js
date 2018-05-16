@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import logoSvg from './aviasales.svg'
 import arrowSvg from './arrow.svg'
 import calendarSvg from './calendar.svg'
@@ -9,16 +10,14 @@ import aero from './aero.svg'
 
 const Header = styled.header`
       background-color: #00b0de;
-      background: linear;
-      background: linear-gradient(
-        148.48deg,
-        #00b0de 22.46%,
-        #01aedc 26.15%,
-        #02abdb 29.89%,
-        #02abdb 33.59%,
-        #02abdb 33.81%,
-        #196ebd 122.26%
-      );
+      background: linear-gradient( 
+      148.48deg, 
+      #00b0de 22.46%, 
+      #01aedc 26.15%, 
+      #02abdb 29.89%, 
+      #02abdb 33.59%, 
+      #02abdb 33.81%, 
+      #196ebd 122.26% )
 `;
 
 const HeaderContainer = styled.div`
@@ -30,7 +29,12 @@ const HeaderContainer = styled.div`
 
 const LinkContainer = styled.div`
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
+      align-items: center;
+      
+      @media screen and (min-width: 1024px) {
+        padding-left: 94px;
+      }
 `;
 
 const LogoImg = styled.img`
@@ -41,11 +45,27 @@ const LogoImg = styled.img`
 
 const LogoText = styled.p`
       display: none;
+      
+      @media screen and (min-width: 768px) {
+        display: inline-block;
+        font-size: 20px;
+        line-height: 25px;
+        text-align: left;
+        color: #fff;
+        margin: 0;
+        margin-top: 10px;
+        padding-left: 12px;
+      }
 `;
 
 const MainHeaderContainer = styled.div`
       display: flex;
       flex-direction: column;
+      
+      @media screen and (min-width: 768px) {
+        margin-left: 74px;
+        margin-right: 74px;
+      }
 `;
 
 const MainHeaderText = styled.div`
@@ -62,15 +82,37 @@ const Title = styled.h1`
       text-align: center;
       padding-top: 47px;
       margin-top: 0;
+      
+      @media screen and (min-width: 768px) {
+        font-size: 32px;
+        line-height: 48px;
+        margin-bottom: 8px;
+      }
 `;
 
 const SubTitle = styled.p`
       display: none;
+      
+      @media screen and (min-width: 768px) {
+        display: block;
+        font-size: 20px;
+        line-height: 23px;
+        text-align: center;
+        font-weight: bold;
+        color: #fff;
+        margin-top: 0;
+        margin-bottom: 40px;
+      }
 `;
 
 const MainHeaderForm = styled.div`
       display: flex;
       flex-direction: column;
+      
+      @media screen and (min-width: 1024px) {
+        flex-direction: row;
+        justify-content: center;
+      }
 `;
 
 const FormFromInput = styled.div`
@@ -78,6 +120,11 @@ const FormFromInput = styled.div`
       flex-direction: column;
       position: relative;
       height: 56px;
+      
+      @media screen and (min-width: 768px) {
+        flex-basis: 50%;
+        margin-right: 2px;
+      }
 `;
 
 const FromInput = styled.input`
@@ -91,6 +138,14 @@ const FromInput = styled.input`
       
       ::placeholder {
         color: black;
+      }
+      
+      @media screen and (min-width: 768px) {
+        border-top-right-radius: 0;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        border-bottom-left-radius: 4px;
       }
 `;
 
@@ -117,6 +172,14 @@ const FormArriveInput = styled.div`
       display: flex;
       flex-direction: column;
       margin-bottom: 2px;
+      
+      @media screen and (min-width: 768px) {
+        flex-basis: 50%;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        margin-right: 2px;
+      }
 `;
 
 const Input = styled.input`
@@ -125,10 +188,25 @@ const Input = styled.input`
       color: black;
 `;
 
+const ArriveInput = Input.extend`
+      @media screen and (min-width: 768px) {
+        border-top-right-radius: 4px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        border-top-right-radius: 0;
+      }
+`;
+
 const FormContainerTwoWays = styled.div`
       display: flex;
       flex-direction: row;
       margin-bottom: 2px;
+      
+      @media screen and (min-width: 768px) {
+        flex-basis: 50%;
+        margin-right: 2px;
+      }
 `;
 
 const FormThereInput = styled.div`
@@ -145,6 +223,16 @@ const InputCalendar = styled.input`
       color: #4a4a4a;
       width: 100%;
       box-sizing: border-box;
+`;
+
+const InputCalendarThere = InputCalendar.extend`
+      @media screen and (min-width: 768px) {
+        border-bottom-left-radius: 4px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        border-bottom-left-radius: 0;
+      }
 `;
 
 const CalendarBtn = styled.button`
@@ -174,7 +262,10 @@ const FormPassInput = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
-      margin-bottom: 16px;
+      
+      @media screen and (min-width: 768px) {
+        flex-basis: 50%;
+      }
 `;
 
 const PassDropdownBtn = styled.button`
@@ -192,6 +283,14 @@ const PassInput = styled(Input)`
       ::placeholder {
         color: black;
       }
+      
+      @media screen and (min-width: 768px) {
+        border-bottom-left-radius: 0;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        border-top-right-radius: 4px;
+      }
 `;
 
 const PassDropdownImg = styled.img`
@@ -203,6 +302,14 @@ const BtnSearchContainer = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-top: 16px;
+      
+      @media screen and (min-width: 768px) {
+        margin-top: 32px;
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
 `;
 
 const ButtonSearch = styled.button`
@@ -219,10 +326,26 @@ const ButtonSearch = styled.button`
       margin-bottom: 80px;
        
       &:after {
-      content: url(${aero});
-      position: absolute;
-      padding-left: 16px;
-      padding-top: 2px;
+        content: url(${aero});
+        position: absolute;
+        padding-left: 16px;
+        padding-top: 2px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        width: 50%;
+        margin-left: auto;
+        margin-right: auto;
+      }
+`;
+
+const FormContainerHeader = styled.div`
+      display: flex;
+      flex-direction: column;
+      
+      @media screen and (min-width: 768px) {
+        flex-direction: row;
+      }
 `;
 
 export default () => {
@@ -245,42 +368,46 @@ export default () => {
                         </SubTitle>
                     </MainHeaderText>
                     <MainHeaderForm>
-                        <FormFromInput>
-                            <FromInput placeholder='Москва' />
-                            <FromText>
-                                MOW
-                            </FromText>
-                            <FromArrowImg alt='Arrow' src={arrowSvg} />
-                        </FormFromInput>
-                        <FormArriveInput>
-                            <Input placeholder='Город прибытия' />
-                        </FormArriveInput>
-                        <FormContainerTwoWays>
-                            <FormThereInput>
-                                <InputCalendar placeholder='Туда'
-                                               readOnly
-                                               autoComplete='off'
-                                />
-                                <CalendarBtn>
-                                    <CalendarImg alt='Calendar' src={calendarSvg} />
-                                </CalendarBtn>
-                            </FormThereInput>
-                            <FormBackInput>
-                                <InputCalendar placeholder='Обратно'
-                                               readOnly
-                                               autoComplete='off'
-                                />
-                                <CalendarBtn>
-                                    <CalendarImg alt='Calendar' src={calendarSvg} />
-                                </CalendarBtn>
-                            </FormBackInput>
-                        </FormContainerTwoWays>
-                        <FormPassInput>
-                            <PassInput placeholder='1 пассажир, эконом' />
-                            <PassDropdownBtn>
-                                <PassDropdownImg alt='dropdown' src={dropdown} />
-                            </PassDropdownBtn>
-                        </FormPassInput>
+                        <FormContainerHeader>
+                            <FormFromInput>
+                                <FromInput placeholder='Москва' />
+                                <FromText>
+                                    MOW
+                                </FromText>
+                                <FromArrowImg alt='Arrow' src={arrowSvg} />
+                            </FormFromInput>
+                            <FormArriveInput>
+                                <ArriveInput placeholder='Город прибытия' />
+                            </FormArriveInput>
+                        </FormContainerHeader>
+                        <FormContainerHeader>
+                            <FormContainerTwoWays>
+                                <FormThereInput>
+                                    <InputCalendarThere placeholder='Туда'
+                                                   readOnly
+                                                   autoComplete='off'
+                                    />
+                                    <CalendarBtn>
+                                        <CalendarImg alt='Calendar' src={calendarSvg} />
+                                    </CalendarBtn>
+                                </FormThereInput>
+                                <FormBackInput>
+                                    <InputCalendar placeholder='Обратно'
+                                                   readOnly
+                                                   autoComplete='off'
+                                    />
+                                    <CalendarBtn>
+                                        <CalendarImg alt='Calendar' src={calendarSvg} />
+                                    </CalendarBtn>
+                                </FormBackInput>
+                            </FormContainerTwoWays>
+                            <FormPassInput>
+                                <PassInput placeholder='1 пассажир, эконом' />
+                                <PassDropdownBtn>
+                                    <PassDropdownImg alt='dropdown' src={dropdown} />
+                                </PassDropdownBtn>
+                            </FormPassInput>
+                        </FormContainerHeader>
                     </MainHeaderForm>
                     <BtnSearchContainer>
                         <ButtonSearch>
