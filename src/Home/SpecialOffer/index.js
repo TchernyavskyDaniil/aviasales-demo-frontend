@@ -166,6 +166,11 @@ const ButtonCard = styled.button`
       color: #d93533;
       background-color: #fff;
       padding: 10px 0;
+      
+      &:hover {
+        background-color: #f8fcff;
+        cursor: pointer;
+      }
 `;
 
 const Icon = styled.img`
@@ -196,9 +201,14 @@ const LinkAllOffer = styled.a`
       margin: 0;
       line-height: 20px;
       text-align: center;
+      cursor: pointer;
       
       @media screen and (min-width: 768px) {
         padding-top: 0;
+      }
+      
+      &:hover {
+        opacity: 0.9;
       }
 `;
 

@@ -17,7 +17,7 @@ const Wrapper = styled.div`
         display: block;
       }
     
-      @media screen and (min-width:1024) {
+      @media screen and (min-width: 1024px) {
         margin 0;
         max-width: 100%;
         padding: 20px 0;
@@ -32,6 +32,11 @@ const Title = styled.h3`
       text-align: center
       margin-bottom: 0;
       margin-top: 0;
+      
+      @media screen and (min-width: 1024px) {
+        width: 70%;
+        text-align: left;
+      }
 `;
 
 const Subtitle = styled.h4`
@@ -41,6 +46,10 @@ const Subtitle = styled.h4`
       line-height: 22px;
       margin-top: 5px;
       margin-bottom: 20px;
+      
+      @media screen and (min-width: 1024px) {
+        width: 60%;
+      }
 `;
 
 const Socials = styled.div`
@@ -51,6 +60,7 @@ const Socials = styled.div`
     
       @media screen and (min-width: 1024px) {
         margin-right: 20px;
+        padding-top: 24px;
       }
 `;
 
@@ -79,7 +89,7 @@ const SocialIcon = styled.img`
 `;
 
 const Form = styled.div`
-      @media screen and (min-width: 1024) {
+      @media screen and (min-width: 1024px) {
         margin: auto;
       }
 `;
@@ -96,7 +106,7 @@ const Input = styled.input`
 `;
 
 const Main = styled.div`
-      @media screen and (min-width: 1024) {
+      @media screen and (min-width: 1024px) {
         text-align: left;
         justify-content: center;
         display: flex;
@@ -110,17 +120,19 @@ const Top = styled.div`
         margin: 0 auto;
       }
        
-      @media screen and (min-width: 1024) {
+      @media screen and (min-width: 1024px) {
         text-align: left;
         justify-content: center;
         display: flex;
         flex-direction: column;
         flex-basis: 50%;
+        margin-left: 0;
+        margin-right: 0;
       }
 `;
 
 const Bottom = styled.div`
-      @media screen and (min-width: 1024) {
+      @media screen and (min-width: 1024px) {
         text-align: left;
         justify-content: center;
         display: flex;

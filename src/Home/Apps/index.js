@@ -122,13 +122,19 @@ const Icon = styled.img`
       padding-right: 8px;
 `;
 
-const TextLink = styled.p`
+const TextLink = styled.a`
+      text-decoration: none;
       color: #fff;
       font-size: 14px;
       font-weight: 400;
       margin: 0;
       line-height: 25px;
       text-align: left;
+      
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
 `;
 
 export default () => {

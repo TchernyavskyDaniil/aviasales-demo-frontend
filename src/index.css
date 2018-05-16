@@ -10,4 +10,5 @@ html {
 * {
   outline: transparent;
   list-style: none;
+  text-decoration: none;
 }

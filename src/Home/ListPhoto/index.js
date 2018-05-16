@@ -185,152 +185,154 @@ const PhotoDate = styled.p`
 export default () => {
     return (
         <SectionPhoto>
-            <PhotoList>
-                <PhotoItem>
-                    <PhotoImgContainer>
-                        <PhotoImg alt='Krasnodar' src={krasnodar} />
-                    </PhotoImgContainer>
-                    <PhotoTextContainer>
-                        <PhotoTextInfo>
-                            <Flag src={flagRu} alt='RU'/>
-                            <PhotoText>
-                                Краснодар
-                            </PhotoText>
-                            <PhotoSub>
-                                Россия
-                            </PhotoSub>
-                        </PhotoTextInfo>
-                        <PhotoTextPrice>
-                            <PhotoPrice>
-                                Найти от 1212 ₽
-                            </PhotoPrice>
-                            <PhotoDate>
-                                18 марта
-                            </PhotoDate>
-                        </PhotoTextPrice>
-                    </PhotoTextContainer>
-                </PhotoItem>
-                <PhotoItem>
-                    <PhotoImgContainer>
-                        <PhotoImg alt='Sochi' src={sochi} />
-                    </PhotoImgContainer>
-                    <PhotoTextContainer>
-                        <PhotoTextInfo>
-                            <Flag src={flagRu} alt='RU'/>
-                            <PhotoText>
-                                Сочи (Адлер)
-                            </PhotoText>
-                            <PhotoSub>
-                                Россия
-                            </PhotoSub>
-                        </PhotoTextInfo>
-                        <PhotoTextPrice>
-                            <PhotoPrice>
-                                Найти от 1334 ₽
-                            </PhotoPrice>
-                            <PhotoDate>
-                                27 марта
-                            </PhotoDate>
-                        </PhotoTextPrice>
-                    </PhotoTextContainer>
-                </PhotoItem>
-                <PhotoItem>
-                    <PhotoImgContainer>
-                        <PhotoImg alt='St.P' src={ptr} />
-                    </PhotoImgContainer>
-                    <PhotoTextContainer>
-                        <PhotoTextInfo>
-                            <Flag src={flagRu} alt='RU'/>
-                            <PhotoText>
-                                Санкт-Петербург
-                            </PhotoText>
-                            <PhotoSub>
-                                Россия
-                            </PhotoSub>
-                        </PhotoTextInfo>
-                        <PhotoTextPrice>
-                            <PhotoPrice>
-                                Найти от 1508 ₽
-                            </PhotoPrice>
-                            <PhotoDate>
-                                19 февраля
-                            </PhotoDate>
-                        </PhotoTextPrice>
-                    </PhotoTextContainer>
-                </PhotoItem>
-                <PhotoItem>
-                    <PhotoImgContainer>
-                        <PhotoImg alt='Min Water' src={minwater} />
-                    </PhotoImgContainer>
-                    <PhotoTextContainer>
-                        <PhotoTextInfo>
-                            <Flag src={flagRu} alt='RU'/>
-                            <PhotoText>
-                                Миниральные Воды
-                            </PhotoText>
-                            <PhotoSub>
-                                Россия
-                            </PhotoSub>
-                        </PhotoTextInfo>
-                        <PhotoTextPrice>
-                            <PhotoPrice>
-                                Найти от 2074 ₽
-                            </PhotoPrice>
-                            <PhotoDate>
-                                13 марта
-                            </PhotoDate>
-                        </PhotoTextPrice>
-                    </PhotoTextContainer>
-                </PhotoItem>
-                <PhotoItem>
-                    <PhotoImgContainer>
-                        <PhotoImg alt='Simf' src={simf} />
-                    </PhotoImgContainer>
-                    <PhotoTextContainer>
-                        <PhotoTextInfo>
-                            <Flag src={flagRu} alt='RU'/>
-                            <PhotoText>
-                                Симферополь (Крым)
-                            </PhotoText>
-                            <PhotoSub>
-                                Россия
-                            </PhotoSub>
-                        </PhotoTextInfo>
-                        <PhotoTextPrice>
-                            <PhotoPrice>
-                                Найти от 2407 ₽
-                            </PhotoPrice>
-                            <PhotoDate>
-                                13 марта
-                            </PhotoDate>
-                        </PhotoTextPrice>
-                    </PhotoTextContainer>
-                </PhotoItem>
-                <PhotoItem>
-                    <PhotoImgContainer>
-                        <PhotoImg alt='Barselona' src={bars} />
-                    </PhotoImgContainer>
-                    <PhotoTextContainer>
-                        <PhotoTextInfo>
-                            <Flag src={flagSpain} alt='Spain'/>
-                            <PhotoText>
-                                Барселона
-                            </PhotoText>
-                            <PhotoSub>
-                                Испания
-                            </PhotoSub>
-                        </PhotoTextInfo>
-                        <PhotoTextPrice>
-                            <PhotoPrice>
-                                Найти от 4247 ₽
-                            </PhotoPrice>
-                            <PhotoDate>
-                                24 марта
-                            </PhotoDate>
-                        </PhotoTextPrice>
-                    </PhotoTextContainer>
-                </PhotoItem>
-            </PhotoList>
+            <div className='container'>
+                <PhotoList>
+                    <PhotoItem>
+                        <PhotoImgContainer>
+                            <PhotoImg alt='Krasnodar' src={krasnodar} />
+                        </PhotoImgContainer>
+                        <PhotoTextContainer>
+                            <PhotoTextInfo>
+                                <Flag src={flagRu} alt='RU'/>
+                                <PhotoText>
+                                    Краснодар
+                                </PhotoText>
+                                <PhotoSub>
+                                    Россия
+                                </PhotoSub>
+                            </PhotoTextInfo>
+                            <PhotoTextPrice>
+                                <PhotoPrice>
+                                    Найти от 1212 ₽
+                                </PhotoPrice>
+                                <PhotoDate>
+                                    18 марта
+                                </PhotoDate>
+                            </PhotoTextPrice>
+                        </PhotoTextContainer>
+                    </PhotoItem>
+                    <PhotoItem>
+                        <PhotoImgContainer>
+                            <PhotoImg alt='Sochi' src={sochi} />
+                        </PhotoImgContainer>
+                        <PhotoTextContainer>
+                            <PhotoTextInfo>
+                                <Flag src={flagRu} alt='RU'/>
+                                <PhotoText>
+                                    Сочи (Адлер)
+                                </PhotoText>
+                                <PhotoSub>
+                                    Россия
+                                </PhotoSub>
+                            </PhotoTextInfo>
+                            <PhotoTextPrice>
+                                <PhotoPrice>
+                                    Найти от 1334 ₽
+                                </PhotoPrice>
+                                <PhotoDate>
+                                    27 марта
+                                </PhotoDate>
+                            </PhotoTextPrice>
+                        </PhotoTextContainer>
+                    </PhotoItem>
+                    <PhotoItem>
+                        <PhotoImgContainer>
+                            <PhotoImg alt='St.P' src={ptr} />
+                        </PhotoImgContainer>
+                        <PhotoTextContainer>
+                            <PhotoTextInfo>
+                                <Flag src={flagRu} alt='RU'/>
+                                <PhotoText>
+                                    Санкт-Петербург
+                                </PhotoText>
+                                <PhotoSub>
+                                    Россия
+                                </PhotoSub>
+                            </PhotoTextInfo>
+                            <PhotoTextPrice>
+                                <PhotoPrice>
+                                    Найти от 1508 ₽
+                                </PhotoPrice>
+                                <PhotoDate>
+                                    19 февраля
+                                </PhotoDate>
+                            </PhotoTextPrice>
+                        </PhotoTextContainer>
+                    </PhotoItem>
+                    <PhotoItem>
+                        <PhotoImgContainer>
+                            <PhotoImg alt='Min Water' src={minwater} />
+                        </PhotoImgContainer>
+                        <PhotoTextContainer>
+                            <PhotoTextInfo>
+                                <Flag src={flagRu} alt='RU'/>
+                                <PhotoText>
+                                    Миниральные Воды
+                                </PhotoText>
+                                <PhotoSub>
+                                    Россия
+                                </PhotoSub>
+                            </PhotoTextInfo>
+                            <PhotoTextPrice>
+                                <PhotoPrice>
+                                    Найти от 2074 ₽
+                                </PhotoPrice>
+                                <PhotoDate>
+                                    13 марта
+                                </PhotoDate>
+                            </PhotoTextPrice>
+                        </PhotoTextContainer>
+                    </PhotoItem>
+                    <PhotoItem>
+                        <PhotoImgContainer>
+                            <PhotoImg alt='Simf' src={simf} />
+                        </PhotoImgContainer>
+                        <PhotoTextContainer>
+                            <PhotoTextInfo>
+                                <Flag src={flagRu} alt='RU'/>
+                                <PhotoText>
+                                    Симферополь (Крым)
+                                </PhotoText>
+                                <PhotoSub>
+                                    Россия
+                                </PhotoSub>
+                            </PhotoTextInfo>
+                            <PhotoTextPrice>
+                                <PhotoPrice>
+                                    Найти от 2407 ₽
+                                </PhotoPrice>
+                                <PhotoDate>
+                                    13 марта
+                                </PhotoDate>
+                            </PhotoTextPrice>
+                        </PhotoTextContainer>
+                    </PhotoItem>
+                    <PhotoItem>
+                        <PhotoImgContainer>
+                            <PhotoImg alt='Barselona' src={bars} />
+                        </PhotoImgContainer>
+                        <PhotoTextContainer>
+                            <PhotoTextInfo>
+                                <Flag src={flagSpain} alt='Spain'/>
+                                <PhotoText>
+                                    Барселона
+                                </PhotoText>
+                                <PhotoSub>
+                                    Испания
+                                </PhotoSub>
+                            </PhotoTextInfo>
+                            <PhotoTextPrice>
+                                <PhotoPrice>
+                                    Найти от 4247 ₽
+                                </PhotoPrice>
+                                <PhotoDate>
+                                    24 марта
+                                </PhotoDate>
+                            </PhotoTextPrice>
+                        </PhotoTextContainer>
+                    </PhotoItem>
+                </PhotoList>
+            </div>
         </SectionPhoto>
     )
 }

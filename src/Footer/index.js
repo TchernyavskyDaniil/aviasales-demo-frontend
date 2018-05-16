@@ -45,6 +45,10 @@ const Item = styled.a`
       line-height: 16px;
       padding-top: 12px;
       text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
 `;
 
 const LinkFooter = Item.extend`
@@ -70,7 +74,11 @@ const MainLink = styled.a`
         padding-left: 15px;
         background-repeat: no-repeat;
         background-position: center;
-       }
+      }
+      
+      &:hover {
+        text-decoration: underline;
+      }
 `;
 
 const AboutFooter = styled.div`
@@ -118,10 +126,15 @@ const SocialLink = styled.a`
       line-height: 16px;
       text-align: left;
       padding-right: 12px;
+      
+      &:hover {
+        opacity: 0.9;
+      }
 `;
 
 const SocialImage = styled.img`
       padding-right: 3px;
+      padding-top: 2px;
 `;
 
 const LinkHotel = styled.a`
@@ -135,6 +148,7 @@ const LinkHotel = styled.a`
       padding-top: 24px;
       padding-bottom: 16px;
       text-align: center;
+      
       
       @media screen and (min-width: 768px) {
         padding-top: 16px;
@@ -401,32 +415,32 @@ export default () => {
                         </AboutFooter>
                         <SocialNetwork>
                             <Social>
-                                <SocialImage alt='vk' src={vk} />
                                 <SocialLink href='https://vk.com'>
+                                    <SocialImage alt='vk' src={vk} />
                                     Вконтакте
                                 </SocialLink>
                             </Social>
                             <Social>
-                                <SocialImage alt='face' src={facebook} />
                                 <SocialLink href='https://facebook.com'>
+                                    <SocialImage alt='face' src={facebook} />
                                     Фейсбук
                                 </SocialLink>
                             </Social>
                             <Social>
-                                <SocialImage alt='insta' src={insta} />
                                 <SocialLink href='https://instagram.com'>
+                                    <SocialImage alt='insta' src={insta} />
                                     Инстаграм
                                 </SocialLink>
                             </Social>
                             <Social>
-                                <SocialImage alt='twitter' src={twitter} />
                                 <SocialLink href='https://twitter.com'>
+                                    <SocialImage alt='twitter' src={twitter} />
                                     Твиттер
                                 </SocialLink>
                             </Social>
                             <Social>
-                                <SocialImage alt='viber' src={viber} />
                                 <SocialLink href='https://viber.com'>
+                                    <SocialImage alt='viber' src={viber} />
                                     Вайбер
                                 </SocialLink>
                             </Social>

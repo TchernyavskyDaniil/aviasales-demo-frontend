@@ -56,6 +56,11 @@ const MainTextLink = styled.a`
       color: #00ace2;
       padding-left: 10px;
       text-decoration: none;
+      cursor: pointer;
+      
+      &:hover {
+        text-decoration: underline;
+      }
 `;
 
 export default () => {

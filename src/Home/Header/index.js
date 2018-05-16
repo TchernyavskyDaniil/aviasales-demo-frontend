@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BrowserRouter, Link} from "react-router-dom";
 
 import logoSvg from './aviasales.svg'
 import arrowSvg from './arrow.svg'
@@ -11,13 +12,13 @@ import aero from './aero.svg'
 const Header = styled.header`
       background-color: #00b0de;
       background: linear-gradient( 
-      148.48deg, 
-      #00b0de 22.46%, 
-      #01aedc 26.15%, 
-      #02abdb 29.89%, 
-      #02abdb 33.59%, 
-      #02abdb 33.81%, 
-      #196ebd 122.26% )
+          148.48deg, 
+          #00b0de 22.46%, 
+          #01aedc 26.15%, 
+          #02abdb 29.89%, 
+          #02abdb 33.59%, 
+          #02abdb 33.81%, 
+          #196ebd 122.26% )
 `;
 
 const HeaderContainer = styled.div`
@@ -31,9 +32,15 @@ const LinkContainer = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
+      width: 120px;
+      min-width: 120px
       
       @media screen and (min-width: 1024px) {
         padding-left: 94px;
+      }
+      
+      &:hover {
+        opacity: 0.8;
       }
 `;
 
@@ -53,8 +60,9 @@ const LogoText = styled.p`
         text-align: left;
         color: #fff;
         margin: 0;
-        margin-top: 10px;
         padding-left: 12px;
+        position: absolute;
+        top: 13px;
       }
 `;
 
@@ -303,16 +311,30 @@ const BtnSearchContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       margin-top: 16px;
+      height: 64px;
+      width: 308px;
+      align-items: center;
+      margin-bottom: 80px;
       
       @media screen and (min-width: 768px) {
         margin-top: 32px;
-        width: 50%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 120px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        margin-bottom: 240px;
+      }
+      
+      &:hover {
+        opacity: 0.9;
       }
 `;
 
 const ButtonSearch = styled.button`
+      text-decoration: none;
+      cursor: pointer;
       border: none;
       background-color: #ff9241;
       padding-top: 13px;
@@ -323,7 +345,6 @@ const ButtonSearch = styled.button`
       font-size: 1.5rem;
       font-weight: 400;
       line-height: 1.25;
-      margin-bottom: 80px;
        
       &:after {
         content: url(${aero});
@@ -333,7 +354,7 @@ const ButtonSearch = styled.button`
       }
       
       @media screen and (min-width: 1024px) {
-        width: 50%;
+        width: 40%%;
         margin-left: auto;
         margin-right: auto;
       }
@@ -348,15 +369,21 @@ const FormContainerHeader = styled.div`
       }
 `;
 
+const Span = styled.span`
+      color: white;
+`;
+
 export default () => {
     return (
         <Header>
             <HeaderContainer>
                 <LinkContainer>
-                    <LogoImg alt='Logo' src={logoSvg} />
-                    <LogoText>
-                        aviasales
-                    </LogoText>
+                    <Link to='/'>
+                        <LogoImg alt='Logo' src={logoSvg} />
+                        <LogoText>
+                            aviasales
+                        </LogoText>
+                    </Link>
                 </LinkContainer>
                 <MainHeaderContainer>
                     <MainHeaderText>
@@ -410,9 +437,13 @@ export default () => {
                         </FormContainerHeader>
                     </MainHeaderForm>
                     <BtnSearchContainer>
-                        <ButtonSearch>
-                            Найти билеты
-                        </ButtonSearch>
+                        <Link to='/search'>
+                            <ButtonSearch>
+                                <Span>
+                                    Найти билеты
+                                </Span>
+                            </ButtonSearch>
+                        </Link>
                     </BtnSearchContainer>
                 </MainHeaderContainer>
             </HeaderContainer>

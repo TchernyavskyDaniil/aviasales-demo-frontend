@@ -92,10 +92,15 @@ const ItemTraveling = styled.li`
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
       
       @media screen and (min-width: 768px){
         flex-basis: auto;
         min-width: 96px;
+      }
+      
+      &:hover {
+        opacity: 0.8;
       }
 `;
 
@@ -116,11 +121,11 @@ const TravelingItemText = styled.p`
       color: #00ACE2;
       width: 75%;
       text-transform: uppercase; 
-      
-      &:active {
-        color: #5C5C5C;
-        border-bottom: 1px solid #00ACE2;
-      }
+`;
+
+const TravelingItemTextActive = TravelingItemText.extend`
+      color: #5C5C5C;
+      border-bottom: 1px solid #00ACE2;
 `;
 
 const TravelingItemImg = styled.img`
@@ -136,66 +141,68 @@ const TravelingItemImg = styled.img`
 export default () => {
     return (
         <Section>
-            <TravelingHeader>
-                <TravelingImg alt='Compas' src={compas} />
-                <TravelingText>
-                    Популярные направления перелетов из города
-                </TravelingText>
-                <TravelingChangeBtn>
-                    Москва
-                    <ChangeImg alt='Change' src={change} />
-                </TravelingChangeBtn>
-            </TravelingHeader>
-            <ListTraveling>
-                <ItemTraveling>
-                    <TravelingImgContainer>
-                        <TravelingItemImg alt='World' src={world}/>
-                    </TravelingImgContainer>
-                    <TravelingItemText>
-                        Куда угодно
-                    </TravelingItemText>
-                </ItemTraveling>
-                <ItemTraveling>
-                    <TravelingImgContainer>
-                        <TravelingItemImg alt='Sea' src={sea}/>
-                    </TravelingImgContainer>
-                    <TravelingItemText>
-                        Солнце и море
-                    </TravelingItemText>
-                </ItemTraveling>
-                <ItemTraveling>
-                    <TravelingImgContainer>
-                        <TravelingItemImg alt='Shopping' src={shopping}/>
-                    </TravelingImgContainer>
-                    <TravelingItemText>
-                        Шопинг, город
-                    </TravelingItemText>
-                </ItemTraveling>
-                <ItemTraveling>
-                    <TravelingImgContainer>
-                        <TravelingItemImg alt='History' src={history}/>
-                    </TravelingImgContainer>
-                    <TravelingItemText>
-                        Культура и история
-                    </TravelingItemText>
-                </ItemTraveling>
-                <ItemTraveling>
-                    <TravelingImgContainer>
-                        <TravelingItemImg alt='Club' src={club}/>
-                    </TravelingImgContainer>
-                    <TravelingItemText>
-                        Ночная жизнь
-                    </TravelingItemText>
-                </ItemTraveling>
-                <ItemTraveling>
-                    <TravelingImgContainer>
-                        <TravelingItemImg alt='Children' src={children}/>
-                    </TravelingImgContainer>
-                    <TravelingItemText>
-                        Отдых с детьми
-                    </TravelingItemText>
-                </ItemTraveling>
-            </ListTraveling>
+            <div className='container'>
+                <TravelingHeader>
+                    <TravelingImg alt='Compas' src={compas} />
+                    <TravelingText>
+                        Популярные направления перелетов из города
+                    </TravelingText>
+                    <TravelingChangeBtn>
+                        Москва
+                        <ChangeImg alt='Change' src={change} />
+                    </TravelingChangeBtn>
+                </TravelingHeader>
+                <ListTraveling>
+                    <ItemTraveling>
+                        <TravelingImgContainer>
+                            <TravelingItemImg alt='World' src={world}/>
+                        </TravelingImgContainer>
+                        <TravelingItemTextActive>
+                            Куда угодно
+                        </TravelingItemTextActive>
+                    </ItemTraveling>
+                    <ItemTraveling>
+                        <TravelingImgContainer>
+                            <TravelingItemImg alt='Sea' src={sea}/>
+                        </TravelingImgContainer>
+                        <TravelingItemText>
+                            Солнце и море
+                        </TravelingItemText>
+                    </ItemTraveling>
+                    <ItemTraveling>
+                        <TravelingImgContainer>
+                            <TravelingItemImg alt='Shopping' src={shopping}/>
+                        </TravelingImgContainer>
+                        <TravelingItemText>
+                            Шопинг, город
+                        </TravelingItemText>
+                    </ItemTraveling>
+                    <ItemTraveling>
+                        <TravelingImgContainer>
+                            <TravelingItemImg alt='History' src={history}/>
+                        </TravelingImgContainer>
+                        <TravelingItemText>
+                            Культура и история
+                        </TravelingItemText>
+                    </ItemTraveling>
+                    <ItemTraveling>
+                        <TravelingImgContainer>
+                            <TravelingItemImg alt='Club' src={club}/>
+                        </TravelingImgContainer>
+                        <TravelingItemText>
+                            Ночная жизнь
+                        </TravelingItemText>
+                    </ItemTraveling>
+                    <ItemTraveling>
+                        <TravelingImgContainer>
+                            <TravelingItemImg alt='Children' src={children}/>
+                        </TravelingImgContainer>
+                        <TravelingItemText>
+                            Отдых с детьми
+                        </TravelingItemText>
+                    </ItemTraveling>
+                </ListTraveling>
+            </div>
         </Section>
     )
 }
