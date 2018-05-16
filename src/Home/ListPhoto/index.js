@@ -110,6 +110,10 @@ const PhotoText = styled.p`
         line-height: 32px;
         padding-left: 44px;
       }
+      
+      @media screen and (min-width: 1024px) {
+        min-width: 220px;
+      }
 `;
 
 const Flag = styled.img`

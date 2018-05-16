@@ -326,10 +326,6 @@ const BtnSearchContainer = styled.div`
       @media screen and (min-width: 1024px) {
         margin-bottom: 240px;
       }
-      
-      &:hover {
-        opacity: 0.9;
-      }
 `;
 
 const ButtonSearch = styled.button`
@@ -357,6 +353,10 @@ const ButtonSearch = styled.button`
         width: 40%%;
         margin-left: auto;
         margin-right: auto;
+      }
+      
+      &:hover {
+        background-color: #ffa353;
       }
 `;
 
