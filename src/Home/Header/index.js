@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, Link} from "react-router-dom";
+import DayPicker from "../../Date/dateinput";
+
 
 import logoSvg from './aviasales.svg'
 import arrowSvg from './arrow.svg'
@@ -128,6 +130,7 @@ const FormFromInput = styled.div`
       flex-direction: column;
       position: relative;
       height: 56px;
+      padding-top: 2px;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -180,6 +183,7 @@ const FormArriveInput = styled.div`
       display: flex;
       flex-direction: column;
       margin-bottom: 2px;
+      padding-top: 2px;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -231,6 +235,11 @@ const InputCalendar = styled.input`
       color: #4a4a4a;
       width: 100%;
       box-sizing: border-box;
+      cursor: pointer;
+      
+      @media screen and (min-width: 1024px) {
+        min-width: 180px;
+      }
 `;
 
 const InputCalendarThere = InputCalendar.extend`
@@ -270,6 +279,7 @@ const FormPassInput = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
+      padding-top: 2px;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -408,26 +418,7 @@ export default () => {
                             </FormArriveInput>
                         </FormContainerHeader>
                         <FormContainerHeader>
-                            <FormContainerTwoWays>
-                                <FormThereInput>
-                                    <InputCalendarThere placeholder='Туда'
-                                                   readOnly
-                                                   autoComplete='off'
-                                    />
-                                    <CalendarBtn>
-                                        <CalendarImg alt='Calendar' src={calendarSvg} />
-                                    </CalendarBtn>
-                                </FormThereInput>
-                                <FormBackInput>
-                                    <InputCalendar placeholder='Обратно'
-                                                   readOnly
-                                                   autoComplete='off'
-                                    />
-                                    <CalendarBtn>
-                                        <CalendarImg alt='Calendar' src={calendarSvg} />
-                                    </CalendarBtn>
-                                </FormBackInput>
-                            </FormContainerTwoWays>
+                            <DayPicker />
                             <FormPassInput>
                                 <PassInput placeholder='1 пассажир, эконом' />
                                 <PassDropdownBtn>

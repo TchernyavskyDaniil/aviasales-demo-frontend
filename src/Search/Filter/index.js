@@ -14,7 +14,7 @@ const Wrapper = styled.div`
       display: none;
       border-radius: 4px;
     
-      @media (min-width: 1024px) {
+      @media screen and (min-width: 1024px) {
         display: block;
         min-width: 250px;
         max-width: 280px;

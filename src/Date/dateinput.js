@@ -130,23 +130,20 @@ const Dates = styled.div`
       position: relative;
     
       @media (min-width: 768px) {
-        flex-basis: 50%;
+        flex-basis: 50.3%;
         display: flex;
       }
     
       @media (min-width: 1024px) {
         flex-basis: 30%;
-      }
-    
-      @media (min-width: 1200px) {
-        flex-basis: 30%;
+        min-width: 250px;
       }
 `;
 
 const Depart = styled.div`
       position: relative;
       width: 49%;
-      margin-right: 4px;
+      margin-right: 1px;
       display: flex;
     
       @media (min-width: 768px) {
@@ -161,7 +158,11 @@ const Input = styled.input`
       border: none;
       margin: 2px 0;
       border-radius: 5px;
-      display: inline-block;
+      display: flex;
+      cursor: pointer;
+      flex-direction: row;
+      align-items: center;
+      margin-top: 2px;
       
       &:focus {
         outline: none;
@@ -176,6 +177,7 @@ const DepartInput = Input.extend`
       cursor: pointer;
     
       @media (min-width: 768px) {
+        margin-right: 0;
         border-bottom-left-radius: 5px;
       }
     
@@ -187,7 +189,6 @@ const DepartInput = Input.extend`
 const ReturnInput = Input.extend`
       width: 100%;
       border-radius: 0;
-      cursor: pointer;
 `;
 
 const Return = styled.div`

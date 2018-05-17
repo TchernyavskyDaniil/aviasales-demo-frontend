@@ -5,7 +5,7 @@ import back from "./back.svg";
 import logo from "./logo.svg";
 import arrow from "./arrow.svg";
 import swapIcon from "./swap.svg";
-import DayPicker from "./Date/dateinput";
+import DayPicker from "../../Date/dateinput";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -66,7 +66,7 @@ const Back = styled.button`
         outline: none;
       }
       
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         display: none;
       }
 `;
@@ -75,7 +75,7 @@ const UpWrap = styled.div`
       background-color: #eaeaea;
       padding: 6px 0 16px 0;
       text-align: center;
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         display: none;
       }
 `;
@@ -84,7 +84,7 @@ const MobileLeft = styled.div`
       display: flex;
       flex-direction: column;
       
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         display: none;
       }
 `;
@@ -115,7 +115,7 @@ const Cities = styled.div`
 const Main = styled.div`
       display: none;
       
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -147,7 +147,7 @@ const Aviasales = styled.p`
       margin: 0;
       padding-left: 40px;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         display: inline-block;
       }
 `;
@@ -155,7 +155,7 @@ const Aviasales = styled.p`
 const AviasalesLink = styled(Link)`
       display: none;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         display: inline-block;
       }
 `;
@@ -180,13 +180,13 @@ const OriginInput = Input.extend`
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 0;
       }
     
-      @media (min-width: 1024px) {
+      @media screen and (min-width: 1024px) {
         border-top-right-radius: 0;
         border-bottom-right-radius: 0;
         border-bottom-left-radius: 5px;
@@ -197,11 +197,11 @@ const DestinationInput = Input.extend`
       width: 100%;
       border-radius: 0;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         border-top-right-radius: 5px;
       }
     
-      @media (min-width: 1024px) {
+      @media screen and (min-width: 1024px) {
         border-radius: 0;
       }
 `;
@@ -240,13 +240,13 @@ const DropdownList = styled.div`
       text-overflow: ellipsis;
       white-space: nowrap;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         flex-basis: 50%;
         display: inline-block;
         border-radius: 0;
       }
     
-      @media (min-width: 1024px) {
+      @media screen and (min-width: 1024px) {
         flex-basis: 41%;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
@@ -283,12 +283,12 @@ const Origin = styled.div`
       display: flex;
       width: 100%;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         flex-basis: 50%;
         padding-right: 2px;
       }
     
-      @media (min-width: 1024px) {
+      @media screen and (min-width: 1024px) {
         flex-basis: 17%;
       }
 `;
@@ -298,12 +298,12 @@ const Destination = styled.div`
       width: 100%;
       position: relative;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         flex-basis: 49%;
         flex-grow: 1;
       }
     
-      @media (min-width: 1024px) {
+      @media screen and (min-width: 1024px) {
         flex-basis: 17%;
         flex-grow: 0;
         margin-right: 2px;
@@ -327,12 +327,12 @@ const Button = styled.button`
       transition: all 0.3s ease;
       position: relative;
     
-      @media (min-width: 768px) {
+      @media screen and (min-width: 768px) {
         margin: 2px 0 2px 2px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-top-right-radius: 0;
-        min-width: 100%;
+        width: 99%;
       }
       
       &:focus {

@@ -2,7 +2,7 @@
   "name": "aviasales",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://tchernyavskyreact.github.io/website/",
+  "homepage": "https://tchernyavskyreact.github.io/aviasales",
   "dependencies": {
     "flexboxgrid2": "^7.2.1",
     "gh-pages": "^1.1.0",
