@@ -5,7 +5,7 @@ import back from "./back.svg";
 import logo from "./logo.svg";
 import arrow from "./arrow.svg";
 import swapIcon from "./swap.svg";
-import DayPicker from "../../Date/dateinput";
+import DayPicker from "../../Date/index";
 import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
@@ -167,6 +167,7 @@ const Input = styled.input`
       margin: 2px 0;
       border-radius: 5px;
       display: inline-block;
+      box-sizing: border-box;
       
       &:focus {
         outline: none;
@@ -176,7 +177,6 @@ const Input = styled.input`
 
 const OriginInput = Input.extend`
       width: 100%;
-      border-radius: 5px;
       border-bottom-right-radius: 0;
       border-bottom-left-radius: 0;
     
@@ -239,6 +239,7 @@ const DropdownList = styled.div`
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      cursor: pointer;
     
       @media screen and (min-width: 768px) {
         flex-basis: 50%;

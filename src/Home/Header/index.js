@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { BrowserRouter, Link} from "react-router-dom";
-import DayPicker from "../../Date/dateinput";
+import { Link } from 'react-router-dom';
+import DayPicker from '../../Date/index';
+import ArriveInput from '../../SearchInput/index'
 
 
 import logoSvg from './aviasales.svg'
 import arrowSvg from './arrow.svg'
-import calendarSvg from './calendar.svg'
 import dropdown from './dropdown.svg'
 import aero from './aero.svg'
 
@@ -131,6 +131,7 @@ const FormFromInput = styled.div`
       position: relative;
       height: 56px;
       padding-top: 2px;
+      box-sizing: border-box;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -145,11 +146,7 @@ const FromInput = styled.input`
       height: 100%;
       border-top-left-radius: 4px;
       border-top-right-radius: 4px;
-      margin-bottom: 2px;
-      
-      ::placeholder {
-        color: black;
-      }
+      box-sizing: border-box;
       
       @media screen and (min-width: 768px) {
         border-top-right-radius: 0;
@@ -184,6 +181,7 @@ const FormArriveInput = styled.div`
       flex-direction: column;
       margin-bottom: 2px;
       padding-top: 2px;
+      box-sizing: border-box;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -198,81 +196,7 @@ const Input = styled.input`
       padding: 18px 16px;
       border: none;
       color: black;
-`;
-
-const ArriveInput = Input.extend`
-      @media screen and (min-width: 768px) {
-        border-top-right-radius: 4px;
-      }
-      
-      @media screen and (min-width: 1024px) {
-        border-top-right-radius: 0;
-      }
-`;
-
-const FormContainerTwoWays = styled.div`
-      display: flex;
-      flex-direction: row;
-      margin-bottom: 2px;
-      
-      @media screen and (min-width: 768px) {
-        flex-basis: 50%;
-        margin-right: 2px;
-      }
-`;
-
-const FormThereInput = styled.div`
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-right: 1px;
-      width: 50%;
-`;
-
-const InputCalendar = styled.input`
-      padding: 18px 16px 18px 22px;
-      border: none;
-      color: #4a4a4a;
-      width: 100%;
       box-sizing: border-box;
-      cursor: pointer;
-      
-      @media screen and (min-width: 1024px) {
-        min-width: 180px;
-      }
-`;
-
-const InputCalendarThere = InputCalendar.extend`
-      @media screen and (min-width: 768px) {
-        border-bottom-left-radius: 4px;
-      }
-      
-      @media screen and (min-width: 1024px) {
-        border-bottom-left-radius: 0;
-      }
-`;
-
-const CalendarBtn = styled.button`
-      position: absolute;
-      bottom: 16px;
-      right: 16px;
-      border: none;
-      background-color: #fff;
-      padding: 0;
-`;
-
-const CalendarImg = styled.img`
-      display: block;
-      width: 16px;
-      height: 20px;
-`;
-
-const FormBackInput = styled.div`
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      margin-left: 1px;
-      width: 50%;
 `;
 
 const FormPassInput = styled.div`
@@ -280,6 +204,7 @@ const FormPassInput = styled.div`
       flex-direction: column;
       position: relative;
       padding-top: 2px;
+      box-sizing: border-box;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -294,9 +219,10 @@ const PassDropdownBtn = styled.button`
       top: 16px;
 `;
 
-const PassInput = styled(Input)`
+const PassInput = Input.extend`
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
+      cursor: pointer;
       
       ::placeholder {
         color: black;
@@ -308,6 +234,7 @@ const PassInput = styled(Input)`
       
       @media screen and (min-width: 1024px) {
         border-top-right-radius: 4px;
+        padding-right: 25px;
       }
 `;
 
@@ -377,6 +304,10 @@ const FormContainerHeader = styled.div`
       @media screen and (min-width: 768px) {
         flex-direction: row;
       }
+      
+      @media screen and (min-width: 1024px) {
+        min-width: 450px;
+      }
 `;
 
 const Span = styled.span`
@@ -407,7 +338,7 @@ export default () => {
                     <MainHeaderForm>
                         <FormContainerHeader>
                             <FormFromInput>
-                                <FromInput placeholder='Москва' />
+                                <FromInput placeholder='Выберите город' value='Москва'/>
                                 <FromText>
                                     MOW
                                 </FromText>
@@ -420,7 +351,9 @@ export default () => {
                         <FormContainerHeader>
                             <DayPicker />
                             <FormPassInput>
-                                <PassInput placeholder='1 пассажир, эконом' />
+                                <PassInput placeholder='1 пассажир, эконом'
+                                           readOnly
+                                           autoComplete='off'/>
                                 <PassDropdownBtn>
                                     <PassDropdownImg alt='dropdown' src={dropdown} />
                                 </PassDropdownBtn>

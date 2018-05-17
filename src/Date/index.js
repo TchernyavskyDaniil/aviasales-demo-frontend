@@ -142,7 +142,7 @@ const Dates = styled.div`
 
 const Depart = styled.div`
       position: relative;
-      width: 49%;
+      width: 50%;
       margin-right: 1px;
       display: flex;
     
@@ -163,6 +163,7 @@ const Input = styled.input`
       flex-direction: row;
       align-items: center;
       margin-top: 2px;
+      box-sizing: border-box;
       
       &:focus {
         outline: none;
