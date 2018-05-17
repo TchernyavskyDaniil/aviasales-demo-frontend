@@ -338,15 +338,15 @@ export default () => {
                     <MainHeaderForm>
                         <FormContainerHeader>
                             <FormFromInput>
-                                <FromInput placeholder='Выберите город' value='Москва'/>
+                                <FromInput placeholder='Москва' />
                                 <FromText>
                                     MOW
                                 </FromText>
                                 <FromArrowImg alt='Arrow' src={arrowSvg} />
                             </FormFromInput>
                             <FormArriveInput>
-                                <ArriveInput placeholder='Город прибытия' />
-                            </FormArriveInput>
+                                <ArriveInput />
+                            </  FormArriveInput>
                         </FormContainerHeader>
                         <FormContainerHeader>
                             <DayPicker />

@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+import ArriveInput from '../../SearchInput/index'
 
 import back from "./back.svg";
 import logo from "./logo.svg";
 import arrow from "./arrow.svg";
 import swapIcon from "./swap.svg";
 import DayPicker from "../../Date/index";
-import { Link } from "react-router-dom";
 
 const Wrapper = styled.div`
       background: linear-gradient(
@@ -411,10 +412,7 @@ export default () => {
                   <Iata>mow</Iata>
                 </Origin>
                 <Destination>
-                  <DestinationInput
-                    id="destination"
-                    placeholder="Город прибытия"
-                  />
+                  <ArriveInput/>
                 </Destination>
                 <DayPicker />
                 <DropdownWrap>

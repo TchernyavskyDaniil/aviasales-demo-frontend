@@ -25,12 +25,16 @@ const List = styled.ul`
       position: absolute;
       width: 100%;
       top: 56px;
+      z-index: 100;
+      box-shadow: 0px 2px 2px rgba(0,75,93,0.12);
 `;
 
 const Container = styled.div`
       display: flex;
       flex-direction: column;
-      position: relative;          
+      position: relative; 
+      width: 100%;
+      justify-content: center;         
 `;
 
 const Item = styled.li`
