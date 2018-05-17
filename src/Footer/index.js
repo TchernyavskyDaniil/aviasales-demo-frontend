@@ -149,6 +149,9 @@ const LinkHotel = styled.a`
       padding-bottom: 16px;
       text-align: center;
       
+      &:hover {
+        text-decoration: underline;
+      }
       
       @media screen and (min-width: 768px) {
         padding-top: 16px;

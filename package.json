@@ -5,6 +5,7 @@
   "dependencies": {
     "flexboxgrid2": "^7.2.1",
     "normalize.css": "^8.0.0",
+    "rc-slider": "^8.6.1",
     "react": "^16.3.2",
     "react-click-outside": "^3.0.1",
     "react-day-picker": "^7.1.9",

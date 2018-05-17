@@ -70,10 +70,10 @@ const cellStyle = {
 };
 
 const dateStyle = {
-    position: "absolute",
-    top: "12px",
-    right: "0",
-    left: "-5px"
+      position: "absolute",
+      top: "12px",
+      right: "0",
+      left: "-5px"
 };
 
 function renderDay(day) {
@@ -173,6 +173,7 @@ const DepartInput = Input.extend`
       width: 100%;
       margin-right: 2px;
       border-radius: 0;
+      cursor: pointer;
     
       @media (min-width: 768px) {
         border-bottom-left-radius: 5px;
@@ -186,6 +187,7 @@ const DepartInput = Input.extend`
 const ReturnInput = Input.extend`
       width: 100%;
       border-radius: 0;
+      cursor: pointer;
 `;
 
 const Return = styled.div`

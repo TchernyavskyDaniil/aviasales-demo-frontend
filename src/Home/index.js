@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Helmet } from "react-helmet";
 
 import Header from './Header';
 import ListTraveling from './ListTraveling'
@@ -15,6 +16,11 @@ import Rss from "./Rss";
 export default () => {
     return (
         <div>
+            <Helmet>
+                <title>
+                    Home Page
+                </title>
+            </Helmet>
             <Header />
             <ListTraveling />
             <ListPhoto />

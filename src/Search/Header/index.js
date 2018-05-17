@@ -139,11 +139,13 @@ const Passengers = styled.div`
       display: inline-block;
 `;
 
-const Aviasales = styled.div`
+const Aviasales = styled.p`
       font-size: 20px;
       color: #fff;
       text-decoration: none;
       display: none;
+      margin: 0;
+      padding-left: 40px;
     
       @media (min-width: 768px) {
         display: inline-block;
@@ -220,6 +222,8 @@ const Swap = styled.button`
 const LogoImg = styled.img`
       vertical-align: middle;
       margin-right: 12px;
+      position: absolute;
+      top: 6px;
 `;
 
 const DropdownList = styled.div`
@@ -243,13 +247,7 @@ const DropdownList = styled.div`
       }
     
       @media (min-width: 1024px) {
-        flex-basis: 100%;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    
-      @media (min-width: 1024px) {
-        flex-basis: 60%;
+        flex-basis: 41%;
         border-bottom-right-radius: 5px;
         border-top-right-radius: 5px;
       }
@@ -383,7 +381,7 @@ const DropdownWrap = styled.div`
       position: relative;
 `;
 
-function SearchHeader() {
+export default () => {
   return (
     <div>
       <Wrapper>
@@ -441,4 +439,3 @@ function SearchHeader() {
   );
 }
 
-export default SearchHeader;

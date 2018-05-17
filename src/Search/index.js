@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 
 import Footer from '../Footer'
 import Header from './Header'
+import Results from './Results'
 
 class Search extends Component {
   render() {
@@ -10,10 +11,11 @@ class Search extends Component {
       <div>
           <Helmet>
               <title>
-                  Aviasales Demo Search Page
+                  Search Page
               </title>
           </Helmet>
           <Header />
+          <Results />
           <Footer />
       </div>
     );
