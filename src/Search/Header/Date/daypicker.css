@@ -171,7 +171,7 @@
 /* Default modifiers */
 
 .DayPicker-Day--today {
-  color: #d0021b;
+  color: black;
   font-weight: 700;
 }
 
@@ -253,7 +253,7 @@
 }
 
 .Selectable .DayPicker-Day--start {
-  background-image: url(../start-date.png);
+  background-image: url(start-date.png);
   background-repeat: no-repeat;
   background-color: #f4f4f4;
   background-position: center;

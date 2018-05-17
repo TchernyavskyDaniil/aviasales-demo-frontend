@@ -11,6 +11,40 @@ import dateClear from "./date-clear.svg";
 import format from "date-fns/format";
 import ru from "date-fns/locale/ru";
 
+const WEEKDAYS_SHORT = ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'];
+
+const MONTHS = [
+    'Январь',
+    'Февраль',
+    'Март',
+    'Апрель',
+    'Май',
+    'Июнь',
+    'Июль',
+    'Август',
+    'Сентябрь',
+    'Октябрь',
+    'Ноябрь',
+    'Декабрь',
+];
+
+const WEEKDAYS_LONG = [
+    'Воскресенье',
+    'Понедельник',
+    'Вторник',
+    'Среда',
+    'Четверг',
+    'Пятница',
+    'Суббота',
+];
+
+const FIRST_DAY_OF_WEEK = 1;
+
+const LABELS = {
+    nextMonth: "следующий месяц",
+    previousMonth: "предыдущий месяц"
+};
+
 const prices = {
     24: ["43 606"],
     25: ["43 606"],
@@ -35,15 +69,15 @@ const cellStyle = {
       height: "48px"
 };
 
+const dateStyle = {
+    position: "absolute",
+    top: "12px",
+    right: "0",
+    left: "-5px"
+};
+
 function renderDay(day) {
   const date = day.getDate();
-
-  const dateStyle = {
-        position: "absolute",
-        top: "12px",
-        right: "0",
-        left: "-5px"
-  };
 
   return (
     <div style={cellStyle}>
@@ -312,6 +346,12 @@ class DatePicker extends React.Component {
                 onDayClick={this.handleDayClick}
                 renderDay={renderDay}
                 disabledDays={{ before: new Date() }}
+                locale={ru}
+                months={MONTHS}
+                weekdaysLong={WEEKDAYS_LONG}
+                weekdaysShort={WEEKDAYS_SHORT}
+                firstDayOfWeek={FIRST_DAY_OF_WEEK}
+                labels={LABELS}
               />
               <Label>
                 Показать цены в одну сторону
