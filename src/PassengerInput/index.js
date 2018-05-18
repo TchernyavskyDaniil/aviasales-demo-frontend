@@ -13,7 +13,6 @@ const PassInput = styled.input`
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
       cursor: pointer;
-      padding-right: 0;
 
       ::placeholder {
         color: black;
@@ -22,7 +21,7 @@ const PassInput = styled.input`
       @media screen and (min-width: 768px) {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        
+        max-width: 200px;
       }
       
       @media screen and (min-width: 1024px) {
@@ -205,6 +204,7 @@ const Container = styled.div`
       display: flex;
       flex-direction: column;
       cursor: pointer;
+      background-color: white;
 `;
 
 const TypeClass = styled.p`

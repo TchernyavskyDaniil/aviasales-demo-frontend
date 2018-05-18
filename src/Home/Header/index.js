@@ -185,6 +185,8 @@ const BtnSearchContainer = styled.div`
       width: 308px;
       align-items: center;
       margin-bottom: 80px;
+      margin-left: auto;
+      margin-right: auto;
       
       @media screen and (min-width: 768px) {
         margin-top: 32px;
