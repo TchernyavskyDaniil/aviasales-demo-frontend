@@ -110,12 +110,12 @@ const ClearDate = styled.button`
       background: none;
       border: none;
       height: 32px;
-      width: 32px;
+      width: 30px;
+      right: 1px;
       background-repeat: no-repeat;
       background-image: url(${dateClear});
       cursor: pointer;
       position: absolute;
-      right: 0px;
       top: 22px;
       background-color: #fff;
       
@@ -136,7 +136,7 @@ const Dates = styled.div`
     
       @media (min-width: 1024px) {
         flex-basis: 30%;
-        min-width: 320px;
+        min-width: 280px;
       }
 `;
 
@@ -152,17 +152,20 @@ const Depart = styled.div`
       }
 `;
 
+const Return = Depart.extend``;
+
 const Input = styled.input`
       padding: 18px 16px;
       background: #fff;
       border: none;
-      margin: 2px 0;
+      margin: 0;
+      margin-top: 2px;
+      margin-bottom: 2px;
       border-radius: 5px;
       display: flex;
       cursor: pointer;
       flex-direction: row;
       align-items: center;
-      margin-top: 2px;
       box-sizing: border-box;
       
       &:focus {
@@ -190,18 +193,6 @@ const DepartInput = Input.extend`
 const ReturnInput = Input.extend`
       width: 100%;
       border-radius: 0;
-`;
-
-const Return = styled.div`
-      position: relative;
-      flex-grow: 1;
-      flex-basis: 50%;
-      display: flex;
-    
-      @media (min-width: 768px) {
-        width: 50%;
-        margin-right: 2px;
-      }
 `;
 
 const Checkbox = styled.input`

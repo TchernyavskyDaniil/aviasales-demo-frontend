@@ -25,7 +25,8 @@ const List = styled.ul`
       width: 100%;
       top: 56px;
       z-index: 100;
-      box-shadow: 0px 2px 2px rgba(0,75,93,0.12);
+      box-shadow: 0px 0px 8px rgba(74,74,74,0.2),
+                  0px 2px 4px rgba(74,74,74,0.2);
 `;
 
 const Container = styled.div`

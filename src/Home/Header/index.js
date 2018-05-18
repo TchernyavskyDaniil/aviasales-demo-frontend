@@ -38,7 +38,7 @@ const LinkContainer = styled.div`
       min-width: 120px
       
       @media screen and (min-width: 1024px) {
-        padding-left: 94px;
+        padding-left: 6%;
       }
       
       &:hover {
@@ -130,9 +130,9 @@ const FormFromInput = styled.div`
       flex-direction: column;
       position: relative;
       height: 56px;
-      padding-top: 2px;
+      padding-top: 4px;
       box-sizing: border-box;
-      
+     
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
         margin-right: 2px;
@@ -148,6 +148,7 @@ const FromText = styled.p`
       bottom: 20px;
       right: 40px;
       margin: 0;
+      top: 19px;
 `;
 
 const FromArrowImg = styled.img`
@@ -156,6 +157,7 @@ const FromArrowImg = styled.img`
       position: absolute;
       bottom: 21px;
       right: 15px;
+      top: 22px;
 `;
 
 const FormArriveInput = styled.div`
@@ -235,10 +237,6 @@ const FormContainerHeader = styled.div`
       @media screen and (min-width: 768px) {
         flex-direction: row;
       }
-      
-      @media screen and (min-width: 1024px) {
-        min-width: 450px;
-      }
 `;
 
 const Span = styled.span`
@@ -281,7 +279,7 @@ export default () => {
                         </FormContainerHeader>
                         <FormContainerHeader>
                             <DayPicker />
-                            <PassInput placeholder='1 пассажир, эконом'/>
+                            <PassInput placeholder='1 пассажир, '/>
                         </FormContainerHeader>
                     </MainHeaderForm>
                     <BtnSearchContainer>

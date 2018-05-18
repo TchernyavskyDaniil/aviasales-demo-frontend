@@ -25,8 +25,7 @@ const SectionPhoto = styled.section`
       }
       
       @media screen and (min-width: 1024px) {
-        padding-left: 140px;
-        padding-right: 140px;
+        padding: 0;
       }
 `;
 
@@ -50,8 +49,7 @@ const PhotoItem = styled.li`
       
       @media screen and (min-width: 1024px) {
         flex-basis: 47%;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin: 10px;
       }
 `;
 
@@ -112,8 +110,12 @@ const PhotoText = styled.p`
         padding-left: 44px;
       }
       
-      @media screen and (min-width: 1024px) {
-        min-width: 220px;
+      @media screen and (max-width: 1024px) {
+        min-width: 200px;
+      }
+      
+      @media screen and (min-width: 1200px) {
+        min-width: 300px;
       }
 `;
 
@@ -272,7 +274,7 @@ export default () => {
                             <PhotoTextInfo>
                                 <Flag src={flagRu} alt='RU'/>
                                 <PhotoText>
-                                    Миниральные Воды
+                                    Минеральные Воды
                                 </PhotoText>
                                 <PhotoSub>
                                     Россия

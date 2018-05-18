@@ -265,11 +265,9 @@ const Button = styled.button`
       @media screen and (min-width: 1024px) {
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
-      }
-    
-      @media screen and (min-width: 1024px) {
-        margin-left: 15px;
+        min-width: 150px;
         border-radius: 4px;
+        margin-left: 15px;
       }
 `;
 
@@ -290,6 +288,10 @@ const FormWrapper = styled.div`
       
       @media screen and (min-width: 1024px) {
         flex-wrap: nowrap;
+      }
+      
+      @media screen and (max-width: 1200px) {
+        width: 17%;
       }
 `;
 
