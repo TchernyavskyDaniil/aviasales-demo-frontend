@@ -46,6 +46,7 @@ const PhotoItem = styled.li`
       padding: 0;
       box-shadow: 0px 2px 2px rgba(0,75,93,0.12);
       border-radius: 8px;
+      margin-bottom: 10px;
       
       @media screen and (min-width: 1024px) {
         flex-basis: 47%;
@@ -61,7 +62,7 @@ const PhotoImgContainer = styled.div`
       min-height: 130px;
       
       @media screen and (min-width: 768px) {
-        min-height: 210px;
+        min-height: 190px;
       }
 `;
 
@@ -86,10 +87,14 @@ const PhotoTextInfo = styled.div`
       display: flex;
       flex-direction: column;
       width: 50%;
-      margin-top: 16px;
+      margin-top: 5px;
       margin-bottom: 12px;
       margin-left: 14px;
       position: relative;
+      
+      @media screen and (min-width: 768px) {
+        margin-top: 16px;
+      }
 `;
 
 const PhotoText = styled.p`
@@ -108,9 +113,10 @@ const PhotoText = styled.p`
         font-size: 22px;
         line-height: 32px;
         padding-left: 44px;
+        min-width: 270px;
       }
       
-      @media screen and (max-width: 1024px) {
+      @media screen and (min-width: 1024px) and (max-width: 1200px) {
         min-width: 200px;
       }
       
@@ -155,7 +161,7 @@ const PhotoTextPrice = styled(PhotoTextInfo)`
       width: 50%;
       text-align: right;
       margin-left: 0;
-      margin-right: 14px;
+      margin-right: 13px;
 `;
 
 const PhotoPrice = styled.button`
@@ -169,6 +175,7 @@ const PhotoPrice = styled.button`
       color: #00BAE8;
       margin: 0;
       padding-right: 0;
+      padding: 0;
       
       @media screen and (min-width: 768px) {
         font-size: 22px;
@@ -186,6 +193,10 @@ const PhotoDate = styled.p`
       
       @media screen and (min-width: 768px) {
         padding-top: 3px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        padding-top: 0;
       }
 `;
 

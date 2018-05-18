@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import calendarLogo from "./calen.svg";
 import flagMoldova from "./flag-md.png";
-import flagRu from "./flag-ru.png";
+import flagRu from "../ListPhoto/flag-ru.png";
 import flagArmenia from "./flag-ar.png";
 
 const Wrapper = styled.div`

@@ -6,7 +6,6 @@ import PassInput from '../../PassengerInput/index'
 
 import back from "./back.svg";
 import logo from "./logo.svg";
-import arrow from "./arrow.svg";
 import swapIcon from "./swap.svg";
 import DayPicker from "../../Date/index";
 
@@ -250,7 +249,7 @@ const Button = styled.button`
       @media screen and (min-width: 1024px) {
         border-top-right-radius: 4px;
         border-bottom-right-radius: 4px;
-        min-width: 150px;
+        min-width: 155px;
         border-radius: 4px;
         margin-left: 15px;
       }
@@ -285,6 +284,16 @@ const DropdownWrap = styled.div`
       flex-grow: 1;
       flex-direction: row;
       position: relative;
+      
+      @media screen and (min-width: 768px) {
+        flex-basis: 49.9%;
+      }
+`;
+
+const ContainerRight = styled.div`
+      display: flex;
+      flex-direction: row;
+      width: 100%;
 `;
 
 export default () => {
@@ -318,13 +327,15 @@ export default () => {
                 <Destination>
                   <ArriveInput placeholder='Город прибытия'/>
                 </Destination>
-                <DayPicker />
-                <DropdownWrap>
-                  <PassInput placeholder='1 пассажир, '/>
-                  <ButtonWrapper>
-                    <Button>Найти билеты</Button>
-                  </ButtonWrapper>
-                </DropdownWrap>
+                <ContainerRight>
+                    <DayPicker />
+                    <DropdownWrap>
+                        <PassInput placeholder='1 пассажир, '/>
+                        <ButtonWrapper>
+                            <Button>Найти билеты</Button>
+                        </ButtonWrapper>
+                    </DropdownWrap>
+                </ContainerRight>
               </FormWrapper>
             </Form>
           </Main>

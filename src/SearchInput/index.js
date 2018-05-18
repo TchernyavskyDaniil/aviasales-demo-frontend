@@ -14,6 +14,10 @@ const ArriveInput = styled.input`
       @media screen and (min-width: 1024px) {
         border-top-right-radius: 0;
       }
+      
+      @media screen and (min-width: 1024px) and (max-width: 1200px) {
+        max-width: 160px;
+      }
 `;
 
 const List = styled.ul`
@@ -155,7 +159,6 @@ class Places extends Component {
     constructor(props) {
         super(props);
         this.onTextChanged = this.onTextChanged.bind(this);
-        this.onClickElement = this.onClickElement.bind(this);
     }
 
     componentDidMount() {
@@ -204,6 +207,8 @@ class Places extends Component {
                                     </Type>
                                 </Item>
                             }
+
+                            return console.log('SUCCESS')
                         })}
                     </List>
                 )}
