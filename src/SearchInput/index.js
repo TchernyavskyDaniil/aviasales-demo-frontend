@@ -177,13 +177,9 @@ class Places extends Component {
         const listPlace = this.state.listPlaces.filter(place => {
             itemPlace = place.city + place.country;
             return itemPlace.toLowerCase().search(text.toLowerCase()) !== -1;
-        })
+        });
 
         this.setState({listPlacesNew: listPlace});
-    }
-
-    onClickElement() {
-
     }
 
     render() {
@@ -195,7 +191,7 @@ class Places extends Component {
                         {this.state.listPlacesNew.map((place, index) => {
                             if (index < 6) {
                                 return <Item key={place.key}>
-                                    <PlaceContainer onClick={this.onClickElement}>
+                                    <PlaceContainer>
                                         <City>
                                             {place.city},
                                         </City>

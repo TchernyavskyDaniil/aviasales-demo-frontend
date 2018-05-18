@@ -45,7 +45,7 @@ const PassDropdownBtn = styled.button`
       position: absolute;
       border: none;
       background-color: #fff;
-      right: 16px;
+      right: 8px;
       top: 16px;
       cursor: pointer;
 `;
@@ -204,7 +204,7 @@ const Container = styled.div`
 
 const TypeClass = styled.p`
       position: absolute;
-      left: 35%;
+      left: 110px;
       top: 20px;
       margin: 0;
       user-select: none;

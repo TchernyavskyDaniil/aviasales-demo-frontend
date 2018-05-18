@@ -162,21 +162,6 @@ const AviasalesLink = styled(Link)`
       }
 `;
 
-const Input = styled.input`
-      padding: 18px 16px;
-      background: #fff;
-      border: none;
-      margin: 2px 0;
-      border-radius: 5px;
-      display: inline-block;
-      box-sizing: border-box;
-      
-      &:focus {
-        outline: none;
-        box-shadow: 0 0 0 2px #ff8e41;
-      }
-`;
-
 const Swap = styled.button`
       background: none;
       border: none;
@@ -290,7 +275,7 @@ const FormWrapper = styled.div`
         flex-wrap: nowrap;
       }
       
-      @media screen and (max-width: 1200px) {
+      @media screen and (max-width: 1200px) and (min-width: 1024px) {
         width: 17%;
       }
 `;
@@ -335,7 +320,7 @@ export default () => {
                 </Destination>
                 <DayPicker />
                 <DropdownWrap>
-                  <PassInput placeholder='1 пассажир, эконом'/>
+                  <PassInput placeholder='1 пассажир, '/>
                   <ButtonWrapper>
                     <Button>Найти билеты</Button>
                   </ButtonWrapper>

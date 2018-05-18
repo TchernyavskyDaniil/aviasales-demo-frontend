@@ -130,7 +130,7 @@ const FormFromInput = styled.div`
       flex-direction: column;
       position: relative;
       height: 56px;
-      padding-top: 4px;
+      padding-top: 2px;
       box-sizing: border-box;
      
       @media screen and (min-width: 768px) {
