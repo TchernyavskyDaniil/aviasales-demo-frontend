@@ -22,6 +22,7 @@ const PassInput = styled.input`
       @media screen and (min-width: 768px) {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        
       }
       
       @media screen and (min-width: 1024px) {

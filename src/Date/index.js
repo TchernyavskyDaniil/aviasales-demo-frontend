@@ -130,7 +130,7 @@ const Dates = styled.div`
       position: relative;
     
       @media (min-width: 768px) {
-        flex-basis: 50.3%;
+        flex-basis: 50.5%;
         display: flex;
       }
     
