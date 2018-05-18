@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import DayPicker from '../../Date/index';
 import ArriveInput from '../../SearchInput/index'
+import PassInput from '../../PassengerInput/index'
 
 
 import logoSvg from './aviasales.svg'
 import arrowSvg from './arrow.svg'
-import dropdown from './dropdown.svg'
 import aero from './aero.svg'
 
 
@@ -139,24 +139,6 @@ const FormFromInput = styled.div`
       }
 `;
 
-const FromInput = styled.input`
-      padding: 16px 18px;
-      border: none;
-      color: black;
-      height: 100%;
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
-      box-sizing: border-box;
-      
-      @media screen and (min-width: 768px) {
-        border-top-right-radius: 0;
-      }
-      
-      @media screen and (min-width: 1024px) {
-        border-bottom-left-radius: 4px;
-      }
-`;
-
 const FromText = styled.p`
       font-size: 1rem;
       color: #a0b0b9;
@@ -190,57 +172,6 @@ const FormArriveInput = styled.div`
       @media screen and (min-width: 1024px) {
         margin-right: 2px;
       }
-`;
-
-const Input = styled.input`
-      padding: 18px 16px;
-      border: none;
-      color: black;
-      box-sizing: border-box;
-`;
-
-const FormPassInput = styled.div`
-      display: flex;
-      flex-direction: column;
-      position: relative;
-      padding-top: 2px;
-      box-sizing: border-box;
-      
-      @media screen and (min-width: 768px) {
-        flex-basis: 50%;
-      }
-`;
-
-const PassDropdownBtn = styled.button`
-      position: absolute;
-      border: none;
-      background-color: #fff;
-      right: 16px;
-      top: 16px;
-`;
-
-const PassInput = Input.extend`
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
-      cursor: pointer;
-      
-      ::placeholder {
-        color: black;
-      }
-      
-      @media screen and (min-width: 768px) {
-        border-bottom-left-radius: 0;
-      }
-      
-      @media screen and (min-width: 1024px) {
-        border-top-right-radius: 4px;
-        padding-right: 25px;
-      }
-`;
-
-const PassDropdownImg = styled.img`
-      width: 10px;
-      height: 5px;
 `;
 
 const BtnSearchContainer = styled.div`
@@ -338,26 +269,19 @@ export default () => {
                     <MainHeaderForm>
                         <FormContainerHeader>
                             <FormFromInput>
-                                <FromInput placeholder='Москва' />
+                                <ArriveInput placeholder='Москва' />
                                 <FromText>
                                     MOW
                                 </FromText>
                                 <FromArrowImg alt='Arrow' src={arrowSvg} />
                             </FormFromInput>
                             <FormArriveInput>
-                                <ArriveInput />
+                                <ArriveInput placeholder='Город прибытия'/>
                             </  FormArriveInput>
                         </FormContainerHeader>
                         <FormContainerHeader>
                             <DayPicker />
-                            <FormPassInput>
-                                <PassInput placeholder='1 пассажир, эконом'
-                                           readOnly
-                                           autoComplete='off'/>
-                                <PassDropdownBtn>
-                                    <PassDropdownImg alt='dropdown' src={dropdown} />
-                                </PassDropdownBtn>
-                            </FormPassInput>
+                            <PassInput placeholder='1 пассажир, эконом'/>
                         </FormContainerHeader>
                     </MainHeaderForm>
                     <BtnSearchContainer>

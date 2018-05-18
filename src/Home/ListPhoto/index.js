@@ -30,9 +30,10 @@ const SectionPhoto = styled.section`
       }
 `;
 
-const PhotoList = styled.li`
+const PhotoList = styled.ul`
       display: flex;
       flex-direction: column;
+      padding: 0;
       
       @media screen and (min-width: 1024px) {
         flex-direction: row;
@@ -40,7 +41,7 @@ const PhotoList = styled.li`
       }
 `;
 
-const PhotoItem = styled.ul`
+const PhotoItem = styled.li`
       display: flex;
       flex-direction: column;
       padding: 0;

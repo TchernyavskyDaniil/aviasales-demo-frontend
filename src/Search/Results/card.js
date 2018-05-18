@@ -1,20 +1,22 @@
-import React from "react";
-import styled from "styled-components";
-import airbusIcon from "./airbus.svg";
-import timeIcon from "./time.svg";
-import smile from "./smile.png";
-import lovelySmile from "./lovely-smile.png";
-import lightning from "./lightning.png";
-import suitcase from "./suitcase.svg";
-import bag from "./bag.svg";
-import noBag from "./no-bag.svg";
-import share from "./share.svg";
-import pin from "./pin.svg";
-import plane from "./plane.svg";
-import { CardsData, citiesId, airportId } from "./data";
-import format from "date-fns/format";
-import ru from "date-fns/locale/ru";
-import distanceInWordsStrict from "date-fns/distance_in_words_strict";
+import React from 'react';
+import styled from 'styled-components';
+
+import airbusIcon from './airbus.svg';
+import timeIcon from './time.svg';
+import smile from './smile.png';
+import lovelySmile from './lovely-smile.png';
+import lightning from './lightning.png';
+import suitcase from './suitcase.svg';
+import bag from './bag.svg';
+import noBag from './no-bag.svg';
+import share from './share.svg';
+import pin from './pin.svg';
+import plane from './plane.svg';
+
+import { CardsData, citiesId, airportId } from './data';
+import format from 'date-fns/format';
+import ru from 'date-fns/locale/ru';
+import distanceInWordsStrict from 'date-fns/distance_in_words_strict';
 
 const Opener = styled.button`
       border: none;
@@ -46,7 +48,7 @@ const Opener = styled.button`
       }
       
       &:after {
-        content: "";
+        content: '';
         display: block;
         position: absolute;
         top: 50%;
@@ -131,11 +133,6 @@ const BaggagePrice = styled.span`
       text-align: center;
 `;
 
-const BaggageWithout = styled.span`
-      color: #9ab0b9;
-      font-size: 10px;
-`;
-
 const BaggageChoice = styled.button`
       border: none;
       background: none;
@@ -147,12 +144,6 @@ const BaggageChoice = styled.button`
       align-items: center;
       padding-bottom: 5px;
       align-self: baseline;
-`;
-
-const BaggageInactive = BaggageChoice.extend`
-      background: #f8fbfb;
-      border-right: 1px solid #dddddd;
-      border-bottom: 1px solid #dddddd;
 `;
 
 const HandBag = styled.span`
@@ -196,7 +187,7 @@ const Title = styled.h3`
       }
       
       &:after {
-        content: "";
+        content: '';
         position: absolute;
         background-repeat: no-repeat;
       }
@@ -367,7 +358,7 @@ const Time = styled.div`
       position: relative;
       
       &:before {
-        content: "";
+        content: '';
         width: 12px;
         height: 12px;
         background-image: url(${airbusIcon});
@@ -380,7 +371,7 @@ const Time = styled.div`
 
 const TimeReturn = Time.extend`
       &:before {
-        content: "";
+        content: '';
         width: 12px;
         height: 12px;
         background-image: url(${airbusIcon});
@@ -398,7 +389,7 @@ const Flight = styled.div`
       position: relative;
       
       &:before {
-        content: "";
+        content: '';
         width: 12px;
         height: 12px;
         background-image: url(${timeIcon});
@@ -505,7 +496,7 @@ const Dot = styled.span`
       }
       
       &:before {
-        content: "";
+        content: '';
         width: 20px;
         height: 14px;
         background-repeat: no-repeat;
@@ -665,16 +656,16 @@ const CardWrapper = ({
         </Proposals>
       ) : null}
     </Left>
-    {status === "cheapest" && <TitleGreen>Самый дешевый</TitleGreen>}
-    {status === "fastest" && <TitleBrown>Самый быстрый</TitleBrown>}
-    {status === "best" && <TitlePurple>Самый лучший</TitlePurple>}
+    {status === 'cheapest' && <TitleGreen>Самый дешевый</TitleGreen>}
+    {status === 'fastest' && <TitleBrown>Самый быстрый</TitleBrown>}
+    {status === 'best' && <TitlePurple>Самый лучший</TitlePurple>}
     <Content>
       <Top>
         {logo.length > 1 ? (
-          <Logo>{logo.map(logo => <LogoSmall src={logo} alt="" />)}</Logo>
+          <Logo>{logo.map(logo => <LogoSmall src={logo} alt=' ' />)}</Logo>
         ) : (
           <Logo>
-            <LogoImage src={logo} alt="" />
+            <LogoImage src={logo} alt=' ' />
           </Logo>
         )}
         <Price>
@@ -688,8 +679,8 @@ const CardWrapper = ({
       <Bottom>
         <ContainerTime>
             <Time>
-                {format(departure.outTime * 1000, "HH:mm", { locale: ru })} -{" "}
-                {format(departure.inTime * 1000, "HH:mm", { locale: ru })}
+                {format(departure.outTime * 1000, 'HH:mm', { locale: ru })} -{' '}
+                {format(departure.inTime * 1000, 'HH:mm', { locale: ru })}
             </Time>
             <Flight>
                 {distanceInWordsStrict(0, departure.totalTime * 1000, { locale: ru })}
@@ -698,8 +689,8 @@ const CardWrapper = ({
         </ContainerTime>
         <ContainerTimeReturn>
             <TimeReturn>
-                {format(arrival.outTime * 1000, "HH:mm", { locale: ru })} -{" "}
-                {format(arrival.inTime * 1000, "HH:mm", { locale: ru })}
+                {format(arrival.outTime * 1000, 'HH:mm', { locale: ru })} -{' '}
+                {format(arrival.inTime * 1000, 'HH:mm', { locale: ru })}
             </TimeReturn>
             <Flight>
                 {distanceInWordsStrict(0, arrival.totalTime * 1000, { locale: ru })}
@@ -711,14 +702,14 @@ const CardWrapper = ({
         <FlightBlock>
           <Departure>
             <PinTime>
-              <Pin />{" "}
+              <Pin />{' '}
               <RouteTime>
-                {format(departure.outTime * 1000, "HH:mm", { locale: ru })}
+                {format(departure.outTime * 1000, 'HH:mm', { locale: ru })}
               </RouteTime>
             </PinTime>
             <City>{citiesId[departure.city]}</City>
             <Date>
-              {format(departure.date * 1000, "D MMM YYYY, dd", {
+              {format(departure.date * 1000, 'D MMM YYYY, dd', {
                 locale: ru
               })}
             </Date>
@@ -742,11 +733,11 @@ const CardWrapper = ({
           </Route>
           <Arrival>
             <RouteTime>
-              {format(departure.inTime * 1000, "HH:mm", { locale: ru })}
+              {format(departure.inTime * 1000, 'HH:mm', { locale: ru })}
             </RouteTime>
             <City>{citiesId[arrival.city]}</City>
             <Date>
-              {format(departure.date * 1000, "D MMM YYYY, dd", {
+              {format(departure.date * 1000, 'D MMM YYYY, dd', {
                 locale: ru
               })}
             </Date>
@@ -757,12 +748,12 @@ const CardWrapper = ({
             <PinTime>
               <Pin />
               <RouteTime>
-                {format(arrival.outTime * 1000, "HH:mm", { locale: ru })}
+                {format(arrival.outTime * 1000, 'HH:mm', { locale: ru })}
               </RouteTime>
             </PinTime>
             <City>{citiesId[arrival.city]}</City>
             <Date>
-              {format(arrival.date * 1000, "D MMM YYYY, dd", {
+              {format(arrival.date * 1000, 'D MMM YYYY, dd', {
                 locale: ru
               })}
             </Date>
@@ -786,11 +777,11 @@ const CardWrapper = ({
           </Route>
           <Arrival>
             <RouteTime>
-              {format(arrival.inTime * 1000, "HH:mm", { locale: ru })}
+              {format(arrival.inTime * 1000, 'HH:mm', { locale: ru })}
             </RouteTime>
             <City>{citiesId[departure.city]}</City>
             <Date>
-              {format(arrival.date * 1000, "D MMM YYYY, dd", {
+              {format(arrival.date * 1000, 'D MMM YYYY, dd', {
                 locale: ru
               })}
             </Date>
@@ -806,7 +797,7 @@ const CardsWrapper = () => (
   <div>{CardsData.map(data => <CardWrapper {...data} />)}</div>
 );
 
-function Cards(props) {
+function Cards() {
   return <CardsWrapper />;
 }
 

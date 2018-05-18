@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-
 const ArriveInput = styled.input`
       padding: 18px 16px;
       border: none;
@@ -152,9 +151,10 @@ class Places extends Component {
         this.setState({ isOpen: true });
     };
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.onTextChanged = this.onTextChanged.bind(this);
+        this.onClickElement = this.onClickElement.bind(this);
     }
 
     componentDidMount() {
@@ -174,36 +174,39 @@ class Places extends Component {
 
         let itemPlace = '';
         const listPlace = this.state.listPlaces.filter(place => {
-            itemPlace = place.city + ' ' + place.country;
+            itemPlace = place.city + place.country;
             return itemPlace.toLowerCase().search(text.toLowerCase()) !== -1;
         })
 
         this.setState({listPlacesNew: listPlace});
+    }
 
-        console.log(this.state.listPlacesNew);
-        // const filteredList = this.state.listPlaces[0].city;
+    onClickElement() {
+
     }
 
     render() {
         return (
             <Container>
-                <ArriveInput placeholder='Город прибытия' onChange={this.onTextChanged} onClick={this.toggleOpen}/>
+                <ArriveInput type='text' placeholder={this.props.placeholder} onChange={this.onTextChanged} onClick={this.toggleOpen}/>
                 {this.state.isOpen && (
                     <List>
-                        {this.state.listPlacesNew.map(place => {
-                            return <Item key={place.key}>
-                                <PlaceContainer>
-                                    <City>
-                                        {place.city},
-                                    </City>
-                                    <Country>
-                                        {place.country}
-                                    </Country>
-                                </PlaceContainer>
-                                <Type>
-                                    {place.type}
-                                </Type>
-                            </Item>
+                        {this.state.listPlacesNew.map((place, index) => {
+                            if (index < 6) {
+                                return <Item key={place.key}>
+                                    <PlaceContainer onClick={this.onClickElement}>
+                                        <City>
+                                            {place.city},
+                                        </City>
+                                        <Country>
+                                            {place.country}
+                                        </Country>
+                                    </PlaceContainer>
+                                    <Type>
+                                        {place.type}
+                                    </Type>
+                                </Item>
+                            }
                         })}
                     </List>
                 )}

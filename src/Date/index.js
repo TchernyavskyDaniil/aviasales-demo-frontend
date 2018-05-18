@@ -136,7 +136,7 @@ const Dates = styled.div`
     
       @media (min-width: 1024px) {
         flex-basis: 30%;
-        min-width: 250px;
+        min-width: 320px;
       }
 `;
 
@@ -279,8 +279,6 @@ const DayPickerWrapper = styled.div`
       text-align: center;
 `;
 
-const ButtonExit = styled.button``;
-
 class DatePicker extends React.Component {
   state = { isOpen: false };
 
@@ -306,7 +304,7 @@ class DatePicker extends React.Component {
     this.setState({ isOpen: false });
   }
 
-  handleDayClick(day, { disabled, selected }) {
+  handleDayClick(day, { disabled }) {
     if (!disabled) {
       const range = DateUtils.addDayToRange(day, this.state);
       this.setState(range);
@@ -317,7 +315,7 @@ class DatePicker extends React.Component {
     this.setState(this.getInitialState());
   }
 
-  handleClearClick = e => {
+  handleClearClick = () => {
     this.setState({ to: null });
   };
 
@@ -362,9 +360,6 @@ class DatePicker extends React.Component {
                 <Checkbox type="checkbox" />
                 <Checkmark />
               </Label>
-              {/*<ButtonExit onClick={this.handleClickOutside}>*/}
-                {/*OK*/}
-              {/*</ButtonExit>*/}
             </DayPickerWrapper>
           )}
         </Depart>

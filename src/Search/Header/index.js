@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import ArriveInput from '../../SearchInput/index'
+import PassInput from '../../PassengerInput/index'
 
 import back from "./back.svg";
 import logo from "./logo.svg";
@@ -176,37 +177,6 @@ const Input = styled.input`
       }
 `;
 
-const OriginInput = Input.extend`
-      width: 100%;
-      border-bottom-right-radius: 0;
-      border-bottom-left-radius: 0;
-    
-      @media screen and (min-width: 768px) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 0;
-      }
-    
-      @media screen and (min-width: 1024px) {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-        border-bottom-left-radius: 5px;
-      }
-`;
-
-const DestinationInput = Input.extend`
-      width: 100%;
-      border-radius: 0;
-    
-      @media screen and (min-width: 768px) {
-        border-top-right-radius: 5px;
-      }
-    
-      @media screen and (min-width: 1024px) {
-        border-radius: 0;
-      }
-`;
-
 const Swap = styled.button`
       background: none;
       border: none;
@@ -225,59 +195,6 @@ const LogoImg = styled.img`
       margin-right: 12px;
       position: absolute;
       top: 6px;
-`;
-
-const DropdownList = styled.div`
-      padding: 18px 16px;
-      background: #fff;
-      border: none;
-      margin: 2px 0;
-      border-radius: 5px;
-      width: 100%;
-      position: relative;
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      cursor: pointer;
-    
-      @media screen and (min-width: 768px) {
-        flex-basis: 50%;
-        display: inline-block;
-        border-radius: 0;
-      }
-    
-      @media screen and (min-width: 1024px) {
-        flex-basis: 41%;
-        border-bottom-right-radius: 5px;
-        border-top-right-radius: 5px;
-      }
-`;
-
-const Class = styled.span`
-      position: absolute;
-      color: #a0b0b9;
-      left: 112px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-`;
-
-const DropdownArrow = styled.button`
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      right: 0px;
-      top: 18px;
-      background: #fff;
-      border: none;
-      background-repeat: no-repeat;
-      cursor: pointer;
-      padding: 5px;
-      padding-left: 25px;
-      background-position: center;
-      background-image: url(${arrow});
 `;
 
 const Origin = styled.div`
@@ -407,19 +324,16 @@ export default () => {
             <Form>
               <FormWrapper>
                 <Origin>
-                  <OriginInput id="origin" placeholder="Москва" />
+                  <ArriveInput placeholder='Москва'/>
                   <Swap />
                   <Iata>mow</Iata>
                 </Origin>
                 <Destination>
-                  <ArriveInput/>
+                  <ArriveInput placeholder='Город прибытия'/>
                 </Destination>
                 <DayPicker />
                 <DropdownWrap>
-                   <DropdownList>
-                      1 пассажир, <Class>эконом</Class>
-                    <DropdownArrow />
-                  </DropdownList>
+                  <PassInput placeholder='1 пассажир, эконом'/>
                   <ButtonWrapper>
                     <Button>Найти билеты</Button>
                   </ButtonWrapper>
@@ -436,5 +350,5 @@ export default () => {
       </UpWrap>
     </div>
   );
-}
+};
 
