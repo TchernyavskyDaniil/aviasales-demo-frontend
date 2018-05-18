@@ -333,7 +333,7 @@ const ButtonSearch = styled.button`
       }
       
       @media screen and (min-width: 1024px) {
-        width: 50%;
+        width: 310px;
         margin-left: auto;
         margin-right: auto;
       }
@@ -359,61 +359,63 @@ export default () => {
                     </LogoText>
                 </LinkContainer>
                 <MainHeaderContainer>
-                    <MainHeaderText>
-                        <Title>
-                            Поиск дешевых авиабилетов
-                        </Title>
-                        <SubTitle>
-                            Лучший способ купить авиабилеты дешево
-                        </SubTitle>
-                    </MainHeaderText>
-                    <MainHeaderForm>
-                        <FormContainerHeader>
-                            <FormFromInput>
-                                <FromInput placeholder='Москва' />
-                                <FromText>
-                                    MOW
-                                </FromText>
-                                <FromArrowImg alt='Arrow' src={arrowSvg} />
-                            </FormFromInput>
-                            <FormArriveInput>
-                                <ArriveInput placeholder='Город прибытия' />
-                            </FormArriveInput>
-                        </FormContainerHeader>
-                        <FormContainerHeader>
-                            <FormContainerTwoWays>
-                                <FormThereInput>
-                                    <InputCalendarThere placeholder='Туда'
-                                                   readOnly
-                                                   autoComplete='off'
-                                    />
-                                    <CalendarBtn>
-                                        <CalendarImg alt='Calendar' src={calendarSvg} />
-                                    </CalendarBtn>
-                                </FormThereInput>
-                                <FormBackInput>
-                                    <InputCalendar placeholder='Обратно'
-                                                   readOnly
-                                                   autoComplete='off'
-                                    />
-                                    <CalendarBtn>
-                                        <CalendarImg alt='Calendar' src={calendarSvg} />
-                                    </CalendarBtn>
-                                </FormBackInput>
-                            </FormContainerTwoWays>
-                            <FormPassInput>
-                                <PassInput placeholder='1 пассажир, эконом' />
-                                <PassDropdownBtn>
-                                    <PassDropdownImg alt='dropdown' src={dropdown} />
-                                </PassDropdownBtn>
-                            </FormPassInput>
-                        </FormContainerHeader>
-                    </MainHeaderForm>
-                    <BtnSearchContainer>
-                        <ButtonSearch>
-                            Найти билеты
-                        </ButtonSearch>
-                    </BtnSearchContainer>
+                    <div className='container'>
+                        <MainHeaderText>
+                            <Title>
+                                Поиск дешевых авиабилетов
+                            </Title>
+                            <SubTitle>
+                                Лучший способ купить авиабилеты дешево
+                            </SubTitle>
+                        </MainHeaderText>
+                        <MainHeaderForm>
+                            <FormContainerHeader>
+                                <FormFromInput>
+                                    <FromInput placeholder='Москва' />
+                                    <FromText>
+                                        MOW
+                                    </FromText>
+                                    <FromArrowImg alt='Arrow' src={arrowSvg} />
+                                </FormFromInput>
+                                <FormArriveInput>
+                                    <ArriveInput placeholder='Город прибытия' />
+                                </FormArriveInput>
+                            </FormContainerHeader>
+                            <FormContainerHeader>
+                                <FormContainerTwoWays>
+                                    <FormThereInput>
+                                        <InputCalendarThere placeholder='Туда'
+                                                       readOnly
+                                                       autoComplete='off'
+                                        />
+                                        <CalendarBtn>
+                                            <CalendarImg alt='Calendar' src={calendarSvg} />
+                                        </CalendarBtn>
+                                    </FormThereInput>
+                                    <FormBackInput>
+                                        <InputCalendar placeholder='Обратно'
+                                                       readOnly
+                                                       autoComplete='off'
+                                        />
+                                        <CalendarBtn>
+                                            <CalendarImg alt='Calendar' src={calendarSvg} />
+                                        </CalendarBtn>
+                                    </FormBackInput>
+                                </FormContainerTwoWays>
+                                <FormPassInput>
+                                    <PassInput placeholder='1 пассажир, эконом' />
+                                    <PassDropdownBtn>
+                                        <PassDropdownImg alt='dropdown' src={dropdown} />
+                                    </PassDropdownBtn>
+                                </FormPassInput>
+                            </FormContainerHeader>
+                        </MainHeaderForm>
+                        <BtnSearchContainer>
+                            <ButtonSearch>
+                                Найти билеты
+                            </ButtonSearch>
+                        </BtnSearchContainer>
+                    </div>
                 </MainHeaderContainer>
             </HeaderContainer>
         </Header>
