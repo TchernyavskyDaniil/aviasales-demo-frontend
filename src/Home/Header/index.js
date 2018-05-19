@@ -133,6 +133,20 @@ const FormFromInput = styled.div`
       padding-top: 2px;
       box-sizing: border-box;
      
+      & .MoscowInput {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        
+        @media screen and (min-width: 768px) {
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+        
+        @media screen and (min-width: 1024px) {
+          border-bottom-left-radius: 4px;
+        }
+      }
+     
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
         margin-right: 2px;
@@ -269,7 +283,7 @@ export default () => {
                     <MainHeaderForm>
                         <FormContainerHeader>
                             <FormFromInput>
-                                <ArriveInput placeholder='Москва' />
+                                <ArriveInput className='MoscowInput' placeholder='Москва' />
                                 <FromText>
                                     MOW
                                 </FromText>
@@ -277,7 +291,7 @@ export default () => {
                             </FormFromInput>
                             <FormArriveInput>
                                 <ArriveInput placeholder='Город прибытия'/>
-                            </  FormArriveInput>
+                            </FormArriveInput>
                         </FormContainerHeader>
                         <FormContainerHeader>
                             <DayPicker />

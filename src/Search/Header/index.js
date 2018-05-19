@@ -185,6 +185,20 @@ const Origin = styled.div`
       position: relative;
       display: flex;
       width: 100%;
+      
+      & .MoscowInput {
+        border-top-left-radius: 4px;
+        border-top-right-radius: 4px;
+        
+        @media screen and (min-width: 768px) {
+          border-bottom-left-radius: 0;
+          border-top-right-radius: 0;
+        }
+        
+        @media screen and (min-width: 1024px) {
+          border-bottom-left-radius: 4px;
+        }
+      }
     
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
@@ -320,7 +334,7 @@ export default () => {
             <Form>
               <FormWrapper>
                 <Origin>
-                  <ArriveInput placeholder='Москва'/>
+                  <ArriveInput placeholder='Москва' className='MoscowInput' />
                   <Swap />
                   <Iata>mow</Iata>
                 </Origin>

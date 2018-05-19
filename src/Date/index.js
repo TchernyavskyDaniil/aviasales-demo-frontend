@@ -130,7 +130,7 @@ const Dates = styled.div`
       position: relative;
     
       @media (min-width: 768px) {
-        flex-basis: 50.5%;
+        flex-basis: 50.3%;
         display: flex;
       }
     
@@ -143,8 +143,8 @@ const Dates = styled.div`
 const Depart = styled.div`
       position: relative;
       width: 50%;
-      margin-right: 1px;
       display: flex;
+      margin-right: 2px;
     
       @media (min-width: 768px) {
         width: 50%;
@@ -152,21 +152,26 @@ const Depart = styled.div`
       }
 `;
 
-const Return = Depart.extend``;
+const Return = Depart.extend`
+      margin-right: 0;
+`;
 
 const Input = styled.input`
       padding: 18px 16px;
       background: #fff;
       border: none;
       margin: 0;
-      margin-top: 2px;
-      margin-bottom: 2px;
       border-radius: 5px;
       display: flex;
       cursor: pointer;
       flex-direction: row;
       align-items: center;
       box-sizing: border-box;
+      
+      @media screen and (min-width: 768px) {
+        margin-top: 2px;
+        margin-bottom: 2px;
+      }
       
       &:focus {
         outline: none;
@@ -176,12 +181,10 @@ const Input = styled.input`
 
 const DepartInput = Input.extend`
       width: 100%;
-      margin-right: 2px;
       border-radius: 0;
       cursor: pointer;
     
       @media (min-width: 768px) {
-        margin-right: 0;
         border-bottom-left-radius: 5px;
       }
     

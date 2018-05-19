@@ -4,14 +4,14 @@ import styled from 'styled-components';
 import dropdown from './dropdown.svg'
 import checked from '../Search/Filter/checked.svg'
 import unchecked from '../Search/Filter/unchecked.svg'
+import reverse from './reverse.svg'
 
 const PassInput = styled.input`
       padding: 18px 16px;
       border: none;
       color: black;
       box-sizing: border-box;
-      border-bottom-left-radius: 4px;
-      border-bottom-right-radius: 4px;
+      border-radius: 4px;
       cursor: pointer;
 
       ::placeholder {
@@ -19,14 +19,10 @@ const PassInput = styled.input`
       }
       
       @media screen and (min-width: 768px) {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
         max-width: 200px;
       }
       
       @media screen and (min-width: 1024px) {
-        border-top-right-radius: 4px;
-        border-bottom-right-radius: 4px;
         padding-right: 25px;
       }
       
@@ -205,6 +201,18 @@ const Container = styled.div`
       flex-direction: column;
       cursor: pointer;
       background-color: white;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
+      
+      @media screen and (min-width: 768px) {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
 `;
 
 const TypeClass = styled.p`
@@ -221,12 +229,14 @@ class Passenger extends Component {
         countAdult: 0,
         countChildren: 0,
         countBabe: 0,
-        typeClass: 'эконом'
+        typeClass: 'эконом',
+        typeBtn: true
     };
 
     handlerToggleOpen = () => {
         this.setState(prevState => ({
-            isOpen: !prevState.isOpen
+            isOpen: !prevState.isOpen,
+            typeBtn: !prevState.typeBtn
         }));
     };
 
@@ -278,7 +288,10 @@ class Passenger extends Component {
                         {this.state.typeClass ? 'эконом' : 'бизнес'}
                     </TypeClass>
                     <PassDropdownBtn>
-                        <PassDropdownImg alt='dropdown' src={dropdown} />
+                        {this.state.typeBtn ?
+                            <PassDropdownImg alt='dropdown' src={dropdown} /> :
+                            <PassDropdownImg alt='dropdown'
+                                             src={reverse}/>}
                     </PassDropdownBtn>
                 </Container>
                 {

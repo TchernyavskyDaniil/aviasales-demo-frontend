@@ -188,7 +188,7 @@ class Places extends Component {
     render() {
         return (
             <Container>
-                <ArriveInput type='text' placeholder={this.props.placeholder} onChange={this.onTextChanged} onClick={this.toggleOpen}/>
+                <ArriveInput type='text' placeholder={this.props.placeholder} className={this.props.className} onChange={this.onTextChanged} onClick={this.toggleOpen}/>
                 {this.state.isOpen && (
                     <List>
                         {this.state.listPlacesNew.map((place, index) => {
