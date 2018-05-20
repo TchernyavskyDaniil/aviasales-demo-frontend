@@ -6,7 +6,6 @@ import PassInput from '../../PassengerInput/index'
 
 import back from './back.svg';
 import logo from './logo.svg';
-import swapIcon from './swap.svg';
 import DayPicker from '../../Date/index';
 
 const Wrapper = styled.div`
@@ -45,6 +44,7 @@ const UpButton = styled.button`
       font-weight: 400;
       font-size: 14px;
       transition: all 0.3s ease;
+      border-radius: 4px;
       
       &:hover {
         opacity: 1;
@@ -158,19 +158,6 @@ const AviasalesLink = styled(Link)`
       display: inline-block;
 `;
 
-const Swap = styled.button`
-      background: none;
-      border: none;
-      height: 32px;
-      width: 32px;
-      background-image: url(${swapIcon});
-      background-repeat: no-repeat;
-      cursor: pointer;
-      position: absolute;
-      right: 0px;
-      top: 20px;
-`;
-
 const LogoImg = styled.img`
       display: none;
       vertical-align: middle;
@@ -188,7 +175,7 @@ const Origin = styled.div`
       display: flex;
       width: 100%;
       
-      & .MoscowInput {
+      & .arrive-input {
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         
@@ -239,7 +226,7 @@ const Button = styled.button`
       border-radius: 4px;
       color: #fff;
       border: none;
-      font-weight: 700;
+      font-weight: 400;
       line-height: normal;
       font-size: 20px;
       cursor: pointer;
@@ -337,8 +324,7 @@ export default () => {
             <Form>
               <FormWrapper>
                 <Origin>
-                  <ArriveInput placeholder='Москва' className='MoscowInput' />
-                  <Swap />
+                  <ArriveInput value='Москва' className='arrive-input' />
                   <Iata>mow</Iata>
                 </Origin>
                 <Destination>

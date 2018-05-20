@@ -1,23 +1,32 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-const ArriveInput = styled.input`
+import arrowSvg from './arrow.svg'
+
+const SearchInput = styled.input`
       padding: 18px 16px;
       border: none;
       color: black;
       box-sizing: border-box;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
       
       @media screen and (min-width: 768px) {
         border-top-right-radius: 4px;
       }
       
-      @media screen and (min-width: 1024px) {
+      @media screen and (min-width: 1200px) {
+        min-width: 226px;
         border-top-right-radius: 0;
       }
       
       @media screen and (min-width: 1024px) and (max-width: 1200px) {
         max-width: 160px;
+        border-top-right-radius: 0;
       }
+      
+      
 `;
 
 const List = styled.ul`
@@ -89,9 +98,35 @@ const PlaceContainer = styled.div`
       width: 85%;
 `;
 
+const SearchType = styled.p`
+      margin: 0;
+      position: absolute;
+      font-size: 16px;
+      line-height: 20px;
+      color: #A0B0B9;
+      right: 16px;
+`;
+
+const FromArrowBtn = styled.button`
+      position: absolute;
+      bottom: 21px;
+      cursor: pointer;
+      background-image: url(${arrowSvg});
+      padding: 0;
+      height: 20px;
+      width: 20px;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: transparent;
+      top: 18px;
+      right: 8px;
+`;
+
 class Places extends Component {
     state = {
         isOpen: false,
+        value: '',
+        valueType: '',
         listPlaces: [
             {
                 city: 'Бангкок',
@@ -146,28 +181,36 @@ class Places extends Component {
 
     ]};
 
-    toggleOpen = () => {
+    handlerToggleOpen = () => {
         this.setState({ isOpen: true });
     };
 
     constructor(props) {
         super(props);
-        this.onTextChanged = this.onTextChanged.bind(this);
+
+        this.handlerTextChanged = this.handlerTextChanged.bind(this);
     }
 
-    componentDidMount() {
-        document.addEventListener('mousedown', this.handleClickOutside);
-    }
+    // componentDidMount() {
+    //     document.addEventListener('mouseup', this.handleClickOutside);
+    // }
+    //
+    // componentWillUnmount() {
+    //     document.removeEventListener('mouseup', this.handleClickOutside);
+    // }
+    //
+    // handleClickOutside = () => {
+    //     this.setState({ isOpen: false })
+    // };
 
-    componentWillUnmount() {
-        document.removeEventListener('mousedown', this.handleClickOutside);
-    }
+    handlerTextChanged(e) {
+        if (this.props.value.length) {
+            this.setState({
+                value: this.props.value
+            })
+        }
+        this.setState({value: e.target.value});
 
-    handleClickOutside = () => {
-        this.setState({ isOpen: false })
-    };
-
-    onTextChanged(e) {
         const text = e.target.value.trim();
 
         let itemPlace = '';
@@ -179,15 +222,38 @@ class Places extends Component {
         this.setState({listPlacesNew: listPlace});
     }
 
+    handlerSelectItem = (place) => {
+        this.setState(prevState => ({
+            isOpen: !prevState.isOpen,
+            value: place.city,
+            valueType: place.type}));
+    };
+
+    sendDataMethod() {
+        console.log(this.state.value)
+        this.props.sendData(this.state.value)
+    }
+
     render() {
         return (
             <Container>
-                <ArriveInput type='text' placeholder={this.props.placeholder} className={this.props.className} onChange={this.onTextChanged} onClick={this.toggleOpen}/>
+                <SearchInput type='text'
+                             id='arrive-input'
+                             value={this.state.value || this.props.value}
+                             placeholder={this.props.placeholder}
+                             className={this.props.className}
+                             onChange={this.handlerTextChanged}
+                             onClick={this.handlerToggleOpen}
+                />
+                <SearchType>
+                    {this.state.value.length > 1 ? this.state.valueType : ''}
+                </SearchType>
+                {this.props.className ? <FromArrowBtn alt='Arrow' onClick={() => {this.sendDataMethod()}} /> : null}
                 {this.state.isOpen && (
                     <List>
                         {this.state.listPlacesNew.map((place, index) => {
                             if (index < 6) {
-                                return <Item key={place.key}>
+                                return <Item key={place.key} onClick={() => this.handlerSelectItem(place)}>
                                     <PlaceContainer>
                                         <City>
                                             {place.city},

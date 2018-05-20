@@ -48,7 +48,7 @@ const PassDropdownBtn = styled.button`
       position: absolute;
       border: none;
       background-color: #fff;
-      right: 12px;
+      right: 10px;
       top: 16px;
       cursor: pointer;
       padding: 0;
@@ -59,7 +59,7 @@ const PassDropdownBtn = styled.button`
       }
       
       @media screen and (min-width: 1024px) {
-        padding-right: 10px;
+        padding-right: 6px;
       }
 `;
 
@@ -252,19 +252,26 @@ const TypePass = styled.p`
       max-width: 160px;
       
       @media screen and (min-width: 1024px) {
+        width: 80%;
         max-width: 100%;
       }
 `;
 
 class Passenger extends Component {
+    constructor(props){
+        super(props);
+
+        this.changeTypePass = this.changeTypePass.bind(this);
+    }
+
     state = {
         isOpen: false,
         countAdult: 1,
         countChildren: 0,
         countBabe: 0,
-        TypePass: 'эконом',
+        typePass: true,
         typeBtn: true,
-        numberPass: 1,
+        numberOfPass: 1,
         typeWordPass: 'пассажир'
     };
 
@@ -275,63 +282,87 @@ class Passenger extends Component {
         }));
     };
 
+    // TODO Попытаться улучшить
+
     handlerMinusAdult = () => {
         if (this.state.countAdult >= 1) {
             this.setState({
                 countAdult: this.state.countAdult - 1,
-                numberPass: this.state.numberPass - 1})
+                numberOfPass: this.state.numberOfPass - 1})
         }
     };
 
     handlerPlusAdult = () => {
         this.setState({
             countAdult: this.state.countAdult + 1,
-            numberPass: this.state.numberPass + 1})
+            numberOfPass: this.state.numberOfPass + 1})
     };
 
     handlerPlusChildren = () => {
         this.setState({
             countChildren: this.state.countChildren + 1,
-            numberPass: this.state.numberPass + 1})
+            numberOfPass: this.state.numberOfPass + 1})
     };
 
     handlerMinusChildren = () => {
         if (this.state.countChildren >= 1) {
             this.setState({
                 countChildren: this.state.countChildren - 1,
-                numberPass: this.state.numberPass - 1})
+                numberOfPass: this.state.numberOfPass - 1})
         }
     };
 
     handlerPlusBabe = () => {
         this.setState({
             countBabe: this.state.countBabe + 1,
-            numberPass: this.state.numberPass + 1})
+            numberOfPass: this.state.numberOfPass + 1})
     };
 
     handlerMinusBabe = () => {
         if (this.state.countBabe >= 1) {
             this.setState({
                 countBabe: this.state.countBabe - 1,
-                numberPass: this.state.numberPass - 1})
+                numberOfPass: this.state.numberOfPass - 1})
         }
     };
 
+    //
+
     handlerChangeClass = () => {
       this.setState(prevState => ({
-          TypePass: !prevState.TypePass
+          typePass: !prevState.typePass
       }))
+    };
+
+    changeTypePass = () => {
+        let typeWord = this.state.typeWordPass;
+        let numberOfPassengers = this.state.numberOfPass;
+        let text = numberOfPassengers + ' ' + typeWord;
+
+        if (this.state.numberOfPass > 1 && this.state.numberOfPass < 5) {
+            typeWord = ' пассажира';
+        } else if (this.state.numberOfPass > 4) {
+            typeWord = ' пассажиров';
+        } else if (this.state.numberOfPass === 0) {
+            typeWord = 'Укажите количество';
+            return typeWord;
+        }
+
+        text = numberOfPassengers + ' ' + typeWord;
+
+        return text;
     };
 
     render() {
         return (
             <FormPassInput>
-                <Container onClick={this.handlerToggleOpen}>
+                <Container onClick={this.handlerToggleOpen} className={this.props.className}>
                     <PassInput readOnly
                                autoComplete='off'
                     />
                     <TypePass>
-                        {this.state.numberPass}  {this.state.typeWordPass}, {this.state.TypePass ? 'эконом' : 'бизнес'}
+                        {this.changeTypePass()},
+                        {this.state.typePass ? ' эконом' : ' бизнес'}
                     </TypePass>
                     <PassDropdownBtn>
                         {this.state.typeBtn ?

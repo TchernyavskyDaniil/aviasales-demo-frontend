@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import DayPicker from '../../Date/index';
@@ -7,7 +7,6 @@ import PassInput from '../../PassengerInput/index'
 
 
 import logoSvg from './aviasales.svg'
-import arrowSvg from './arrow.svg'
 import aero from './aero.svg'
 
 
@@ -132,7 +131,7 @@ const FormFromInput = styled.div`
       height: 56px;
       box-sizing: border-box;
      
-      & .MoscowInput {
+      & .arrive-input {
         border-top-left-radius: 4px;
         border-top-right-radius: 4px;
         
@@ -161,16 +160,7 @@ const FromText = styled.p`
       bottom: 20px;
       right: 40px;
       margin: 0;
-      top: 19px;
-`;
-
-const FromArrowImg = styled.img`
-      width: 16px;
-      height: 16px;
-      position: absolute;
-      bottom: 21px;
-      right: 15px;
-      top: 22px;
+      top: 18px;
 `;
 
 const FormArriveInput = styled.div`
@@ -222,9 +212,10 @@ const ButtonSearch = styled.button`
       padding-left: 52px;
       padding-right: 52px;
       color: #ffffff;
-      font-size: 1.5rem;
+      font-size: 24px;
       font-weight: 400;
-      line-height: 1.25;
+      line-height: 33px;
+      border-radius: 4px;
        
       &:after {
         content: url(${aero});
@@ -233,15 +224,18 @@ const ButtonSearch = styled.button`
         padding-top: 2px;
       }
       
-      @media screen and (min-width: 1024px) {
-        width: 40%%;
-        margin-left: auto;
-        margin-right: auto;
-      }
-      
       &:hover {
         background-color: #ffa353;
       }
+      
+      @media screen and (min-width: 768px) {
+        font-size: 28px;
+      }
+      
+      @media screen and (min-width: 1024px) {
+        margin-left: auto;
+        margin-right: auto;
+      }   
 `;
 
 const FormContainerHeader = styled.div`
@@ -251,6 +245,10 @@ const FormContainerHeader = styled.div`
       @media screen and (min-width: 768px) {
         flex-direction: row;
         align-items: center;
+        
+        & .home-radius {
+          border-bottom-right-radius: 4px;
+        }
       }
 `;
 
@@ -258,56 +256,85 @@ const Span = styled.span`
       color: white;
 `;
 
-export default () => {
-    return (
-        <Header>
-            <HeaderContainer>
-                <LinkContainer>
-                    <Link to='/'>
-                        <LogoImg alt='Logo' src={logoSvg} />
-                        <LogoText>
-                            aviasales
-                        </LogoText>
-                    </Link>
-                </LinkContainer>
-                <MainHeaderContainer>
-                    <MainHeaderText>
-                        <Title>
-                            Поиск дешевых авиабилетов
-                        </Title>
-                        <SubTitle>
-                            Лучший способ купить авиабилеты дешево
-                        </SubTitle>
-                    </MainHeaderText>
-                    <MainHeaderForm>
-                        <FormContainerHeader>
-                            <FormFromInput>
-                                <ArriveInput className='MoscowInput' placeholder='Москва' />
-                                <FromText>
-                                    MOW
-                                </FromText>
-                                <FromArrowImg alt='Arrow' src={arrowSvg} />
-                            </FormFromInput>
-                            <FormArriveInput>
-                                <ArriveInput placeholder='Город прибытия'/>
-                            </FormArriveInput>
-                        </FormContainerHeader>
-                        <FormContainerHeader>
-                            <DayPicker />
-                            <PassInput />
-                        </FormContainerHeader>
-                    </MainHeaderForm>
-                    <BtnSearchContainer>
-                        <Link to='/search'>
-                            <ButtonSearch>
+export class HomeHeader extends Component {
+   constructor() {
+       super()
+
+       this.getData = this.getData.bind(this);
+   }
+
+   state = {
+       from: '',
+       to: '',
+       name: 'Москва'
+   };
+
+   updateData = (value) => {
+       this.setState({name: value})
+   };
+
+   getData(val) {
+       this.setState({
+           from: val
+       });
+   }
+
+   render() {
+       return (
+         <Header>
+             <HeaderContainer>
+                 <LinkContainer>
+                     <Link to='/'>
+                         <LogoImg alt='Logo' src={logoSvg} />
+                         <LogoText>
+                             aviasales
+                         </LogoText>
+                     </Link>
+                 </LinkContainer>
+                 <MainHeaderContainer>
+                     <MainHeaderText>
+                         <Title>
+                             Поиск дешевых авиабилетов
+                         </Title>
+                         <SubTitle>
+                             Лучший способ купить авиабилеты дешево
+                         </SubTitle>
+                     </MainHeaderText>
+                     <MainHeaderForm>
+                         <FormContainerHeader>
+                             <FormFromInput>
+                                 <ArriveInput className='arrive-input'
+                                              updateData={this.updateData}
+                                              sendData={this.getData}
+                                              value={this.state.name}
+                                  />
+                                 <FromText>
+                                     MOW
+                                 </FromText>
+                             </FormFromInput>
+                             <FormArriveInput>
+                                 <ArriveInput placeholder='Город прибытия' value={this.state.from}/>
+                             </FormArriveInput>
+                         </FormContainerHeader>
+                         <FormContainerHeader>
+                             <DayPicker />
+                             <PassInput className='home-radius'/>
+                         </FormContainerHeader>
+                     </MainHeaderForm>
+                     <BtnSearchContainer>
+                         <Link to='/search'>
+                             <ButtonSearch>
                                 <Span>
                                     Найти билеты
                                 </Span>
-                            </ButtonSearch>
-                        </Link>
-                    </BtnSearchContainer>
-                </MainHeaderContainer>
-            </HeaderContainer>
-        </Header>
-    )
+                             </ButtonSearch>
+                         </Link>
+                     </BtnSearchContainer>
+                 </MainHeaderContainer>
+             </HeaderContainer>
+         </Header>
+       )
+   }
 }
+
+export default HomeHeader;
