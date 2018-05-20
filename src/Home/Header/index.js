@@ -130,7 +130,6 @@ const FormFromInput = styled.div`
       flex-direction: column;
       position: relative;
       height: 56px;
-      padding-top: 2px;
       box-sizing: border-box;
      
       & .MoscowInput {
@@ -178,7 +177,6 @@ const FormArriveInput = styled.div`
       display: flex;
       flex-direction: column;
       margin-bottom: 2px;
-      padding-top: 2px;
       box-sizing: border-box;
       
       @media screen and (min-width: 768px) {
@@ -196,7 +194,7 @@ const BtnSearchContainer = styled.div`
       justify-content: center;
       margin-top: 16px;
       height: 64px;
-      width: 308px;
+      width: 302px;
       align-items: center;
       margin-bottom: 80px;
       margin-left: auto;
@@ -252,6 +250,7 @@ const FormContainerHeader = styled.div`
       
       @media screen and (min-width: 768px) {
         flex-direction: row;
+        align-items: center;
       }
 `;
 
@@ -295,7 +294,7 @@ export default () => {
                         </FormContainerHeader>
                         <FormContainerHeader>
                             <DayPicker />
-                            <PassInput placeholder='1 пассажир, '/>
+                            <PassInput />
                         </FormContainerHeader>
                     </MainHeaderForm>
                     <BtnSearchContainer>

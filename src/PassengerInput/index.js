@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import dropdown from './dropdown.svg'
 import checked from '../Search/Filter/checked.svg'
 import unchecked from '../Search/Filter/unchecked.svg'
-import reverse from './reverse.svg'
 
 const PassInput = styled.input`
       padding: 18px 16px;
@@ -35,12 +34,13 @@ const FormPassInput = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
-      padding-top: 2px;
       box-sizing: border-box;
       position: relative;
+      margin-bottom: 2px;
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
+        margin-left: 2px;
       }
 `;
 
@@ -48,9 +48,19 @@ const PassDropdownBtn = styled.button`
       position: absolute;
       border: none;
       background-color: #fff;
-      right: 8px;
+      right: 12px;
       top: 16px;
       cursor: pointer;
+      padding: 0;
+      padding-right: 0;
+      
+      & .reverse {
+        transform: rotate(180deg);
+      }
+      
+      @media screen and (min-width: 1024px) {
+        padding-right: 10px;
+      }
 `;
 
 const PassDropdownImg = styled.img`
@@ -77,14 +87,24 @@ const ItemPassenger = styled.div`
       flex-direction: row;
       justify-content: space-between;
       padding: 15px;
+      padding-left: 18px;
+      padding-right: 15px;
       align-items: center;
+      
+      @media screen and (min-width: 1024px) {
+        padding-right: 18px;
+      }
 `;
 
 const TypePassenger = styled.p`
       margin: 0;
       font-size: 14px;
-      line-height: 18px;
+      line-height: 16px;
       color: #4A4A4A;
+      
+      @media screen and (min-width: 1024px) {
+        line-height: 18px;
+      }
 `;
 
 const CalcPassenger = styled.div`
@@ -126,10 +146,15 @@ const ButtonPlus = Button.extend`
 
 const DescPassenger = styled.p`
       margin: 0;
-      font-size: 12px;
-      line-height: 18px;
+      font-size: 11px;
+      line-height: 16px;
       color: #A0B0B9;
-      padding-top: 5px;
+      padding-top: 2px;
+      
+      @media screen and (min-width: 1024px) {
+        font-size: 12px;
+        line-height: 18px;
+      }
 `;
 
 const TextPassenger = styled.div`
@@ -215,22 +240,32 @@ const Container = styled.div`
       }
 `;
 
-const TypeClass = styled.p`
+const TypePass = styled.p`
       position: absolute;
-      left: 110px;
-      top: 20px;
+      left: 18px;
+      top: 18px;
       margin: 0;
       user-select: none;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 160px;
+      
+      @media screen and (min-width: 1024px) {
+        max-width: 100%;
+      }
 `;
 
 class Passenger extends Component {
     state = {
         isOpen: false,
-        countAdult: 0,
+        countAdult: 1,
         countChildren: 0,
         countBabe: 0,
-        typeClass: 'эконом',
-        typeBtn: true
+        TypePass: 'эконом',
+        typeBtn: true,
+        numberPass: 1,
+        typeWordPass: 'пассажир'
     };
 
     handlerToggleOpen = () => {
@@ -242,37 +277,49 @@ class Passenger extends Component {
 
     handlerMinusAdult = () => {
         if (this.state.countAdult >= 1) {
-            this.setState({countAdult: this.state.countAdult - 1})
+            this.setState({
+                countAdult: this.state.countAdult - 1,
+                numberPass: this.state.numberPass - 1})
         }
     };
 
     handlerPlusAdult = () => {
-        this.setState({countAdult: this.state.countAdult + 1})
+        this.setState({
+            countAdult: this.state.countAdult + 1,
+            numberPass: this.state.numberPass + 1})
     };
 
     handlerPlusChildren = () => {
-        this.setState({countChildren: this.state.countChildren + 1})
+        this.setState({
+            countChildren: this.state.countChildren + 1,
+            numberPass: this.state.numberPass + 1})
     };
 
     handlerMinusChildren = () => {
         if (this.state.countChildren >= 1) {
-            this.setState({countChildren: this.state.countChildren - 1})
+            this.setState({
+                countChildren: this.state.countChildren - 1,
+                numberPass: this.state.numberPass - 1})
         }
     };
 
     handlerPlusBabe = () => {
-        this.setState({countBabe: this.state.countBabe + 1})
+        this.setState({
+            countBabe: this.state.countBabe + 1,
+            numberPass: this.state.numberPass + 1})
     };
 
     handlerMinusBabe = () => {
         if (this.state.countBabe >= 1) {
-            this.setState({countBabe: this.state.countBabe - 1})
+            this.setState({
+                countBabe: this.state.countBabe - 1,
+                numberPass: this.state.numberPass - 1})
         }
     };
 
     handlerChangeClass = () => {
       this.setState(prevState => ({
-          typeClass: !prevState.typeClass
+          TypePass: !prevState.TypePass
       }))
     };
 
@@ -280,18 +327,18 @@ class Passenger extends Component {
         return (
             <FormPassInput>
                 <Container onClick={this.handlerToggleOpen}>
-                    <PassInput placeholder={this.props.placeholder}
-                               readOnly
+                    <PassInput readOnly
                                autoComplete='off'
                     />
-                    <TypeClass>
-                        {this.state.typeClass ? 'эконом' : 'бизнес'}
-                    </TypeClass>
+                    <TypePass>
+                        {this.state.numberPass}  {this.state.typeWordPass}, {this.state.TypePass ? 'эконом' : 'бизнес'}
+                    </TypePass>
                     <PassDropdownBtn>
                         {this.state.typeBtn ?
                             <PassDropdownImg alt='dropdown' src={dropdown} /> :
                             <PassDropdownImg alt='dropdown'
-                                             src={reverse}/>}
+                                             src={dropdown}
+                                             className='reverse'/>}
                     </PassDropdownBtn>
                 </Container>
                 {

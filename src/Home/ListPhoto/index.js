@@ -59,7 +59,7 @@ const PhotoImgContainer = styled.div`
       overflow: hidden;
       position: relative;
       z-index: 0;
-      min-height: 130px;
+      min-height: 120px;
       
       @media screen and (min-width: 768px) {
         min-height: 190px;
@@ -87,7 +87,7 @@ const PhotoTextInfo = styled.div`
       display: flex;
       flex-direction: column;
       width: 50%;
-      margin-top: 5px;
+      margin-top: 10px;
       margin-bottom: 12px;
       margin-left: 14px;
       position: relative;
@@ -143,7 +143,7 @@ const Flag = styled.img`
 `;
 
 const PhotoSub = styled.p`
-      padding-top: 4px;
+      padding-top: 0;
       font-size: 12px;
       line-height: 20px;
       text-align: left;
@@ -176,6 +176,7 @@ const PhotoPrice = styled.button`
       margin: 0;
       padding-right: 0;
       padding: 0;
+      border: transparent;
       
       @media screen and (min-width: 768px) {
         font-size: 22px;
@@ -184,7 +185,7 @@ const PhotoPrice = styled.button`
 `;
 
 const PhotoDate = styled.p`
-      padding-top: 4px;
+      padding-top: 1px;
       font-size: 12px;
       line-height: 20px;
       text-align: right;

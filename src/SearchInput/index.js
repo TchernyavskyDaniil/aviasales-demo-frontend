@@ -59,12 +59,6 @@ const Item = styled.li`
       &:nth-child(2n) {
         background-color: #F4F4F4;
       }
-      
-      &:hover {
-        border: 1px solid black;
-        padding-left: 14px;
-        padding-right: 9px;
-      }
 `;
 
 const City = styled.p`

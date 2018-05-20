@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
+import React from 'react';
+import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import ArriveInput from '../../SearchInput/index'
 import PassInput from '../../PassengerInput/index'
 
-import back from "./back.svg";
-import logo from "./logo.svg";
-import swapIcon from "./swap.svg";
-import DayPicker from "../../Date/index";
+import back from './back.svg';
+import logo from './logo.svg';
+import swapIcon from './swap.svg';
+import DayPicker from '../../Date/index';
 
 const Wrapper = styled.div`
       background: linear-gradient(
@@ -42,7 +42,7 @@ const UpButton = styled.button`
       color: #fff;
       border: none;
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 400;
       font-size: 14px;
       transition: all 0.3s ease;
       
@@ -141,6 +141,7 @@ const Passengers = styled.div`
 `;
 
 const Aviasales = styled.p`
+      display: none;
       font-size: 20px;
       color: #fff;
       text-decoration: none;
@@ -154,11 +155,7 @@ const Aviasales = styled.p`
 `;
 
 const AviasalesLink = styled(Link)`
-      display: none;
-    
-      @media screen and (min-width: 768px) {
-        display: inline-block;
-      }
+      display: inline-block;
 `;
 
 const Swap = styled.button`
@@ -175,10 +172,15 @@ const Swap = styled.button`
 `;
 
 const LogoImg = styled.img`
+      display: none;
       vertical-align: middle;
       margin-right: 12px;
       position: absolute;
       top: 6px;
+      
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
 `;
 
 const Origin = styled.div`
@@ -245,7 +247,7 @@ const Button = styled.button`
       position: relative;
     
       @media screen and (min-width: 768px) {
-        margin: 2px 0 2px 2px;
+        margin: 0 0 2px 2px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
         border-top-right-radius: 0;
@@ -308,17 +310,18 @@ const ContainerRight = styled.div`
       display: flex;
       flex-direction: row;
       width: 100%;
+      margin-top: 2px;
 `;
 
 export default () => {
   return (
     <div>
       <Wrapper>
-        <div className="container">
+        <div className='container'>
           <Mobile>
-            <Back />
-            <AviasalesLink to="/">
-              <LogoImg src={logo} alt="logo" />
+            <AviasalesLink to='/'>
+              <Back />
+              <LogoImg src={logo} alt='logo' />
               <Aviasales>aviasales</Aviasales>
             </AviasalesLink>
             <MobileLeft>
@@ -344,7 +347,7 @@ export default () => {
                 <ContainerRight>
                     <DayPicker />
                     <DropdownWrap>
-                        <PassInput placeholder='1 пассажир, '/>
+                        <PassInput />
                         <ButtonWrapper>
                             <Button>Найти билеты</Button>
                         </ButtonWrapper>
@@ -356,7 +359,7 @@ export default () => {
         </div>
       </Wrapper>
       <UpWrap>
-        <div className="container">
+        <div className='container'>
           <UpButton>наверх</UpButton>
         </div>
       </UpWrap>
