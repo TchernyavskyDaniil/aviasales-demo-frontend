@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-
-import arrowSvg from './arrow.svg'
+import onClickOutside from "react-onclickoutside";
 
 const SearchInput = styled.input`
       padding: 18px 16px;
@@ -11,6 +10,11 @@ const SearchInput = styled.input`
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden;
+      
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #ff8e41;
+      }
       
       @media screen and (min-width: 768px) {
         border-top-right-radius: 4px;
@@ -36,7 +40,7 @@ const List = styled.ul`
       flex-direction: column;
       position: absolute;
       width: 100%;
-      top: 56px;
+      top: 58px;
       z-index: 100;
       box-shadow: 0px 0px 8px rgba(74,74,74,0.2),
                   0px 2px 4px rgba(74,74,74,0.2);
@@ -106,6 +110,8 @@ const SearchType = styled.p`
       color: #A0B0B9;
       right: 30px;
 `;
+
+//TODO Говно?
 
 class Places extends Component {
     state = {
@@ -182,18 +188,6 @@ class Places extends Component {
         this.handlerTextChanged = this.handlerTextChanged.bind(this);
     }
 
-    // componentDidMount() {
-    //     document.addEventListener('mouseup', this.handleClickOutside);
-    // }
-    //
-    // componentWillUnmount() {
-    //     document.removeEventListener('mouseup', this.handleClickOutside);
-    // }
-    //
-    // handleClickOutside = () => {
-    //     this.setState({ isOpen: false })
-    // };
-
     handlerTextChanged(e) {
         if (this.props.valueParam) {
             this.setState({
@@ -202,8 +196,6 @@ class Places extends Component {
         }
 
         this.setState({value: e.target.value});
-
-        console.log(this.state.value);
 
         const text = e.target.value.trim();
 
@@ -219,6 +211,7 @@ class Places extends Component {
 
     handlerSelectItem = (place) => {
         this.props.updateData(place.city);
+        this.props.updateType(place.type);
 
         this.setState(prevState => ({
             isOpen: !prevState.isOpen,
@@ -230,15 +223,15 @@ class Places extends Component {
         return (
             <Container>
                 <SearchInput type='text'
-                             id='arrive-input'
+                             id='search-input'
                              value={this.props.valueParam}
                              placeholder={this.props.placeholder}
                              className={this.props.className}
-                             onChange={this.props.onChangeText}
+                             onChange={this.props.onChangeValue}
                              onClick={this.handlerToggleOpen}
                 />
                 <SearchType>
-                    {this.state.value.length > 1 ? this.state.valueType : ''}
+                    {this.props.valueParam.length > 1 ? this.props.typeParam : ''}
                 </SearchType>
                 {this.state.isOpen && (
                     <List>
@@ -268,5 +261,5 @@ class Places extends Component {
     }
 }
 
-export default Places;
+export default onClickOutside(Places);
 

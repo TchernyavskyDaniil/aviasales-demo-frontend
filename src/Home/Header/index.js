@@ -152,18 +152,6 @@ const FormFromInput = styled.div`
       }
 `;
 
-const FromText = styled.p`
-      font-size: 1rem;
-      color: #a0b0b9;
-      font-weight: 400;
-      line-height: 1.25;
-      position: absolute;
-      bottom: 20px;
-      right: 40px;
-      margin: 0;
-      top: 18px;
-`;
-
 const FormArriveInput = styled.div`
       display: flex;
       flex-direction: column;
@@ -277,37 +265,22 @@ export class HomeHeader extends Component {
        super();
    }
 
+   //TODO Говно?
+
    state = {
        from: 'Москва',
-       to: ''
+       to: '',
+       fromType: 'MOW',
+       toType: ''
    };
-
-   updateDataClickTo = (valueTo) => {
-       console.log(valueTo)
-       this.setState({
-           to: valueTo
-       })
-
-       console.log(this.state.to + ' TO')
-   };
-
-   updateDataClickFrom = (valueFrom) => {
-       console.log(valueFrom)
-       this.setState({
-           from: valueFrom
-       })
-
-       console.log(this.state.from + ' FROM')
-   }
 
    swapData = () => {
-       console.log('FULL ' + this.state.to + this.state.from)
        this.setState({
            from: this.state.to,
-           to: this.state.from
+           to: this.state.from,
+           fromType: this.state.toType,
+           toType: this.state.fromType
        });
-
-       console.log(this.state.to, ' SPACE ' , this.state.from)
    };
 
    render() {
@@ -337,20 +310,32 @@ export class HomeHeader extends Component {
                                  <ArriveInput className='arrive-input'
                                               placeholder='Город прибытия'
                                               valueParam={this.state.from}
-                                              onChangeText={e => this.setState({
+                                              typeParam={this.state.fromType}
+                                              onChangeValue={e => this.setState({
                                                   from: e.target.value
                                               })}
-                                              updateData={this.updateDataClickFrom}
+                                              updateData={valueFrom => this.setState({
+                                                  from: valueFrom
+                                              })}
+                                              updateType={typeFrom => this.setState({
+                                                  fromType: typeFrom
+                                              })}
                                   />
                                  <FromArrowBtn alt='Arrow' onClick={this.swapData}/>
                              </FormFromInput>
                              <FormArriveInput>
                                  <ArriveInput placeholder='Город прибытия'
                                               valueParam={this.state.to}
-                                              onChangeText={e => this.setState({
+                                              typeParam={this.state.toType}
+                                              onChangeValue={e => this.setState({
                                                   to: e.target.value
                                               })}
-                                              updateData={this.updateDataClickTo}
+                                              updateData={valueTo => this.setState({
+                                                  to: valueTo
+                                              })}
+                                              updateType={typeTo => this.setState({
+                                                  toType: typeTo
+                                              })}
                                  />
                              </FormArriveInput>
                          </FormContainerHeader>

@@ -229,6 +229,11 @@ const Container = styled.div`
       border-bottom-left-radius: 4px;
       border-bottom-right-radius: 4px;
       
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px #ff8e41;
+      }
+           
       @media screen and (min-width: 768px) {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;

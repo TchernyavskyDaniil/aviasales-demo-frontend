@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import ArriveInput from '../../SearchInput/index'
@@ -7,6 +7,7 @@ import PassInput from '../../PassengerInput/index'
 import back from './back.svg';
 import logo from './logo.svg';
 import DayPicker from '../../Date/index';
+import arrowSvg from '../../SearchInput/arrow.svg'
 
 const Wrapper = styled.div`
       background: linear-gradient(
@@ -258,12 +259,19 @@ const Button = styled.button`
       }
 `;
 
-const Iata = styled.span`
-      color: #a0b0b9;
-      text-transform: uppercase;
+const FromArrowBtn = styled.button`
       position: absolute;
-      right: 40px;
-      top: 20px;
+      bottom: 21px;
+      cursor: pointer;
+      background-image: url(${arrowSvg});
+      padding: 0;
+      height: 20px;
+      width: 20px;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: transparent;
+      top: 18px;
+      right: 8px;
 `;
 
 const Form = styled.div``;
@@ -300,56 +308,108 @@ const ContainerRight = styled.div`
       margin-top: 2px;
 `;
 
-export default () => {
-  return (
-    <div>
-      <Wrapper>
-        <div className='container'>
-          <Mobile>
-            <AviasalesLink to='/'>
-              <Back />
-              <LogoImg src={logo} alt='logo' />
-              <Aviasales>aviasales</Aviasales>
-            </AviasalesLink>
-            <MobileLeft>
-              <Cities>Москва - Барселона</Cities>
-              <MobileBottom>
-                <MobileDates>24 фев - 3 март,</MobileDates>
-                <Passengers>1 пассажир</Passengers>
-              </MobileBottom>
-            </MobileLeft>
-            <Currency>rub</Currency>
-          </Mobile>
-          <Main>
-            <Form>
-              <FormWrapper>
-                <Origin>
-                  <ArriveInput value='Москва' className='arrive-input' />
-                  <Iata>mow</Iata>
-                </Origin>
-                <Destination>
-                  <ArriveInput placeholder='Город прибытия'/>
-                </Destination>
-                <ContainerRight>
-                    <DayPicker />
-                    <DropdownWrap>
-                        <PassInput />
-                        <ButtonWrapper>
-                            <Button>Найти билеты</Button>
-                        </ButtonWrapper>
-                    </DropdownWrap>
-                </ContainerRight>
-              </FormWrapper>
-            </Form>
-          </Main>
-        </div>
-      </Wrapper>
-      <UpWrap>
-        <div className='container'>
-          <UpButton>наверх</UpButton>
-        </div>
-      </UpWrap>
-    </div>
-  );
-};
+export class HeaderSearch extends Component {
+    constructor() {
+        super()
+    }
+
+    //TODO Говно?
+
+    state = {
+        from: 'Москва',
+        to: '',
+        fromType: 'MOW',
+        toType: ''
+    };
+
+    swapData = () => {
+        this.setState({
+            from: this.state.to,
+            to: this.state.from,
+            fromType: this.state.toType,
+            toType: this.state.fromType
+        });
+    };
+
+    render() {
+        return (
+            <div>
+                <Wrapper>
+                    <div className='container'>
+                        <Mobile>
+                            <AviasalesLink to='/'>
+                                <Back/>
+                                <LogoImg src={logo} alt='logo'/>
+                                <Aviasales>aviasales</Aviasales>
+                            </AviasalesLink>
+                            <MobileLeft>
+                                <Cities>Москва - Барселона</Cities>
+                                <MobileBottom>
+                                    <MobileDates>24 фев - 3 март,</MobileDates>
+                                    <Passengers>1 пассажир</Passengers>
+                                </MobileBottom>
+                            </MobileLeft>
+                            <Currency>rub</Currency>
+                        </Mobile>
+                        <Main>
+                            <Form>
+                                <FormWrapper>
+                                    <Origin>
+                                        <ArriveInput className='arrive-input'
+                                                     placeholder='Город прибытия'
+                                                     valueParam={this.state.from}
+                                                     typeParam={this.state.fromType}
+                                                     onChangeValue={e => this.setState({
+                                                         from: e.target.value
+                                                     })}
+                                                     updateData={valueFrom => this.setState({
+                                                         from: valueFrom
+                                                     })}
+                                                     updateType={typeFrom => this.setState({
+                                                         fromType: typeFrom
+                                                     })}
+                                        />
+                                        <FromArrowBtn alt='Arrow' onClick={this.swapData}/>
+                                    </Origin>
+                                    <Destination>
+                                        <ArriveInput placeholder='Город прибытия'
+                                                     valueParam={this.state.to}
+                                                     typeParam={this.state.toType}
+                                                     onChangeValue={e => this.setState({
+                                                         to: e.target.value
+                                                     })}
+                                                     updateData={valueTo => this.setState({
+                                                         to: valueTo
+                                                     })}
+                                                     updateType={typeTo => this.setState({
+                                                         toType: typeTo
+                                                     })}
+                                        />
+                                    </Destination>
+                                    <ContainerRight>
+                                        <DayPicker/>
+                                        <DropdownWrap>
+                                            <PassInput/>
+                                            <ButtonWrapper>
+                                                <Button>Найти билеты</Button>
+                                            </ButtonWrapper>
+                                        </DropdownWrap>
+                                    </ContainerRight>
+                                </FormWrapper>
+                            </Form>
+                        </Main>
+                    </div>
+                </Wrapper>
+                <UpWrap>
+                    <div className='container'>
+                        <UpButton>наверх</UpButton>
+                    </div>
+                </UpWrap>
+            </div>
+        );
+    }
+}
+
+export default HeaderSearch;
+
 
