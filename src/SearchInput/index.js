@@ -104,22 +104,7 @@ const SearchType = styled.p`
       font-size: 16px;
       line-height: 20px;
       color: #A0B0B9;
-      right: 16px;
-`;
-
-const FromArrowBtn = styled.button`
-      position: absolute;
-      bottom: 21px;
-      cursor: pointer;
-      background-image: url(${arrowSvg});
-      padding: 0;
-      height: 20px;
-      width: 20px;
-      background-position: center;
-      background-repeat: no-repeat;
-      border: transparent;
-      top: 18px;
-      right: 8px;
+      right: 30px;
 `;
 
 class Places extends Component {
@@ -175,6 +160,12 @@ class Places extends Component {
                 country: 'Франция',
                 type: 'FRN',
                 key: 8
+            },
+            {
+                city: 'Москва',
+                country: 'Россия',
+                type: 'MOW',
+                key: 9
             }
         ],
     listPlacesNew: [
@@ -204,12 +195,15 @@ class Places extends Component {
     // };
 
     handlerTextChanged(e) {
-        if (this.props.value.length) {
+        if (this.props.valueParam) {
             this.setState({
-                value: this.props.value
+                value: this.props.valueParam
             })
         }
+
         this.setState({value: e.target.value});
+
+        console.log(this.state.value);
 
         const text = e.target.value.trim();
 
@@ -222,36 +216,33 @@ class Places extends Component {
         this.setState({listPlacesNew: listPlace});
     }
 
+
     handlerSelectItem = (place) => {
+        this.props.updateData(place.city);
+
         this.setState(prevState => ({
             isOpen: !prevState.isOpen,
             value: place.city,
             valueType: place.type}));
     };
 
-    sendDataMethod() {
-        console.log(this.state.value)
-        this.props.sendData(this.state.value)
-    }
-
     render() {
         return (
             <Container>
                 <SearchInput type='text'
                              id='arrive-input'
-                             value={this.state.value || this.props.value}
+                             value={this.props.valueParam}
                              placeholder={this.props.placeholder}
                              className={this.props.className}
-                             onChange={this.handlerTextChanged}
+                             onChange={this.props.onChangeText}
                              onClick={this.handlerToggleOpen}
                 />
                 <SearchType>
                     {this.state.value.length > 1 ? this.state.valueType : ''}
                 </SearchType>
-                {this.props.className ? <FromArrowBtn alt='Arrow' onClick={() => {this.sendDataMethod()}} /> : null}
                 {this.state.isOpen && (
                     <List>
-                        {this.state.listPlacesNew.map((place, index) => {
+                        {this.state.listPlaces.map((place, index) => {
                             if (index < 6) {
                                 return <Item key={place.key} onClick={() => this.handlerSelectItem(place)}>
                                     <PlaceContainer>
