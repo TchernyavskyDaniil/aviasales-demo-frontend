@@ -166,10 +166,12 @@ const ButtonCard = styled.button`
       color: #d93533;
       background-color: #fff;
       padding: 10px 0;
+      cursor: pointer;
       
       &:hover {
-        background-color: #f8fcff;
-        cursor: pointer;
+        color: #ff9d1b;
+        border-color: #ff9d1b;
+        transition: 0.1s;
       }
 `;
 
@@ -208,7 +210,8 @@ const LinkAllOffer = styled.a`
       }
       
       &:hover {
-        opacity: 0.9;
+        transition: 0.15s;
+        color: #ff9d1b;
       }
 `;
 

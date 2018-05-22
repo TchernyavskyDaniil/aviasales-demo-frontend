@@ -331,8 +331,6 @@ class Passenger extends Component {
         }
     };
 
-    //
-
     handlerChangeClass = () => {
       this.setState(prevState => ({
           typePass: !prevState.typePass
@@ -345,13 +343,13 @@ class Passenger extends Component {
         let text;
 
         // A380 Airbus
-
         if (numberOfPassengers > 853) {
             text = 'Будет тесновато!';
 
             return text;
         }
 
+        // Склоняем наше слово исходя из колличества мест
         if (this.state.numberOfPass > 1 && this.state.numberOfPass < 5) {
             typeWord = ' пассажира';
         } else if (this.state.numberOfPass > 4) {

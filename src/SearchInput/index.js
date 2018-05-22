@@ -112,17 +112,24 @@ const SearchType = styled.p`
       right: 30px;
 `;
 
-const Words = styled.span`
-      color: black;
-      font-weight: 700;
-`;
+
+/**
+ * Simple method for autocomplete
+ * @param value - Text
+ * @param item - Kind of State.example (city)
+ * @return text width weight bold
+ */
 
 const Bold = ({ value, item }) => {
     const index = item.indexOf(value);
-    if(index > -1) {
-        const part1 = item.substr(0, index);
-        const part2 = item.substr(index + value.length, item.length);
-        return <span>{part1}<b>{value}</b>{part2}</span>;
+
+    if (index > -1) {
+        // Если город разделен на две части (Денпсанар Бали)
+
+        const partOne = item.substr(0, index);
+        const partTwo = item.substr(index + value.length, item.length);
+
+        return <span>{partOne}<b>{value}</b>{partTwo}</span>;
     }
 
     return item
@@ -217,6 +224,8 @@ class Places extends Component {
             findWords: text
         });
 
+        // Составляем новый список по нашему value в инпуте
+
         let itemPlace = '';
         const listPlace = this.state.listPlaces.filter(place => {
             itemPlace = place.city;
@@ -236,6 +245,8 @@ class Places extends Component {
             valueType: place.type,
         }));
     };
+
+    // Необходимо для корректной работы либы clickoutside
 
     handleClickOutside = evt => {
         this.setState({
