@@ -291,7 +291,7 @@ class DatePicker extends React.Component {
 
   handleClickOutside = () => {
     this.setState({ isOpen: false });
-  }
+  };
 
   handleDayClick(day, { disabled }) {
     if (!disabled) {

@@ -12,8 +12,15 @@ const Wrapper = styled.div`
       display: none;
       padding: 24px 0;
       color: #5c5c5c;
-      border-bottom: 7px solid red;
-      border-image: url(${border}) 10 round round;
+      position: relative;
+      
+      :after {
+        content: '';
+        width: 100%;
+        height: 7px;
+        position: absolute;
+        background-image: url(${border});
+      }
     
       @media (min-width: 768px) {
         display: block;

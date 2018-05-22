@@ -7,7 +7,9 @@ import PassInput from '../../PassengerInput/index'
 import back from './back.svg';
 import logo from './logo.svg';
 import DayPicker from '../../Date/index';
-import arrowSvg from '../../SearchInput/arrow.svg'
+import arrow from '../../SearchInput/arrow.svg'
+import avatar from './avatar.svg';
+import closeMenu from './close-menu.svg';
 
 const Wrapper = styled.div`
       background: linear-gradient(
@@ -91,6 +93,12 @@ const MobileLeft = styled.div`
       }
 `;
 
+const ContainerIcons = styled.div`
+      min-width: 220px;
+      display: flex;
+      flex-direction: row;
+`;
+
 const Currency = styled.button`
       background: none;
       text-transform: uppercase;
@@ -108,6 +116,94 @@ const Currency = styled.button`
       &:hover {
         background-color: rgba(255, 255, 255, 0.2);
       }
+`;
+
+const LetterContainer = styled.div`
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      background-color: transparent;
+      padding: 10px 13px;
+      border-radius: 100px;
+      margin-left: 12px;
+`;
+
+
+const LetterBtn = styled.button`
+      padding: 0;
+      background-color: white;
+      position: relative;
+      width: 18px;
+      height: 12px;
+      cursor: pointer;
+      
+      :after {
+        content: '';
+        height: 1px;
+        width: 50%;
+        background-color: #196EBD;
+        display: block;
+        position: absolute;
+        transform: rotate(40deg);
+        top: 3.5px;
+        left: 1px;
+      }
+      
+      :before {
+        content: '';
+        height: 1px;
+        width: 50%;
+        background-color: #196EBD;
+        display: block;
+        position: absolute;
+        transform: rotate(136deg);
+        top: 3.5px;
+        right: 1.5px;
+      }
+`;
+
+const AvatarContainer = styled.div`
+      position: relative;
+      margin-left: 12px;
+`;
+
+const AvatarBtn = LetterContainer.extend`
+      margin-left: 0;
+      height: 100%;
+      padding-bottom: 0;
+      padding-top: 0;
+      background-image: url(${avatar});
+      background-size: 20px;
+      width: 18px;
+      background-repeat: no-repeat;
+      background-position: center;
+`;
+
+const AvatarNewMes = styled.div`
+      padding: 1px 9px;
+      position: absolute;
+      border-radius: 100px;
+      background-color: #FF6400;
+      box-shadow: -2px 1px rgba(0,0,0,0.2);
+      top: 0;
+      right: -11px;
+`;
+
+const HamburgerMenu = styled.div`
+      width: 46px;
+      height: 46px;
+      margin-left: 16px;
+`;
+
+const Close = styled.button`
+      background-color: transparent;
+      border: transparent;
+      background-image: url(${closeMenu});
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 36px;
+      height: 36px;
+      cursor: pointer;
+      margin-top: 7px;
 `;
 
 const Cities = styled.div`
@@ -263,7 +359,7 @@ const FromArrowBtn = styled.button`
       position: absolute;
       bottom: 21px;
       cursor: pointer;
-      background-image: url(${arrowSvg});
+      background-image: url(${arrow});
       padding: 0;
       height: 20px;
       width: 20px;
@@ -272,6 +368,7 @@ const FromArrowBtn = styled.button`
       border: transparent;
       top: 20px;
       right: 8px;
+      background-color: transparent;
 `;
 
 const Form = styled.div``;
@@ -345,7 +442,21 @@ export class HeaderSearch extends Component {
                                     <Passengers>1 пассажир</Passengers>
                                 </MobileBottom>
                             </MobileLeft>
-                            <Currency>rub</Currency>
+                            <ContainerIcons>
+                                <Currency>rub</Currency>
+                                <LetterContainer>
+                                    <LetterBtn />
+                                </LetterContainer>
+                                <AvatarContainer>
+                                    <AvatarBtn />
+                                    <AvatarNewMes>
+                                        1
+                                    </AvatarNewMes>
+                                </AvatarContainer>
+                                <HamburgerMenu>
+                                    <Close />
+                                </HamburgerMenu>
+                            </ContainerIcons>
                         </Mobile>
                         <Main>
                             <Form>

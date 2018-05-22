@@ -129,7 +129,8 @@ const FormFromInput = styled.div`
       display: flex;
       flex-direction: column;
       position: relative;
-      height: 56px;
+      height: 59px;
+      justify-content: center;
       box-sizing: border-box;
      
       & .arrive-input {
@@ -143,6 +144,7 @@ const FormFromInput = styled.div`
         
         @media screen and (min-width: 1024px) {
           border-bottom-left-radius: 4px;
+          margin-bottom: 2px;
         }
       }
      
@@ -160,10 +162,12 @@ const FormArriveInput = styled.div`
       
       @media screen and (min-width: 768px) {
         flex-basis: 50%;
+        margin-bottom: 0;
       }
       
       @media screen and (min-width: 1024px) {
         margin-right: 2px;
+        margin-bottom: 2px;
       }
 `;
 
@@ -252,7 +256,7 @@ const FromArrowBtn = styled.button`
       background-position: center;
       background-repeat: no-repeat;
       border: transparent;
-      top: 18px;
+      top: 21px;
       right: 8px;
       background-color: transparent;
 `;
