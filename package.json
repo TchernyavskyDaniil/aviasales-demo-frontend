@@ -11,6 +11,7 @@
     "package": "^1.0.1",
     "rc-slider": "^8.6.1",
     "react": "^16.3.2",
+    "react-autosuggest": "^9.3.4",
     "react-click-outside": "^3.0.1",
     "react-day-picker": "^7.1.9",
     "react-dom": "^16.3.2",

@@ -342,7 +342,15 @@ class Passenger extends Component {
     changeTypePass = () => {
         let typeWord = this.state.typeWordPass;
         let numberOfPassengers = this.state.numberOfPass;
-        let text = numberOfPassengers + ' ' + typeWord;
+        let text;
+
+        // A380 Airbus
+
+        if (numberOfPassengers > 853) {
+            text = 'Будет тесновато!';
+
+            return text;
+        }
 
         if (this.state.numberOfPass > 1 && this.state.numberOfPass < 5) {
             typeWord = ' пассажира';

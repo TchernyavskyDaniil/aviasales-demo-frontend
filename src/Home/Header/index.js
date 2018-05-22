@@ -261,10 +261,6 @@ const Span = styled.span`
 `;
 
 export class HomeHeader extends Component {
-   constructor() {
-       super();
-   }
-
    //TODO Говно?
 
    state = {

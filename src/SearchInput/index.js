@@ -1,6 +1,7 @@
-import React, { Component } from "react";
-import styled from "styled-components";
-import onClickOutside from "react-onclickoutside";
+import React, { Component } from 'react';
+import styled from 'styled-components';
+import onClickOutside from 'react-onclickoutside';
+import Autosuggest from 'react-autosuggest'
 
 const SearchInput = styled.input`
       padding: 18px 16px;
@@ -111,6 +112,22 @@ const SearchType = styled.p`
       right: 30px;
 `;
 
+const Words = styled.span`
+      color: black;
+      font-weight: 700;
+`;
+
+const Bold = ({ value, item }) => {
+    const index = item.indexOf(value);
+    if(index > -1) {
+        const part1 = item.substr(0, index);
+        const part2 = item.substr(index + value.length, item.length);
+        return <span>{part1}<b>{value}</b>{part2}</span>;
+    }
+
+    return item
+};
+
 //TODO Говно?
 
 class Places extends Component {
@@ -118,6 +135,7 @@ class Places extends Component {
         isOpen: false,
         value: '',
         valueType: '',
+        findWords: '',
         listPlaces: [
             {
                 city: 'Бангкок',
@@ -144,8 +162,8 @@ class Places extends Component {
                 key: 4
             },
             {
-                city: 'Батуми',
-                country: 'Грузия',
+                city: 'Сочи',
+                country: 'Россия',
                 type: 'BUS',
                 key: 5
             },
@@ -179,7 +197,9 @@ class Places extends Component {
     ]};
 
     handlerToggleOpen = () => {
-        this.setState({ isOpen: true });
+        this.setState({
+            isOpen: true
+        });
     };
 
     constructor(props) {
@@ -188,35 +208,39 @@ class Places extends Component {
         this.handlerTextChanged = this.handlerTextChanged.bind(this);
     }
 
-    handlerTextChanged(e) {
-        if (this.props.valueParam) {
-            this.setState({
-                value: this.props.valueParam
-            })
-        }
+    handlerTextChanged = e => {
+        this.props.onChangeValue(e);
 
-        this.setState({value: e.target.value});
+        const text = this.props.valueParam.trim();
 
-        const text = e.target.value.trim();
+        this.setState({
+            findWords: text
+        });
 
         let itemPlace = '';
         const listPlace = this.state.listPlaces.filter(place => {
-            itemPlace = place.city + place.country;
+            itemPlace = place.city;
             return itemPlace.toLowerCase().search(text.toLowerCase()) !== -1;
         });
 
         this.setState({listPlacesNew: listPlace});
-    }
+    };
 
-
-    handlerSelectItem = (place) => {
+    handlerSelectItem = place => {
         this.props.updateData(place.city);
         this.props.updateType(place.type);
 
         this.setState(prevState => ({
             isOpen: !prevState.isOpen,
             value: place.city,
-            valueType: place.type}));
+            valueType: place.type,
+        }));
+    };
+
+    handleClickOutside = evt => {
+        this.setState({
+            isOpen: false
+        })
     };
 
     render() {
@@ -227,20 +251,20 @@ class Places extends Component {
                              value={this.props.valueParam}
                              placeholder={this.props.placeholder}
                              className={this.props.className}
-                             onChange={this.props.onChangeValue}
+                             onChange={this.handlerTextChanged}
                              onClick={this.handlerToggleOpen}
                 />
                 <SearchType>
                     {this.props.valueParam.length > 1 ? this.props.typeParam : ''}
                 </SearchType>
-                {this.state.isOpen && (
+                {this.state.isOpen && this.props.valueParam.length > 0 && (
                     <List>
-                        {this.state.listPlaces.map((place, index) => {
+                        {this.state.listPlacesNew.map((place, index) => {
                             if (index < 6) {
                                 return <Item key={place.key} onClick={() => this.handlerSelectItem(place)}>
                                     <PlaceContainer>
                                         <City>
-                                            {place.city},
+                                            <Bold value={this.state.findWords} item={place.city} />,
                                         </City>
                                         <Country>
                                             {place.country}
@@ -252,7 +276,7 @@ class Places extends Component {
                                 </Item>
                             }
 
-                            return console.log('SUCCESS')
+                            return console.log('Success');
                         })}
                     </List>
                 )}

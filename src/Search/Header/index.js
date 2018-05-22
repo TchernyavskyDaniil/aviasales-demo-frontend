@@ -270,7 +270,7 @@ const FromArrowBtn = styled.button`
       background-position: center;
       background-repeat: no-repeat;
       border: transparent;
-      top: 18px;
+      top: 20px;
       right: 8px;
 `;
 
@@ -309,10 +309,6 @@ const ContainerRight = styled.div`
 `;
 
 export class HeaderSearch extends Component {
-    constructor() {
-        super()
-    }
-
     //TODO Говно?
 
     state = {
