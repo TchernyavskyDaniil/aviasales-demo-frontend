@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import DayPicker from '../../Date/index';
 import ArriveInput from '../../SearchInput/index'
 import PassInput from '../../PassengerInput/index'
-
+import { Form } from 'react-final-form'
 
 import logoSvg from './aviasales.svg'
 import aero from './aero.svg'
@@ -68,7 +68,7 @@ const LogoText = styled.p`
       }
 `;
 
-const MainHeaderContainer = styled.div`
+const MainHeaderContainer = styled.form`
       display: flex;
       flex-direction: column;
       
@@ -254,11 +254,16 @@ const FromArrowBtn = styled.button`
       border: transparent;
       top: 18px;
       right: 8px;
+      background-color: transparent;
 `;
 
 const Span = styled.span`
       color: white;
 `;
+
+const onSubmit = async values => {
+    await setTimeout(300);
+};
 
 export class HomeHeader extends Component {
    //TODO Говно?
@@ -291,65 +296,71 @@ export class HomeHeader extends Component {
                          </LogoText>
                      </Link>
                  </LinkContainer>
-                 <MainHeaderContainer>
-                     <MainHeaderText>
-                         <Title>
-                             Поиск дешевых авиабилетов
-                         </Title>
-                         <SubTitle>
-                             Лучший способ купить авиабилеты дешево
-                         </SubTitle>
-                     </MainHeaderText>
-                     <MainHeaderForm>
-                         <FormContainerHeader>
-                             <FormFromInput>
-                                 <ArriveInput className='arrive-input'
-                                              placeholder='Город прибытия'
-                                              valueParam={this.state.from}
-                                              typeParam={this.state.fromType}
-                                              onChangeValue={e => this.setState({
-                                                  from: e.target.value
-                                              })}
-                                              updateData={valueFrom => this.setState({
-                                                  from: valueFrom
-                                              })}
-                                              updateType={typeFrom => this.setState({
-                                                  fromType: typeFrom
-                                              })}
-                                  />
-                                 <FromArrowBtn alt='Arrow' onClick={this.swapData}/>
-                             </FormFromInput>
-                             <FormArriveInput>
-                                 <ArriveInput placeholder='Город прибытия'
-                                              valueParam={this.state.to}
-                                              typeParam={this.state.toType}
-                                              onChangeValue={e => this.setState({
-                                                  to: e.target.value
-                                              })}
-                                              updateData={valueTo => this.setState({
-                                                  to: valueTo
-                                              })}
-                                              updateType={typeTo => this.setState({
-                                                  toType: typeTo
-                                              })}
-                                 />
-                             </FormArriveInput>
-                         </FormContainerHeader>
-                         <FormContainerHeader>
-                             <DayPicker />
-                             <PassInput className='home-radius'/>
-                         </FormContainerHeader>
-                     </MainHeaderForm>
-                     <BtnSearchContainer>
-                         <Link to='/search'>
-                             <ButtonSearch>
+                 {/*Очень базово и мб бесполезно*/}
+                 <Form
+                     onSubmit={onSubmit}
+                     render={({handleSubmit}) => (
+                         <MainHeaderContainer onSubmit={handleSubmit}>
+                             <MainHeaderText>
+                                 <Title>
+                                     Поиск дешевых авиабилетов
+                                 </Title>
+                                 <SubTitle>
+                                     Лучший способ купить авиабилеты дешево
+                                 </SubTitle>
+                             </MainHeaderText>
+                             <MainHeaderForm>
+                                 <FormContainerHeader>
+                                     <FormFromInput>
+                                         <ArriveInput className='arrive-input'
+                                                      placeholder='Город прибытия'
+                                                      valueParam={this.state.from}
+                                                      typeParam={this.state.fromType}
+                                                      onChangeValue={e => this.setState({
+                                                          from: e.target.value
+                                                      })}
+                                                      updateData={valueFrom => this.setState({
+                                                          from: valueFrom
+                                                      })}
+                                                      updateType={typeFrom => this.setState({
+                                                          fromType: typeFrom
+                                                      })}
+                                         />
+                                         <FromArrowBtn alt='Arrow' onClick={this.swapData}/>
+                                     </FormFromInput>
+                                     <FormArriveInput>
+                                         <ArriveInput placeholder='Город прибытия'
+                                                      valueParam={this.state.to}
+                                                      typeParam={this.state.toType}
+                                                      onChangeValue={e => this.setState({
+                                                          to: e.target.value
+                                                      })}
+                                                      updateData={valueTo => this.setState({
+                                                          to: valueTo
+                                                      })}
+                                                      updateType={typeTo => this.setState({
+                                                          toType: typeTo
+                                                      })}
+                                         />
+                                     </FormArriveInput>
+                                 </FormContainerHeader>
+                                 <FormContainerHeader>
+                                     <DayPicker />
+                                     <PassInput className='home-radius'/>
+                                 </FormContainerHeader>
+                             </MainHeaderForm>
+                             <BtnSearchContainer>
+                                 <Link to='/search'>
+                                     <ButtonSearch>
                                 <Span>
                                     Найти билеты
                                 </Span>
-                             </ButtonSearch>
-                         </Link>
-                     </BtnSearchContainer>
-                 </MainHeaderContainer>
+                                     </ButtonSearch>
+                                 </Link>
+                             </BtnSearchContainer>
+                         </MainHeaderContainer>
+                     )}
+                 />
              </HeaderContainer>
          </Header>
        )

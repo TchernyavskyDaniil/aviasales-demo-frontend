@@ -2,9 +2,9 @@ import React from "react";
 import { Helmet } from "react-helmet";
 
 import Header from './Header';
-import ListTraveling from './ListTraveling'
-import ListPhoto from './ListPhoto'
-import ListBestPrices from './ListBestPrices'
+import ListTraveling from './Travels'
+import ListPhoto from './Photos'
+import ListBestPrices from './BestPrices'
 import SpecialOffer from './SpecialOffer'
 import Desc from './Descriptions'
 import Apps from './Apps'

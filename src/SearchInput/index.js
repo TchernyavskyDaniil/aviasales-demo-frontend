@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import onClickOutside from 'react-onclickoutside';
-import Autosuggest from 'react-autosuggest'
 
 const SearchInput = styled.input`
       padding: 18px 16px;
@@ -29,9 +28,7 @@ const SearchInput = styled.input`
       @media screen and (min-width: 1024px) and (max-width: 1200px) {
         max-width: 160px;
         border-top-right-radius: 0;
-      }
-      
-      
+      }     
 `;
 
 const List = styled.ul`
