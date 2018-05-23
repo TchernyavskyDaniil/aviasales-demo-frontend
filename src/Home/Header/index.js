@@ -176,7 +176,7 @@ const BtnSearchContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       margin-top: 16px;
-      height: 64px;
+      min-height: 64px;
       width: 302px;
       align-items: center;
       margin-bottom: 80px;

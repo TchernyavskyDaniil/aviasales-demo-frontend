@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import compas from './compass.svg'
@@ -102,6 +102,11 @@ const ItemTraveling = styled.li`
       &:hover {
         opacity: 0.8;
       }
+      
+      & .active {
+        color: #5C5C5C;
+        border-bottom: 1px solid #00ACE2;
+      }
 `;
 
 const TravelingImgContainer = styled.div`
@@ -123,11 +128,6 @@ const TravelingItemText = styled.p`
       text-transform: uppercase; 
 `;
 
-const TravelingItemTextActive = TravelingItemText.extend`
-      color: #5C5C5C;
-      border-bottom: 1px solid #00ACE2;
-`;
-
 const TravelingItemImg = styled.img`
       width: 22px;
       height: 22px;
@@ -138,71 +138,92 @@ const TravelingItemImg = styled.img`
       left: 13px;
 `;
 
-export default () => {
-    return (
-        <Section>
-            <div className='container'>
-                <TravelingHeader>
-                    <TravelingImg alt='Compas' src={compas} />
-                    <TravelingText>
-                        Популярные направления перелетов из города
-                    </TravelingText>
-                    <TravelingChangeBtn>
-                        Москва
-                        <ChangeImg alt='Change' src={change} />
-                    </TravelingChangeBtn>
-                </TravelingHeader>
-                <ListTraveling>
-                    <ItemTraveling>
-                        <TravelingImgContainer>
-                            <TravelingItemImg alt='World' src={world}/>
-                        </TravelingImgContainer>
-                        <TravelingItemTextActive>
-                            Куда угодно
-                        </TravelingItemTextActive>
-                    </ItemTraveling>
-                    <ItemTraveling>
-                        <TravelingImgContainer>
-                            <TravelingItemImg alt='Sea' src={sea}/>
-                        </TravelingImgContainer>
-                        <TravelingItemText>
-                            Солнце и море
-                        </TravelingItemText>
-                    </ItemTraveling>
-                    <ItemTraveling>
-                        <TravelingImgContainer>
-                            <TravelingItemImg alt='Shopping' src={shopping}/>
-                        </TravelingImgContainer>
-                        <TravelingItemText>
-                            Шопинг, город
-                        </TravelingItemText>
-                    </ItemTraveling>
-                    <ItemTraveling>
-                        <TravelingImgContainer>
-                            <TravelingItemImg alt='History' src={history}/>
-                        </TravelingImgContainer>
-                        <TravelingItemText>
-                            Культура и история
-                        </TravelingItemText>
-                    </ItemTraveling>
-                    <ItemTraveling>
-                        <TravelingImgContainer>
-                            <TravelingItemImg alt='Club' src={club}/>
-                        </TravelingImgContainer>
-                        <TravelingItemText>
-                            Ночная жизнь
-                        </TravelingItemText>
-                    </ItemTraveling>
-                    <ItemTraveling>
-                        <TravelingImgContainer>
-                            <TravelingItemImg alt='Children' src={children}/>
-                        </TravelingImgContainer>
-                        <TravelingItemText>
-                            Отдых с детьми
-                        </TravelingItemText>
-                    </ItemTraveling>
-                </ListTraveling>
-            </div>
-        </Section>
-    )
+export class Travels extends Component {
+    state = {
+        listTraveling: [
+            {
+                key: 1,
+                text: 'Куда угодно',
+                img: world,
+                alt: 'world',
+                active: true
+            },
+            {
+                key: 2,
+                text: 'Солнце и море',
+                img: sea,
+                alt: 'sea',
+                active: false
+            },
+            {
+                key: 3,
+                text: 'Шопинг, город',
+                img: shopping,
+                alt: 'shopping',
+                active: false
+            },
+            {
+                key: 4,
+                text: 'Культура и история',
+                img: history,
+                alt: 'history',
+                active: false
+            },
+            {
+                key: 5,
+                text: 'Ночная жизнь',
+                img: club,
+                alt: 'club',
+                active: false
+            },
+            {
+                key: 6,
+                text: 'Отдых с детьми',
+                img: children,
+                alt: 'children',
+                active: false
+            }
+        ]
+    };
+
+    render() {
+        return (
+            <Section>
+                <div className='container'>
+                    <TravelingHeader>
+                        <TravelingImg alt='Compas' src={compas} />
+                        <TravelingText>
+                            Популярные направления перелетов из города
+                        </TravelingText>
+                        <TravelingChangeBtn>
+                            Москва
+                            <ChangeImg alt='Change' src={change} />
+                        </TravelingChangeBtn>
+                    </TravelingHeader>
+                    <ListTraveling>
+                    {this.state.listTraveling.map((item) => {
+                      return (
+                          <ItemTraveling key={item.key}>
+                              <TravelingImgContainer>
+                                  <TravelingItemImg alt={item.alt} src={item.img}/>
+                              </TravelingImgContainer>
+                              {item.active ?
+                                  <TravelingItemText className='active'>
+                                      {item.text}
+                                  </TravelingItemText>
+                                  :
+                                  <TravelingItemText>
+                                      {item.text}
+                                  </TravelingItemText>
+                              }
+                          </ItemTraveling>
+                      )
+                    })}
+                    </ListTraveling>
+                </div>
+            </Section>
+        )
+    }
 }
+
+export default Travels;
