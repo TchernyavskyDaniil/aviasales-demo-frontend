@@ -197,7 +197,6 @@ class Places extends Component {
             }
         ],
     listPlacesNew: [
-
     ]};
 
     handlerToggleOpen = () => {
