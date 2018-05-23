@@ -102,7 +102,7 @@ const Calendar = styled.button`
       cursor: pointer;
       position: absolute;
       right: 3px;
-      top: 20px;
+      top: 17px;
       background-color: #fff;
 `;
 
@@ -116,7 +116,7 @@ const ClearDate = styled.button`
       background-image: url(${dateClear});
       cursor: pointer;
       position: absolute;
-      top: 22px;
+      top: 20px;
       background-color: #fff;
       
       &:focus {

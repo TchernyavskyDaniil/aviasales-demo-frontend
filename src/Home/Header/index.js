@@ -334,6 +334,7 @@ export class HomeHeader extends Component {
                                      </FormFromInput>
                                      <FormArriveInput>
                                          <ArriveInput placeholder='Город прибытия'
+                                                      className='arrive-input-to'
                                                       valueParam={this.state.to}
                                                       typeParam={this.state.toType}
                                                       onChangeValue={e => this.setState({

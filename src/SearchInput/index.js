@@ -213,9 +213,12 @@ class Places extends Component {
     }
 
     handlerTextChanged = e => {
+        const className = this.props.className;
+        const classValue = document.getElementsByClassName(className);
+
         this.props.onChangeValue(e);
 
-        const text = this.props.valueParam.trim();
+        const text = classValue[0].value.trim();
 
         this.setState({
             findWords: text

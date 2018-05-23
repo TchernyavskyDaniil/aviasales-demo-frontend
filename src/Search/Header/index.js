@@ -94,9 +94,12 @@ const MobileLeft = styled.div`
 `;
 
 const ContainerIcons = styled.div`
-      min-width: 220px;
       display: flex;
       flex-direction: row;
+      
+      @media screen and (min-width: 768px) {
+        min-width: 220px;
+      }
 `;
 
 const Currency = styled.button`
@@ -119,12 +122,23 @@ const Currency = styled.button`
 `;
 
 const LetterContainer = styled.div`
+      display: none;
       border: 1px solid rgba(255, 255, 255, 0.5);
       cursor: pointer;
       background-color: transparent;
       padding: 10px 13px;
       border-radius: 100px;
       margin-left: 12px;
+      
+      @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      
+      &:hover {
+        background-color: rgba(255,255,255,0.2);
+      }
 `;
 
 
@@ -135,6 +149,7 @@ const LetterBtn = styled.button`
       width: 18px;
       height: 12px;
       cursor: pointer;
+      border: transparent;
       
       :after {
         content: '';
@@ -162,8 +177,13 @@ const LetterBtn = styled.button`
 `;
 
 const AvatarContainer = styled.div`
+      display: none;
       position: relative;
       margin-left: 12px;
+      
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
 `;
 
 const AvatarBtn = LetterContainer.extend`
@@ -192,6 +212,11 @@ const HamburgerMenu = styled.div`
       width: 46px;
       height: 46px;
       margin-left: 16px;
+      display: none;
+      
+      @media screen and (min-width: 768px) {
+        display: block;
+      }
 `;
 
 const Close = styled.button`
@@ -260,7 +285,7 @@ const LogoImg = styled.img`
       vertical-align: middle;
       margin-right: 12px;
       position: absolute;
-      top: 6px;
+      top: 10px;
       
       @media screen and (min-width: 768px) {
         display: block;
