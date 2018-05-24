@@ -48,9 +48,14 @@ const Photo = styled.li`
       border-radius: 8px;
       margin-bottom: 10px;
       
+      @media screen and (min-width: 768px) {
+        margin-bottom: 25px;
+      }
+      
       @media screen and (min-width: 1024px) {
         flex-basis: 47%;
         margin: 10px;
+        margin-bottom: 31px;
       }
 `;
 
