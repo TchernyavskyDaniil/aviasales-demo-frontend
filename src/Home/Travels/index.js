@@ -145,45 +145,47 @@ export class Travels extends Component {
                 key: 1,
                 text: 'Куда угодно',
                 img: world,
-                alt: 'world',
-                active: true
+                alt: 'world'
             },
             {
                 key: 2,
                 text: 'Солнце и море',
                 img: sea,
-                alt: 'sea',
-                active: false
+                alt: 'sea'
             },
             {
                 key: 3,
                 text: 'Шопинг, город',
                 img: shopping,
-                alt: 'shopping',
-                active: false
+                alt: 'shopping'
             },
             {
                 key: 4,
                 text: 'Культура и история',
                 img: history,
-                alt: 'history',
-                active: false
+                alt: 'history'
             },
             {
                 key: 5,
                 text: 'Ночная жизнь',
                 img: club,
-                alt: 'club',
-                active: false
+                alt: 'club'
             },
             {
                 key: 6,
                 text: 'Отдых с детьми',
                 img: children,
-                alt: 'children',
-                active: false
+                alt: 'children'
             }
-        ]
+        ],
+        activeIndex: 0,
+        defaultText: 'Москва'
+    };
+
+    handlerClickActive = index => {
+        this.setState({
+            activeIndex: index
+        })
     };
 
     render() {
@@ -195,19 +197,19 @@ export class Travels extends Component {
                         <TravelingText>
                             Популярные направления перелетов из города
                         </TravelingText>
-                        <TravelingChangeBtn>
-                            Москва
+                        <TravelingChangeBtn type='text'>
+                            {this.state.defaultText}
                             <ChangeImg alt='Change' src={change} />
                         </TravelingChangeBtn>
                     </TravelingHeader>
                     <ListTraveling>
-                    {this.state.listTraveling.map((item) => {
+                    {this.state.listTraveling.map((item, index) => {
                       return (
-                          <ItemTraveling key={item.key}>
+                          <ItemTraveling key={item.key} onClick={() => this.handlerClickActive(index)}>
                               <TravelingImgContainer>
                                   <TravelingItemImg alt={item.alt} src={item.img}/>
                               </TravelingImgContainer>
-                              {item.active ?
+                              {this.state.activeIndex === index ?
                                   <TravelingItemText className='active'>
                                       {item.text}
                                   </TravelingItemText>
