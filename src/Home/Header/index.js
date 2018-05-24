@@ -209,6 +209,10 @@ const ButtonSearch = styled.button`
       font-weight: 400;
       line-height: 33px;
       border-radius: 4px;
+      
+      &:focus { 
+        outline: auto;
+      }
        
       &:after {
         content: url(${aero});
@@ -357,9 +361,9 @@ export class HomeHeader extends Component {
                              <BtnSearchContainer>
                                  <Link to='/search'>
                                      <ButtonSearch>
-                                <Span>
-                                    Найти билеты
-                                </Span>
+                                       <Span>
+                                         Найти билеты
+                                       </Span>
                                      </ButtonSearch>
                                  </Link>
                              </BtnSearchContainer>

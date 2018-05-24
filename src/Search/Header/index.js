@@ -50,12 +50,12 @@ const UpButton = styled.button`
       transition: all 0.3s ease;
       border-radius: 4px;
       
-      &:hover {
-        opacity: 1;
+      &:focus { 
+        outline: auto;
       }
       
-      &:focus {
-        outline: none;
+      &:hover {
+        opacity: 1;
       }
 `;
 
@@ -68,7 +68,7 @@ const Back = styled.button`
       cursor: pointer;
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
       
       @media screen and (min-width: 768px) {
@@ -114,7 +114,7 @@ const Currency = styled.button`
       transition: all 0.3s ease;
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
       
       &:hover {
@@ -375,7 +375,7 @@ const Button = styled.button`
       }
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
       
       &:hover {
