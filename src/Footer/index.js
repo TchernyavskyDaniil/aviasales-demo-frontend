@@ -31,13 +31,13 @@ const Title = styled.h3`
       text-align: left;
 `;
 
-const List = styled.div`
+const Countries = styled.div`
       display: flex;
       flex-direction: column;
       padding-bottom: 31px;
 `;
 
-const Item = styled.a`
+const Country = styled.a`
       color: #5b5b5c;
       font-size: 12px;
       font-weight: 400;
@@ -51,7 +51,7 @@ const Item = styled.a`
       }
 `;
 
-const LinkFooter = Item.extend`
+const LinkFooter = Country.extend`
       text-decoration: none;
       padding-right: 9px;
 `;
@@ -227,166 +227,166 @@ export default () => {
                         <Title>
                             СТРАНЫ
                         </Title>
-                        <List>
-                            <Item href='#'>
+                        <Countries>
+                            <Country href='#'>
                                 Россия
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Таиланд
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Черногория
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Кипр
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Болгария
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Гразия
-                            </Item>
+                            </Country>
                             <MainLink href='#'>
                                 Все страны
                             </MainLink>
-                        </List>
+                        </Countries>
                     </div>
                     <div className='col-xs-6 col-md-3 col-xl-2'>
                         <Title>
                             ГОРОДА
                         </Title>
-                        <List>
-                            <Item href='#'>
+                        <Countries>
+                            <Country href='#'>
                                 Москва
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Санкт-Петербург
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Симферополь
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Адлер
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Екатеринбург
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Лондон
-                            </Item>
+                            </Country>
                             <MainLink href='#'>
                                 Все города
                             </MainLink>
-                        </List>
+                        </Countries>
                     </div>
                     <div className='col-xs-6 col-md-3 col-xl-2'>
                         <Title>
                             АВИАКОМПАНИИ
                         </Title>
-                        <List>
-                            <Item href='#'>
+                        <Countries>
+                            <Country href='#'>
                                 Air Berlin
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Air France
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Alitalia
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Air Baltica
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Emirates
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 KLM
-                            </Item>
+                            </Country>
                             <MainLink href='#'>
                                 Все авиакомпании
                             </MainLink>
-                        </List>
+                        </Countries>
                     </div>
                     <div className='col-xs-6 col-md-3 col-xl-2'>
                         <Title>
                             АЭРОПОРТЫ
                         </Title>
-                        <List>
-                            <Item href='#'>
+                        <Countries>
+                            <Country href='#'>
                                 Шеремтьево
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Курумоч
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Домодедово
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Толмачево
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Владивосток
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Гамбург
-                            </Item>
+                            </Country>
                             <MainLink href='#'>
                                 Все аэропорты
                             </MainLink>
-                        </List>
+                        </Countries>
                     </div>
                     <div className='col-xs-6 col-md-3 col-xl-2'>
                         <Title>
                             Направления
                         </Title>
-                        <List>
-                            <Item href='#'>
+                        <Countries>
+                            <Country href='#'>
                                 MOW-SIP
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 MOW-AER
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 MOW-TIV
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 MOW-MRV
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 LED-MOW
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 MOW-BKK
-                            </Item>
-                        </List>
+                            </Country>
+                        </Countries>
                     </div>
                     <div className='col-xs-6 col-md-3 col-xl-2'>
                         <Title>
                             Сервисы
                         </Title>
-                        <List>
-                            <Item href='#'>
+                        <Countries>
+                            <Country href='#'>
                                 Горящие авибилеты
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Календар низких цен
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Карта низких цен
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Спецпредложение
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Таблица цен
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Блог
-                            </Item>
-                            <Item href='#'>
+                            </Country>
+                            <Country href='#'>
                                 Помощь
-                            </Item>
-                        </List>
+                            </Country>
+                        </Countries>
                     </div>
                 </div>
                 <FooterDown>

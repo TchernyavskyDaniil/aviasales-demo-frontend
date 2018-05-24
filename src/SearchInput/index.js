@@ -31,7 +31,7 @@ const SearchInput = styled.input`
       }     
 `;
 
-const List = styled.ul`
+const Results = styled.ul`
       margin: 0;
       padding: 0;
       display: flex;
@@ -52,7 +52,7 @@ const Container = styled.div`
       justify-content: center;         
 `;
 
-const Item = styled.li`
+const Result = styled.li`
       min-height: 48px;
       background-color: white;
       padding-top: 5px;
@@ -268,10 +268,10 @@ class Places extends Component {
                     {this.props.valueParam.length > 1 ? this.props.typeParam : ''}
                 </SearchType>
                 {this.state.isOpen && this.props.valueParam.length > 0 && (
-                    <List>
+                    <Results>
                         {this.state.listPlacesNew.map((place, index) => {
                             if (index < 6) {
-                                return <Item key={place.key} onClick={() => this.handlerSelectItem(place)}>
+                                return <Result key={place.key} onClick={() => this.handlerSelectItem(place)}>
                                     <PlaceContainer>
                                         <City>
                                             <Bold value={this.state.findWords} item={place.city} />,
@@ -283,12 +283,12 @@ class Places extends Component {
                                     <Type>
                                         {place.type}
                                     </Type>
-                                </Item>
+                                </Result>
                             }
 
                             return console.log('Success');
                         })}
-                    </List>
+                    </Results>
                 )}
             </Container>
         )

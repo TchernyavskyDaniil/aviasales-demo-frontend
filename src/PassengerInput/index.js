@@ -68,7 +68,7 @@ const PassDropdownImg = styled.img`
       height: 5px;
 `;
 
-const ListPassengers = styled.div`
+const Passengers = styled.div`
       display: flex;
       flex-direction: column;
       background-color: white;
@@ -82,7 +82,7 @@ const ListPassengers = styled.div`
                   0px 2px 4px rgba(74,74,74,0.2);
 `;
 
-const ItemPassenger = styled.div`
+const PassengerContainer = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -385,8 +385,8 @@ class Passenger extends Component {
                 </Container>
                 {
                     this.state.isOpen && (
-                        <ListPassengers>
-                            <ItemPassenger>
+                        <Passengers>
+                            <PassengerContainer>
                                 <TextPassenger>
                                     <TypePassenger>
                                         Взрослые
@@ -403,8 +403,8 @@ class Passenger extends Component {
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
-                            </ItemPassenger>
-                            <ItemPassenger>
+                            </PassengerContainer>
+                            <PassengerContainer>
                                 <TextPassenger>
                                     <TypePassenger>
                                         Дети до 12 лет
@@ -421,8 +421,8 @@ class Passenger extends Component {
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
-                            </ItemPassenger>
-                            <ItemPassenger>
+                            </PassengerContainer>
+                            <PassengerContainer>
                                 <TextPassenger>
                                     <TypePassenger>
                                         Дети до 2 лет
@@ -442,7 +442,7 @@ class Passenger extends Component {
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
-                            </ItemPassenger>
+                            </PassengerContainer>
                             <Label>
                                 <Name>
                                     Бизнес-класс
@@ -450,7 +450,7 @@ class Passenger extends Component {
                                 <Checkbox onClick={this.handlerChangeClass} type="checkbox" />
                                 <Checkmark />
                             </Label>
-                        </ListPassengers>
+                        </Passengers>
                     )
                 }
             </FormPassInput>

@@ -23,7 +23,7 @@ const Section = styled.section`
       }
 `;
 
-const TravelingHeader = styled.div`
+const TravelHeader = styled.div`
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -36,20 +36,20 @@ const TravelingHeader = styled.div`
       }
 `;
 
-const TravelingImg = styled.img`
+const TravelImg = styled.img`
       display: block;
       width: 64px;
       height: 64px;
       margin-bottom: 24px;
 `;
 
-const TravelingText = styled.p`
+const TravelText = styled.p`
       margin: 0;
       text-align: center;
       color: black;
 `;
 
-const TravelingChangeBtn = styled.button`
+const TravelChangeBtn = styled.button`
       margin: 0;
       text-align: center;
       color: #00ACE2;
@@ -71,7 +71,7 @@ const ChangeImg = styled.img`
       margin-left: 10px;
 `;
 
-const ListTraveling = styled.ul`
+const ListTravels = styled.ul`
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
@@ -83,7 +83,7 @@ const ListTraveling = styled.ul`
       }
 `;
 
-const ItemTraveling = styled.li`
+const Travel = styled.li`
       display: flex;
       flex-direction: row;
       min-height: 120px;
@@ -109,7 +109,7 @@ const ItemTraveling = styled.li`
       }
 `;
 
-const TravelingImgContainer = styled.div`
+const TravelImgContainer = styled.div`
       width: 48px; 
       height: 48px;
       display: block;
@@ -119,7 +119,7 @@ const TravelingImgContainer = styled.div`
       box-shadow: 0 1px 3px 0 rgba(91,137,163,0.15);
 `;
 
-const TravelingItemText = styled.p`
+const TravelItemText = styled.p`
       font-size: 12px;
       line-height: 20px;
       text-align: center;
@@ -128,7 +128,7 @@ const TravelingItemText = styled.p`
       text-transform: uppercase; 
 `;
 
-const TravelingItemImg = styled.img`
+const TravelItemImg = styled.img`
       width: 22px;
       height: 22px;
       background-color: #fff;
@@ -140,7 +140,7 @@ const TravelingItemImg = styled.img`
 
 export class Travels extends Component {
     state = {
-        listTraveling: [
+        listTravel: [
             {
                 key: 1,
                 text: 'Куда угодно',
@@ -192,36 +192,36 @@ export class Travels extends Component {
         return (
             <Section>
                 <div className='container'>
-                    <TravelingHeader>
-                        <TravelingImg alt='Compas' src={compas} />
-                        <TravelingText>
+                    <TravelHeader>
+                        <TravelImg alt='Compas' src={compas} />
+                        <TravelText>
                             Популярные направления перелетов из города
-                        </TravelingText>
-                        <TravelingChangeBtn type='text'>
+                        </TravelText>
+                        <TravelChangeBtn type='text'>
                             {this.state.defaultText}
                             <ChangeImg alt='Change' src={change} />
-                        </TravelingChangeBtn>
-                    </TravelingHeader>
-                    <ListTraveling>
-                    {this.state.listTraveling.map((item, index) => {
+                        </TravelChangeBtn>
+                    </TravelHeader>
+                    <ListTravels>
+                    {this.state.listTravel.map((item, index) => {
                       return (
-                          <ItemTraveling key={item.key} onClick={() => this.handlerClickActive(index)}>
-                              <TravelingImgContainer>
-                                  <TravelingItemImg alt={item.alt} src={item.img}/>
-                              </TravelingImgContainer>
+                          <Travel key={item.key} onClick={() => this.handlerClickActive(index)}>
+                              <TravelImgContainer>
+                                  <TravelItemImg alt={item.alt} src={item.img}/>
+                              </TravelImgContainer>
                               {this.state.activeIndex === index ?
-                                  <TravelingItemText className='active'>
+                                  <TravelItemText className='active'>
                                       {item.text}
-                                  </TravelingItemText>
+                                  </TravelItemText>
                                   :
-                                  <TravelingItemText>
+                                  <TravelItemText>
                                       {item.text}
-                                  </TravelingItemText>
+                                  </TravelItemText>
                               }
-                          </ItemTraveling>
+                          </Travel>
                       )
                     })}
-                    </ListTraveling>
+                    </ListTravels>
                 </div>
             </Section>
         )

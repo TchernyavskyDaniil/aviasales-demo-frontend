@@ -40,7 +40,7 @@ const PhotoList = styled.ul`
       }
 `;
 
-const PhotoItem = styled.li`
+const Photo = styled.li`
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -286,7 +286,7 @@ export class Photos extends Component {
                     <PhotoList>
                         {this.state.listPhotos.map((item) => {
                             return(
-                                <PhotoItem key={item.key}>
+                                <Photo key={item.key}>
                                     <PhotoImgContainer>
                                         <PhotoImg alt={item.alt} src={item.img} />
                                     </PhotoImgContainer>
@@ -309,7 +309,7 @@ export class Photos extends Component {
                                             </PhotoDate>
                                         </PhotoTextPrice>
                                     </PhotoTextContainer>
-                                </PhotoItem>
+                                </Photo>
                             )
                         })}
                     </PhotoList>
