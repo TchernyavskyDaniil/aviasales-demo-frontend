@@ -461,7 +461,7 @@ export class HeaderSearch extends Component {
         });
     };
 
-    handlerToggleMenu = () => {
+    handleToggleMenu = () => {
         this.setState(prevState => ({
             toggle: !prevState.toggle
         }));
@@ -496,7 +496,7 @@ export class HeaderSearch extends Component {
                                         1
                                     </AvatarNewMes>
                                 </AvatarContainer>
-                                <HamburgerMenu onClick={this.handlerToggleMenu}>
+                                <HamburgerMenu onClick={this.handleToggleMenu}>
                                     {this.state.toggle ? <Open /> : <Close />}
                                 </HamburgerMenu>
                             </ContainerIcons>

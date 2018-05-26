@@ -280,7 +280,7 @@ class Passenger extends Component {
         typeWordPass: 'пассажир'
     };
 
-    handlerToggleOpen = () => {
+    handleToggleOpen = () => {
         this.setState(prevState => ({
             isOpen: !prevState.isOpen,
             typeBtn: !prevState.typeBtn
@@ -289,7 +289,7 @@ class Passenger extends Component {
 
     // TODO Попытаться улучшить
 
-    handlerMinusAdult = () => {
+    handleMinusAdult = () => {
         if (this.state.countAdult >= 1) {
             this.setState({
                 countAdult: this.state.countAdult - 1,
@@ -297,19 +297,19 @@ class Passenger extends Component {
         }
     };
 
-    handlerPlusAdult = () => {
+    handlePlusAdult = () => {
         this.setState({
             countAdult: this.state.countAdult + 1,
             numberOfPass: this.state.numberOfPass + 1})
     };
 
-    handlerPlusChildren = () => {
+    handlePlusChildren = () => {
         this.setState({
             countChildren: this.state.countChildren + 1,
             numberOfPass: this.state.numberOfPass + 1})
     };
 
-    handlerMinusChildren = () => {
+    handleMinusChildren = () => {
         if (this.state.countChildren >= 1) {
             this.setState({
                 countChildren: this.state.countChildren - 1,
@@ -317,13 +317,13 @@ class Passenger extends Component {
         }
     };
 
-    handlerPlusBabe = () => {
+    handlePlusBabe = () => {
         this.setState({
             countBabe: this.state.countBabe + 1,
             numberOfPass: this.state.numberOfPass + 1})
     };
 
-    handlerMinusBabe = () => {
+    handleMinusBabe = () => {
         if (this.state.countBabe >= 1) {
             this.setState({
                 countBabe: this.state.countBabe - 1,
@@ -331,7 +331,7 @@ class Passenger extends Component {
         }
     };
 
-    handlerChangeClass = () => {
+    handleChangeClass = () => {
       this.setState(prevState => ({
           typePass: !prevState.typePass
       }))
@@ -367,7 +367,7 @@ class Passenger extends Component {
     render() {
         return (
             <FormPassInput>
-                <Container onClick={this.handlerToggleOpen} className={this.props.className}>
+                <Container onClick={this.handleToggleOpen} className={this.props.className}>
                     <PassInput readOnly
                                autoComplete='off'
                     />
@@ -393,13 +393,13 @@ class Passenger extends Component {
                                     </TypePassenger>
                                 </TextPassenger>
                                 <CalcPassenger>
-                                    <ButtonMinus onClick={this.handlerMinusAdult}>
+                                    <ButtonMinus onClick={this.handleMinusAdult}>
                                         —
                                     </ButtonMinus>
                                     <Number>
                                         {this.state.countAdult}
                                     </Number>
-                                    <ButtonPlus onClick={this.handlerPlusAdult}>
+                                    <ButtonPlus onClick={this.handlePlusAdult}>
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
@@ -411,13 +411,13 @@ class Passenger extends Component {
                                     </TypePassenger>
                                 </TextPassenger>
                                 <CalcPassenger>
-                                    <ButtonMinus onClick={this.handlerMinusChildren}>
+                                    <ButtonMinus onClick={this.handleMinusChildren}>
                                         —
                                     </ButtonMinus>
                                     <Number>
                                         {this.state.countChildren}
                                     </Number>
-                                    <ButtonPlus onClick={this.handlerPlusChildren}>
+                                    <ButtonPlus onClick={this.handlePlusChildren}>
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
@@ -432,13 +432,13 @@ class Passenger extends Component {
                                     </DescPassenger>
                                 </TextPassenger>
                                 <CalcPassenger>
-                                    <ButtonMinus onClick={this.handlerMinusBabe}>
+                                    <ButtonMinus onClick={this.handleMinusBabe}>
                                         —
                                     </ButtonMinus>
                                     <Number>
                                         {this.state.countBabe}
                                     </Number>
-                                    <ButtonPlus onClick={this.handlerPlusBabe}>
+                                    <ButtonPlus onClick={this.handlePlusBabe}>
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
@@ -447,7 +447,7 @@ class Passenger extends Component {
                                 <Name>
                                     Бизнес-класс
                                 </Name>
-                                <Checkbox onClick={this.handlerChangeClass} type="checkbox" />
+                                <Checkbox onClick={this.handleChangeClass} type="checkbox" />
                                 <Checkmark />
                             </Label>
                         </Passengers>
