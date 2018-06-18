@@ -35,7 +35,7 @@ const LinkContainer = styled.div`
       flex-direction: row;
       align-items: center;
       width: 120px;
-      min-width: 120px
+      min-width: 120px;
       
       @media screen and (min-width: 1024px) {
         padding-left: 6%;
