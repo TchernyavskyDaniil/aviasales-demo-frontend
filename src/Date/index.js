@@ -120,7 +120,7 @@ const ClearDate = styled.button`
       background-color: #fff;
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
 `;
 

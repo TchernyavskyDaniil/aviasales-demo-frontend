@@ -16,12 +16,13 @@ import Rss from "./Rss";
 export default () => {
     return (
         <div>
-            <Helmet>
-                <title>
-                    Home Page
-                </title>
-            </Helmet>
-            <Header />
+          <Helmet>
+            <title>
+              Home Page
+            </title>
+          </Helmet>
+          <Header />
+          <main>
             <ListTraveling />
             <ListPhoto />
             <ListBestPrices />
@@ -30,7 +31,8 @@ export default () => {
             <SpecialOffer />
             <Desc />
             <Apps />
-            <Footer />
+          </main>
+          <Footer />
         </div>
     )
 }

@@ -1,14 +1,10 @@
 body {
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto', sans-serif, "Helvetica";
 }
 
 * {
-  outline: transparent;
   list-style: none;
   text-decoration: none;
 }

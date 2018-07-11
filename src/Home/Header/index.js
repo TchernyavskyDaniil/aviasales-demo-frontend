@@ -35,7 +35,7 @@ const LinkContainer = styled.div`
       flex-direction: row;
       align-items: center;
       width: 120px;
-      min-width: 120px
+      min-width: 120px;
       
       @media screen and (min-width: 1024px) {
         padding-left: 6%;
@@ -176,7 +176,7 @@ const BtnSearchContainer = styled.div`
       flex-direction: column;
       justify-content: center;
       margin-top: 16px;
-      height: 64px;
+      min-height: 64px;
       width: 302px;
       align-items: center;
       margin-bottom: 80px;
@@ -209,6 +209,10 @@ const ButtonSearch = styled.button`
       font-weight: 400;
       line-height: 33px;
       border-radius: 4px;
+      
+      &:focus { 
+        outline: auto;
+      }
        
       &:after {
         content: url(${aero});
@@ -357,9 +361,9 @@ export class HomeHeader extends Component {
                              <BtnSearchContainer>
                                  <Link to='/search'>
                                      <ButtonSearch>
-                                <Span>
-                                    Найти билеты
-                                </Span>
+                                       <Span>
+                                         Найти билеты
+                                       </Span>
                                      </ButtonSearch>
                                  </Link>
                              </BtnSearchContainer>

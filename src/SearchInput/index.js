@@ -31,7 +31,7 @@ const SearchInput = styled.input`
       }     
 `;
 
-const List = styled.ul`
+const Results = styled.ul`
       margin: 0;
       padding: 0;
       display: flex;
@@ -52,7 +52,7 @@ const Container = styled.div`
       justify-content: center;         
 `;
 
-const Item = styled.li`
+const Result = styled.li`
       min-height: 48px;
       background-color: white;
       padding-top: 5px;
@@ -197,10 +197,9 @@ class Places extends Component {
             }
         ],
     listPlacesNew: [
-
     ]};
 
-    handlerToggleOpen = () => {
+    handleToggleOpen = () => {
         this.setState({
             isOpen: true
         });
@@ -209,10 +208,10 @@ class Places extends Component {
     constructor(props) {
         super(props);
 
-        this.handlerTextChanged = this.handlerTextChanged.bind(this);
+        this.handleTextChanged = this.handleTextChanged.bind(this);
     }
 
-    handlerTextChanged = e => {
+    handleTextChanged = e => {
         const className = this.props.className;
         const classValue = document.getElementsByClassName(className);
 
@@ -235,7 +234,7 @@ class Places extends Component {
         this.setState({listPlacesNew: listPlace});
     };
 
-    handlerSelectItem = place => {
+    handleSelectItem = place => {
         this.props.updateData(place.city);
         this.props.updateType(place.type);
 
@@ -262,17 +261,17 @@ class Places extends Component {
                              value={this.props.valueParam}
                              placeholder={this.props.placeholder}
                              className={this.props.className}
-                             onChange={this.handlerTextChanged}
-                             onClick={this.handlerToggleOpen}
+                             onChange={this.handleTextChanged}
+                             onClick={this.handleToggleOpen}
                 />
                 <SearchType>
                     {this.props.valueParam.length > 1 ? this.props.typeParam : ''}
                 </SearchType>
                 {this.state.isOpen && this.props.valueParam.length > 0 && (
-                    <List>
+                    <Results>
                         {this.state.listPlacesNew.map((place, index) => {
                             if (index < 6) {
-                                return <Item key={place.key} onClick={() => this.handlerSelectItem(place)}>
+                                return <Result key={place.key} onClick={() => this.handleSelectItem(place)}>
                                     <PlaceContainer>
                                         <City>
                                             <Bold value={this.state.findWords} item={place.city} />,
@@ -284,12 +283,12 @@ class Places extends Component {
                                     <Type>
                                         {place.type}
                                     </Type>
-                                </Item>
+                                </Result>
                             }
 
                             return console.log('Success');
                         })}
-                    </List>
+                    </Results>
                 )}
             </Container>
         )

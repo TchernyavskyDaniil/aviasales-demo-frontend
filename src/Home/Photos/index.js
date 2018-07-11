@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import krasnodar from './krasnodar.jpg';
@@ -40,7 +40,7 @@ const PhotoList = styled.ul`
       }
 `;
 
-const PhotoItem = styled.li`
+const Photo = styled.li`
       display: flex;
       flex-direction: column;
       padding: 0;
@@ -48,9 +48,14 @@ const PhotoItem = styled.li`
       border-radius: 8px;
       margin-bottom: 10px;
       
+      @media screen and (min-width: 768px) {
+        margin-bottom: 25px;
+      }
+      
       @media screen and (min-width: 1024px) {
         flex-basis: 47%;
         margin: 10px;
+        margin-bottom: 31px;
       }
 `;
 
@@ -201,157 +206,122 @@ const PhotoDate = styled.p`
       }
 `;
 
-export default () => {
-    return (
-        <SectionPhoto>
-            <div className='container'>
-                <PhotoList>
-                    <PhotoItem>
-                        <PhotoImgContainer>
-                            <PhotoImg alt='Krasnodar' src={krasnodar} />
-                        </PhotoImgContainer>
-                        <PhotoTextContainer>
-                            <PhotoTextInfo>
-                                <Flag src={flagRu} alt='RU'/>
-                                <PhotoText>
-                                    Краснодар
-                                </PhotoText>
-                                <PhotoSub>
-                                    Россия
-                                </PhotoSub>
-                            </PhotoTextInfo>
-                            <PhotoTextPrice>
-                                <PhotoPrice>
-                                    Найти от 1212 ₽
-                                </PhotoPrice>
-                                <PhotoDate>
-                                    18 марта
-                                </PhotoDate>
-                            </PhotoTextPrice>
-                        </PhotoTextContainer>
-                    </PhotoItem>
-                    <PhotoItem>
-                        <PhotoImgContainer>
-                            <PhotoImg alt='Sochi' src={sochi} />
-                        </PhotoImgContainer>
-                        <PhotoTextContainer>
-                            <PhotoTextInfo>
-                                <Flag src={flagRu} alt='RU'/>
-                                <PhotoText>
-                                    Сочи (Адлер)
-                                </PhotoText>
-                                <PhotoSub>
-                                    Россия
-                                </PhotoSub>
-                            </PhotoTextInfo>
-                            <PhotoTextPrice>
-                                <PhotoPrice>
-                                    Найти от 1334 ₽
-                                </PhotoPrice>
-                                <PhotoDate>
-                                    27 марта
-                                </PhotoDate>
-                            </PhotoTextPrice>
-                        </PhotoTextContainer>
-                    </PhotoItem>
-                    <PhotoItem>
-                        <PhotoImgContainer>
-                            <PhotoImg alt='St.P' src={ptr} />
-                        </PhotoImgContainer>
-                        <PhotoTextContainer>
-                            <PhotoTextInfo>
-                                <Flag src={flagRu} alt='RU'/>
-                                <PhotoText>
-                                    Санкт-Петербург
-                                </PhotoText>
-                                <PhotoSub>
-                                    Россия
-                                </PhotoSub>
-                            </PhotoTextInfo>
-                            <PhotoTextPrice>
-                                <PhotoPrice>
-                                    Найти от 1508 ₽
-                                </PhotoPrice>
-                                <PhotoDate>
-                                    19 февраля
-                                </PhotoDate>
-                            </PhotoTextPrice>
-                        </PhotoTextContainer>
-                    </PhotoItem>
-                    <PhotoItem>
-                        <PhotoImgContainer>
-                            <PhotoImg alt='Min Water' src={minwater} />
-                        </PhotoImgContainer>
-                        <PhotoTextContainer>
-                            <PhotoTextInfo>
-                                <Flag src={flagRu} alt='RU'/>
-                                <PhotoText>
-                                    Минеральные Воды
-                                </PhotoText>
-                                <PhotoSub>
-                                    Россия
-                                </PhotoSub>
-                            </PhotoTextInfo>
-                            <PhotoTextPrice>
-                                <PhotoPrice>
-                                    Найти от 2074 ₽
-                                </PhotoPrice>
-                                <PhotoDate>
-                                    13 марта
-                                </PhotoDate>
-                            </PhotoTextPrice>
-                        </PhotoTextContainer>
-                    </PhotoItem>
-                    <PhotoItem>
-                        <PhotoImgContainer>
-                            <PhotoImg alt='Simf' src={simf} />
-                        </PhotoImgContainer>
-                        <PhotoTextContainer>
-                            <PhotoTextInfo>
-                                <Flag src={flagRu} alt='RU'/>
-                                <PhotoText>
-                                    Симферополь (Крым)
-                                </PhotoText>
-                                <PhotoSub>
-                                    Россия
-                                </PhotoSub>
-                            </PhotoTextInfo>
-                            <PhotoTextPrice>
-                                <PhotoPrice>
-                                    Найти от 2407 ₽
-                                </PhotoPrice>
-                                <PhotoDate>
-                                    13 марта
-                                </PhotoDate>
-                            </PhotoTextPrice>
-                        </PhotoTextContainer>
-                    </PhotoItem>
-                    <PhotoItem>
-                        <PhotoImgContainer>
-                            <PhotoImg alt='Barselona' src={bars} />
-                        </PhotoImgContainer>
-                        <PhotoTextContainer>
-                            <PhotoTextInfo>
-                                <Flag src={flagSpain} alt='Spain'/>
-                                <PhotoText>
-                                    Барселона
-                                </PhotoText>
-                                <PhotoSub>
-                                    Испания
-                                </PhotoSub>
-                            </PhotoTextInfo>
-                            <PhotoTextPrice>
-                                <PhotoPrice>
-                                    Найти от 4247 ₽
-                                </PhotoPrice>
-                                <PhotoDate>
-                                    24 марта
-                                </PhotoDate>
-                            </PhotoTextPrice>
-                        </PhotoTextContainer>
-                    </PhotoItem>
-                </PhotoList>
-            </div>
-        </SectionPhoto>
-    )
+export class Photos extends Component {
+    state = {
+        listPhotos: [
+            {
+                key: 1,
+                alt: 'Krasnodar',
+                img: krasnodar,
+                imgFlag: flagRu,
+                altFlag: 'RU',
+                city: 'Краснодар',
+                country: 'Россия',
+                price: 1212,
+                date: 18,
+                month: 'марта'
+            },
+            {
+                key: 2,
+                alt: 'Sochi',
+                img: sochi,
+                imgFlag: flagRu,
+                altFlag: 'RU',
+                city: 'Сочи (Адлер)',
+                country: 'Россия',
+                price: 1334,
+                date: 27,
+                month: 'марта'
+            },
+            {
+                key: 3,
+                alt: 'St.Petersburg',
+                img: ptr,
+                imgFlag: flagRu,
+                altFlag: 'RU',
+                city: 'Санкт-Петербург',
+                country: 'Россия',
+                price: 1508,
+                date: 19,
+                month: 'февраля'
+            },
+            {
+                key: 4,
+                alt: 'Min Waters',
+                img: minwater,
+                imgFlag: flagRu,
+                altFlag: 'RU',
+                city: 'Минеральные Воды',
+                country: 'Россия',
+                price: 2074,
+                date: 13,
+                month: 'марта'
+            },
+            {
+                key: 5,
+                alt: 'Simferopol',
+                img: simf,
+                imgFlag: flagRu,
+                altFlag: 'RU',
+                city: 'Симферополь (Крым)',
+                country: 'Россия',
+                price: 2407,
+                date: 13,
+                month: 'марта'
+            },
+            {
+                key: 6,
+                alt: 'Barselona',
+                img: bars,
+                imgFlag: flagSpain,
+                altFlag: 'Spain',
+                city: 'Барселона',
+                country: 'Испания',
+                price: 4247,
+                date: 24,
+                month: 'марта'
+            }
+        ]
+    };
+
+    render() {
+        return (
+            <SectionPhoto>
+                <div className='container'>
+                    <PhotoList>
+                        {this.state.listPhotos.map((item) => {
+                            return(
+                                <Photo key={item.key}>
+                                    <PhotoImgContainer>
+                                        <PhotoImg alt={item.alt} src={item.img} />
+                                    </PhotoImgContainer>
+                                    <PhotoTextContainer>
+                                        <PhotoTextInfo>
+                                            <Flag src={item.imgFlag} alt={item.altFlag}/>
+                                            <PhotoText>
+                                                {item.city}
+                                            </PhotoText>
+                                            <PhotoSub>
+                                                {item.country}
+                                            </PhotoSub>
+                                        </PhotoTextInfo>
+                                        <PhotoTextPrice>
+                                            <PhotoPrice>
+                                                Найти от {item.price} ₽
+                                            </PhotoPrice>
+                                            <PhotoDate>
+                                                {item.date} {item.month}
+                                            </PhotoDate>
+                                        </PhotoTextPrice>
+                                    </PhotoTextContainer>
+                                </Photo>
+                            )
+                        })}
+                    </PhotoList>
+                </div>
+            </SectionPhoto>
+        )
+    }
 }
+
+export default Photos;

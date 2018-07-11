@@ -9,14 +9,16 @@ class Search extends Component {
   render() {
     return (
       <div>
-          <Helmet>
-              <title>
-                  Search Page
-              </title>
-          </Helmet>
-          <Header />
+        <Helmet>
+          <title>
+            Search Page
+          </title>
+        </Helmet>
+        <Header />
+        <main>
           <Results />
-          <Footer />
+        </main>
+        <Footer />
       </div>
     );
   }

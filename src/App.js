@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
+import styled from 'styled-components'
 
 import Home from './Home'
 import Search from './Search'

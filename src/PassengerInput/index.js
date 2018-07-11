@@ -68,7 +68,7 @@ const PassDropdownImg = styled.img`
       height: 5px;
 `;
 
-const ListPassengers = styled.div`
+const Passengers = styled.div`
       display: flex;
       flex-direction: column;
       background-color: white;
@@ -82,7 +82,7 @@ const ListPassengers = styled.div`
                   0px 2px 4px rgba(74,74,74,0.2);
 `;
 
-const ItemPassenger = styled.div`
+const PassengerContainer = styled.div`
       display: flex;
       flex-direction: row;
       justify-content: space-between;
@@ -280,7 +280,7 @@ class Passenger extends Component {
         typeWordPass: 'пассажир'
     };
 
-    handlerToggleOpen = () => {
+    handleToggleOpen = () => {
         this.setState(prevState => ({
             isOpen: !prevState.isOpen,
             typeBtn: !prevState.typeBtn
@@ -289,7 +289,7 @@ class Passenger extends Component {
 
     // TODO Попытаться улучшить
 
-    handlerMinusAdult = () => {
+    handleMinusAdult = () => {
         if (this.state.countAdult >= 1) {
             this.setState({
                 countAdult: this.state.countAdult - 1,
@@ -297,19 +297,19 @@ class Passenger extends Component {
         }
     };
 
-    handlerPlusAdult = () => {
+    handlePlusAdult = () => {
         this.setState({
             countAdult: this.state.countAdult + 1,
             numberOfPass: this.state.numberOfPass + 1})
     };
 
-    handlerPlusChildren = () => {
+    handlePlusChildren = () => {
         this.setState({
             countChildren: this.state.countChildren + 1,
             numberOfPass: this.state.numberOfPass + 1})
     };
 
-    handlerMinusChildren = () => {
+    handleMinusChildren = () => {
         if (this.state.countChildren >= 1) {
             this.setState({
                 countChildren: this.state.countChildren - 1,
@@ -317,13 +317,13 @@ class Passenger extends Component {
         }
     };
 
-    handlerPlusBabe = () => {
+    handlePlusBabe = () => {
         this.setState({
             countBabe: this.state.countBabe + 1,
             numberOfPass: this.state.numberOfPass + 1})
     };
 
-    handlerMinusBabe = () => {
+    handleMinusBabe = () => {
         if (this.state.countBabe >= 1) {
             this.setState({
                 countBabe: this.state.countBabe - 1,
@@ -331,7 +331,7 @@ class Passenger extends Component {
         }
     };
 
-    handlerChangeClass = () => {
+    handleChangeClass = () => {
       this.setState(prevState => ({
           typePass: !prevState.typePass
       }))
@@ -367,7 +367,7 @@ class Passenger extends Component {
     render() {
         return (
             <FormPassInput>
-                <Container onClick={this.handlerToggleOpen} className={this.props.className}>
+                <Container onClick={this.handleToggleOpen} className={this.props.className}>
                     <PassInput readOnly
                                autoComplete='off'
                     />
@@ -385,44 +385,44 @@ class Passenger extends Component {
                 </Container>
                 {
                     this.state.isOpen && (
-                        <ListPassengers>
-                            <ItemPassenger>
+                        <Passengers>
+                            <PassengerContainer>
                                 <TextPassenger>
                                     <TypePassenger>
                                         Взрослые
                                     </TypePassenger>
                                 </TextPassenger>
                                 <CalcPassenger>
-                                    <ButtonMinus onClick={this.handlerMinusAdult}>
+                                    <ButtonMinus onClick={this.handleMinusAdult}>
                                         —
                                     </ButtonMinus>
                                     <Number>
                                         {this.state.countAdult}
                                     </Number>
-                                    <ButtonPlus onClick={this.handlerPlusAdult}>
+                                    <ButtonPlus onClick={this.handlePlusAdult}>
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
-                            </ItemPassenger>
-                            <ItemPassenger>
+                            </PassengerContainer>
+                            <PassengerContainer>
                                 <TextPassenger>
                                     <TypePassenger>
                                         Дети до 12 лет
                                     </TypePassenger>
                                 </TextPassenger>
                                 <CalcPassenger>
-                                    <ButtonMinus onClick={this.handlerMinusChildren}>
+                                    <ButtonMinus onClick={this.handleMinusChildren}>
                                         —
                                     </ButtonMinus>
                                     <Number>
                                         {this.state.countChildren}
                                     </Number>
-                                    <ButtonPlus onClick={this.handlerPlusChildren}>
+                                    <ButtonPlus onClick={this.handlePlusChildren}>
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
-                            </ItemPassenger>
-                            <ItemPassenger>
+                            </PassengerContainer>
+                            <PassengerContainer>
                                 <TextPassenger>
                                     <TypePassenger>
                                         Дети до 2 лет
@@ -432,25 +432,25 @@ class Passenger extends Component {
                                     </DescPassenger>
                                 </TextPassenger>
                                 <CalcPassenger>
-                                    <ButtonMinus onClick={this.handlerMinusBabe}>
+                                    <ButtonMinus onClick={this.handleMinusBabe}>
                                         —
                                     </ButtonMinus>
                                     <Number>
                                         {this.state.countBabe}
                                     </Number>
-                                    <ButtonPlus onClick={this.handlerPlusBabe}>
+                                    <ButtonPlus onClick={this.handlePlusBabe}>
                                         +
                                     </ButtonPlus>
                                 </CalcPassenger>
-                            </ItemPassenger>
+                            </PassengerContainer>
                             <Label>
                                 <Name>
                                     Бизнес-класс
                                 </Name>
-                                <Checkbox onClick={this.handlerChangeClass} type="checkbox" />
+                                <Checkbox onClick={this.handleChangeClass} type="checkbox" />
                                 <Checkmark />
                             </Label>
-                        </ListPassengers>
+                        </Passengers>
                     )
                 }
             </FormPassInput>

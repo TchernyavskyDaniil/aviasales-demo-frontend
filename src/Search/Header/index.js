@@ -9,7 +9,8 @@ import logo from './logo.svg';
 import DayPicker from '../../Date/index';
 import arrow from '../../SearchInput/arrow.svg'
 import avatar from './avatar.svg';
-import closeMenu from './close-menu.svg';
+import open from './open.svg';
+import close from './close.svg';
 
 const Wrapper = styled.div`
       background: linear-gradient(
@@ -49,12 +50,12 @@ const UpButton = styled.button`
       transition: all 0.3s ease;
       border-radius: 4px;
       
-      &:hover {
-        opacity: 1;
+      &:focus { 
+        outline: auto;
       }
       
-      &:focus {
-        outline: none;
+      &:hover {
+        opacity: 1;
       }
 `;
 
@@ -67,7 +68,7 @@ const Back = styled.button`
       cursor: pointer;
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
       
       @media screen and (min-width: 768px) {
@@ -113,7 +114,7 @@ const Currency = styled.button`
       transition: all 0.3s ease;
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
       
       &:hover {
@@ -219,16 +220,26 @@ const HamburgerMenu = styled.div`
       }
 `;
 
-const Close = styled.button`
+const Toggle = styled.button`
       background-color: transparent;
       border: transparent;
-      background-image: url(${closeMenu});
       background-repeat: no-repeat;
       background-position: center;
       width: 36px;
       height: 36px;
       cursor: pointer;
       margin-top: 7px;
+`;
+
+const Open = Toggle.extend`
+      background-image: url(${open});
+`;
+
+const Close = Toggle.extend`
+      background-image: url(${close});
+      width: 30px;
+      height: 30px;
+      margin-top: 10px;
 `;
 
 const Cities = styled.div`
@@ -364,7 +375,7 @@ const Button = styled.button`
       }
       
       &:focus {
-        outline: none;
+        outline: auto;
       }
       
       &:hover {
@@ -437,7 +448,8 @@ export class HeaderSearch extends Component {
         from: 'Москва',
         to: '',
         fromType: 'MOW',
-        toType: ''
+        toType: '',
+        toggle: true
     };
 
     swapData = () => {
@@ -447,6 +459,12 @@ export class HeaderSearch extends Component {
             fromType: this.state.toType,
             toType: this.state.fromType
         });
+    };
+
+    handleToggleMenu = () => {
+        this.setState(prevState => ({
+            toggle: !prevState.toggle
+        }));
     };
 
     render() {
@@ -478,8 +496,8 @@ export class HeaderSearch extends Component {
                                         1
                                     </AvatarNewMes>
                                 </AvatarContainer>
-                                <HamburgerMenu>
-                                    <Close />
+                                <HamburgerMenu onClick={this.handleToggleMenu}>
+                                    {this.state.toggle ? <Open /> : <Close />}
                                 </HamburgerMenu>
                             </ContainerIcons>
                         </Mobile>
